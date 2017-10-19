@@ -11,9 +11,7 @@ gem 'rails', '~> 5.1.4'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-gem 'carrierwave', '~> 1.1'
 gem "mini_magick"
-gem 'omniauth-facebook'
 gem 'jquery-ui-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
