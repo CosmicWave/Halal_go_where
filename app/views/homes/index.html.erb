@@ -1,0 +1,9 @@
+<h1>Home - Index</h1>
+
+<div class="container">
+<% unless current_foody %>
+  <%= link_to "Sign in with Facebook", foody_facebook_omniauth_authorize_path %>
+<% else %>
+  <%= link_to "Logout", destroy_foody_session_path, method: :delete %>
+<% end %>
+</div>
