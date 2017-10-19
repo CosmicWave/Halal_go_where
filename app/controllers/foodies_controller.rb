@@ -33,7 +33,7 @@ class FoodiesController < ApplicationController
 	end
 
 	def foody_params
-		params.require(:foody).permit(:name, :status)
+		params.require(:foody).permit(:name, :status, :avatar)
 	end
 
 end
