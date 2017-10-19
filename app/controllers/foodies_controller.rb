@@ -17,6 +17,7 @@ class FoodiesController < ApplicationController
 		else
 			flash.now[:alert] = 'Do fill any blanks'
 			render :edit
+		end
 	end
 
 	private
@@ -32,7 +33,7 @@ class FoodiesController < ApplicationController
 	end
 
 	def foody_params
-		require(:foody).permit(:name, :status)
+		params.require(:foody).permit(:name, :status)
 	end
 
 end

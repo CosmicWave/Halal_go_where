@@ -3,7 +3,12 @@
 	<%= form_for @foody, url: foody_path(@foody), method: :patch do |f| %>
 
 		<%= f.label :name %>
-		<%= f.text_field :email %>
+		<%= f.text_field :name %>
+
+		<%= f.label :status %>
+		<%= f.text_field :status %>		
+
+		<%= f.submit 'Save Changes' %>
 
 	<% end %>
 
