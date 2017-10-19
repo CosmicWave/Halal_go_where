@@ -1,0 +1,10 @@
+<div class="container">
+	
+	<%= form_for @foody, url: foody_path(@foody), method: :patch do |f| %>
+
+		<%= f.label :name %>
+		<%= f.text_field :email %>
+
+	<% end %>
+
+</div>
