@@ -29,10 +29,10 @@
 
           <div class="row loginbuttons">
             <div class="col-md-6 col-xs-6 buttons">
-               <%= f.submit "Log in", class: "btn btn-primary btn-lg btn-block" %><br>
+               <%= f.submit "Log in", class: "btn btn-primary btn-lg btn-block " %><br>
             </div>
 
-            <div class="col-md-6 col-xs-6 buttons fblogin">
+            <div class="col-md-6 col-xs-6 buttons">
               <%- if devise_mapping.omniauthable? %>
               <%- resource_class.omniauth_providers.each do |provider| %>
                 <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-lg btn-block" %><br />
