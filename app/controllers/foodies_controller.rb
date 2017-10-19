@@ -12,7 +12,7 @@ class FoodiesController < ApplicationController
 
 	def update
 		if @foody.update(foody_params)
-			flash.now[:alert] = 'Succesfully saved'
+			flash[:alert] = 'Succesfully saved'
 			redirect_to @foody
 		else
 			flash.now[:alert] = 'Do fill any blanks'
