@@ -9,7 +9,6 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem "mini_magick"
 gem 'jquery-ui-rails'
