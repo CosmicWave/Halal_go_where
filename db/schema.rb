@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20171019054601) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "status"
+    t.text "name"
     t.string "avatar"
     t.string "provider"
     t.string "uid"
