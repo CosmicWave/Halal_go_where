@@ -1,0 +1,13 @@
+<div class="container">
+	
+	<%= avatar_for @foody %>
+
+	<h1>Name</h1>
+	<%= @foody.name %>
+
+	<h1>Status</h1>
+	<%= @foody.status %>
+
+	<%= link_to 'Settings', edit_foody_path(@foody) %>
+
+</div>
