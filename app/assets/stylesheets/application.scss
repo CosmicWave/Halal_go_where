@@ -13,12 +13,6 @@
  *= require_tree .
  *= require_self
  */
-<<<<<<< HEAD:app/assets/stylesheets/application.css
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "tweet";
-=======
-@import "bootstrap-sprockets";
-@import "bootstrap";
->>>>>>> gems:app/assets/stylesheets/application.scss
