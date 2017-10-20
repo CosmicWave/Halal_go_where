@@ -1,0 +1,24 @@
+<div class="container">
+
+	<%= form_for @restaurant, url: restaurant_path(@restaurant), method: :patch do |f| %>
+
+		<%= f.label :name %>
+		<%= f.text_area :name %>
+
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+
+		<%= f.label :time %>
+		<%= f.text_area :time %>
+
+		<%= f.label :location %>
+		<%= f.text_field :location %>
+
+		<%= f.label :certification %>
+		<%= f.text_area :certification %>
+
+		<%= f.submit 'Update changes' %>
+
+	<% end %>
+
+</div>
