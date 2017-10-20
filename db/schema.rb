@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20171019090629) do
     t.string "uid"
     t.string "name"
     t.text "image"
+    t.text "status"
     t.index ["email"], name: "index_foodies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_foodies_on_reset_password_token", unique: true
   end
