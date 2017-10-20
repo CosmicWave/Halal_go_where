@@ -46,4 +46,17 @@ ActiveRecord::Schema.define(version: 20171020061756) do
     t.string "certification"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "avatar"
+    t.decimal "price", precision: 12, scale: 3
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "foody_id"
+    t.index ["foody_id"], name: "index_photos_on_foody_id"
+  end
+
+  add_foreign_key "photos", "foodies"
+  
 end
