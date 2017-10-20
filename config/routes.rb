@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 	
   resources :foodies, only: [:show, :edit, :update]
 
+  resources :restaurants, except: [:index] 
 end
