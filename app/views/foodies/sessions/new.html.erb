@@ -1,60 +1,66 @@
 <div class="container-fluid">
-  <div id="bg">
-    <%= image_tag "signin.gif" %>   
-  </div>
-<%# <div id="hala">
-    <%= image_tag "hala.jpeg" </div> %>
-
+  <%= image_tag "signin.gif", class: "bg" %>
+  
   <div class="row">
     <div class="col-md-3 col-xs-3"></div>
-
-    <div class="col-md-6 col-xs-6 signinbox">
-      <div class="container-fluid">
+      <div class="col-md-6 col-xs-6">
         
-        <div class="form-group">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="row">
-            <center>                
-            <%= f.label :email, class: "control-label bghomefont" %><br />
-            </center>
-            <%= f.email_field :email, autofocus: true, class: "form-control" %><br>
-          </div>
-
-          <div class="row">
-            <center>
-            <%= f.label :password, class: "control-label bghomefont" %>
-            </center>
-              <%= f.password_field :password, autocomplete: "off", class: "form-control" %><br>
-          </div>
-
-          <div class="row loginbuttons">
-            <div class="col-md-6 col-xs-6 buttons">
-               <%= f.submit "Log in", class: "btn btn-primary btn-lg btn-block " %><br>
-            </div>
-
-            <div class="col-md-6 col-xs-6 buttons">
-              <%- if devise_mapping.omniauthable? %>
-              <%- resource_class.omniauth_providers.each do |provider| %>
-                <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-lg btn-block" %><br />
-              <% end -%>
-              <% end -%>
-            </div>
-          </div>
+        <div class="row">
+          <%= image_tag "logoA.png", class: "logo animated rubberBand" %>
         </div>
 
+        <div class="row signinbox">
+          <div class="container-fluid">
+            
+            <div class="form-group">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              
+              <div class="row">
+                <div class="container-fluid">
+                  <center>                
+                  <%= f.label :email, class: "control-label bghomefont" %><br>
+                  </center>
+                  <%= f.email_field :email, autofocus: true, class: "form-control" %><br>
+                </div>
+              </div>
 
-          <div class="row bghomefont signup">
-            Not a member? <strong><u><%= link_to "Sign Up", new_foody_registration_path, class: "bghomefont" %></u></strong> first!
-          </div>
+              <div class="row">
+                <div class="container-fluid">
+                  <center>
+                  <%= f.label :password, class: "control-label bghomefont" %><br>
+                  </center>
+                    <%= f.password_field :password, autocomplete: "off", class: "form-control" %><br>
+                </div>
+              </div>
 
-        <% end %>
+              <div class="row loginbuttons">
+                <div class="col-md-6 col-xs-6 buttons">
+                  <%= f.submit "Log in", class: "btn btn-primary btn-lg btn-block" %>
+                </div>
 
+                <div class="col-md-6 col-xs-6 buttons">
+                  <%- if devise_mapping.omniauthable? %>
+                  <%- resource_class.omniauth_providers.each do |provider| %>
+                    <%= link_to "<i class=\"fa fa-facebook-official fa-lg fa-fw\"></i> Login with Facebook".html_safe, omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-lg btn-block" %>
+                  <% end -%>
+                  <% end -%>
+                </div>
+              </div>
+
+              <div class="row bghomefont signup">
+                Not a member? <strong><u><%= link_to "Sign Up", new_foody_registration_path, class: "bghomefont" %></u></strong> first!<br>
+                <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <small><%= link_to "Forgot your password?", new_password_path(resource_name), class: "signinsmall" %></small>
+                <% end -%>
+              </div>
+            </div>
+            <% end %>
+
+          </div>  
+        </div>
+        
       </div>
-       </div>
-    </div>
-  
-    </div>
+
     <div class="col-md-3 col-xs-3"></div>
+  </div>
 </div>
-
-
