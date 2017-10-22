@@ -1,9 +1,36 @@
-<h1>Home - Index yaaaaaa</h1>
 
-<div class="container">
-<% unless current_foody %>
-  <%= link_to "Sign in with Facebook", foody_facebook_omniauth_authorize_path %>
-<% else %>
-  <%= link_to "Logout", destroy_foody_session_path, method: :delete %>
-<% end %>
-</div>
+<h1>Home - Index</h1>
+
+
+	<% unless current_foody %>
+	  <%= link_to "Sign in with Facebook", foody_facebook_omniauth_authorize_path %>
+	    <% else %>
+	  <%= link_to "Logout", destroy_foody_session_path, method: :delete %>
+	<% end %>
+
+
+
+
+	 <% @photos.each do |photo| %>
+		<%= photo.title %>
+		<%= photo.description %>
+		<p>$<%= photo.price %></p>
+		
+		 <% if photo.avatar.present? %>
+			 <%= link_to root_path do %>
+				<%= image_tag photo.avatar_url(:thumb).to_s, :size => '260x180' %>
+			 <% end %>
+		 <% else %>
+			 <%= link_to root_path do %>
+				<%= image_tag ('/assets/mee.jpg'), :size => "260x180" %>
+			 <% end %>
+		 <% end %>
+		
+		 <% if photo.foody_id == current_foody.id %>  
+			 <td><div class=""><%= link_to "Edit", edit_foodies_photo_path(id: photo.id) %>    </div></td>
+			 <td><div class=""><%= link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %></div></td>
+		<% end %>
+	 <% end %>
+
+				
+	  <%= link_to "Upload New Photo", new_foodies_photo_path %>
