@@ -6,10 +6,10 @@ class Foody < ApplicationRecord
 
          mount_uploader :avatar, AvatarUploader
 
-  devise :omniauthable, :omniauth_providers => [:facebook
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
 
-  has_many :photos,  dependent: :destroy
+  has_many :photos, dependent: :destroy
   #has_many :likes,  dependent: :destroy
   #has_many :dislikes,  dependent: :destroy
   #has_many :recommends,  dependent: :destroy
@@ -25,6 +25,7 @@ class Foody < ApplicationRecord
         foody.email = data["email"] if foody.email.blank?
       end
     end
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |foody|
