@@ -1,6 +1,6 @@
 class Recommend < ApplicationRecord
 
-	belongs_to :foodies
-	belongs_to :restaurants
+	belongs_to :foody
+	belongs_to :restaurant
 	
 end

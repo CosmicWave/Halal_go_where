@@ -12,7 +12,7 @@ class Foody < ApplicationRecord
   has_many :photos, dependent: :destroy
   #has_many :likes,  dependent: :destroy
   #has_many :dislikes,  dependent: :destroy
-  #has_many :recommends,  dependent: :destroy
+  has_many :recommends,  dependent: :destroy
   #has_many :notrecommends,  dependent: :destroy
   #has_many :reviews,  dependent: :destroy
 

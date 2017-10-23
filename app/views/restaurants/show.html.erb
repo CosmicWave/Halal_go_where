@@ -13,6 +13,15 @@
 	<p><%= @restaurant.certification %></p>
 
 	<%= link_to 'Settings', edit_restaurant_path(@restaurant) %>
+
+	<p><%= @restaurant.recommends.count %> people recommends this restaurant</p>
+
+	<% if current_recommend = @restaurant.recommends.find_by(foody_id: current_foody.id) %>
+		<%= link_to 'Un-Recommend', restaurant_recommend_path(restaurant_id: @restaurant.id, recommend_id: current_recommend.id), method: :delete %>
+	<% else %>
+		<%= link_to 'Recommend', restaurant_recommends_path(@restaurant), method: :post %>
+	<% end %>
+
 </div>
 
 <!-- Below is picture -->
