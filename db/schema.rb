@@ -38,14 +38,6 @@ ActiveRecord::Schema.define(version: 20171020061756) do
     t.index ["reset_password_token"], name: "index_foodies_on_reset_password_token", unique: true
   end
 
-  create_table "restaurants", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "location"
-    t.string "time"
-    t.string "certification"
-  end
-
   create_table "photos", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -57,6 +49,13 @@ ActiveRecord::Schema.define(version: 20171020061756) do
     t.index ["foody_id"], name: "index_photos_on_foody_id"
   end
 
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "location"
+    t.string "time"
+    t.string "certification"
+  end
+
   add_foreign_key "photos", "foodies"
-  
 end
