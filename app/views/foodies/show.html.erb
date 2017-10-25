@@ -1,15 +1,25 @@
 <div class="container">
-	
-	<%= avatar_for @foody %>
 
-	<h1>Name</h1>
-	<%= @foody.name %>
+	<div class="container">
+		<div class="row">
 
-	<h1>Status</h1>
-	<%= @foody.status %>
+			<div class="col-md-1">
+				<%= avatar_for @foody %>	
+			</div>
 
-	<% if @foody == current_foody %>
-		<%= link_to 'Settings', edit_foody_path(@foody) %>
-	<% end %>
+			<div class="col-md-4">
+				<h1 class="profile-name"><%= @foody.name %></h1>
+				<p class="profile-status"><%= @foody.status %></p>
+				<p class="profile-status">www.instababe.com</p>
+			</div>
+
+			<div class="col-md-offset-4 col-md-2">	
+				<% if @foody == current_foody %>
+					<%= link_to 'Settings', edit_foody_path(@foody) %>
+				<% end %>
+			</div>
+		
+		</div>
+	</div>
 
 </div>
