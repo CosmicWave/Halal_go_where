@@ -1,30 +1,10 @@
 <div class="container">
 
 	<%= form_for @restaurant, url: restaurant_path(@restaurant), method: :patch do |f| %>
-
-		<%= f.label :name %>
-		<%= f.text_area :name %>
-
-		<%= f.label :description %>
-		<%= f.text_field :description %>
-
-		<%= f.label :time %>
-		<%= f.text_area :time %>
-
-		<%= f.label :location %>
-		<%= f.text_field :location %>
-
-		<%= f.label :certification %>
-		<%= f.text_area :certification %>
-
-		<%= f.submit 'Update changes' %>
-
-
-</div>
-<div class="container">
-    <h1 class="well">Registration Form</h1>
+	<h1 class="well">Settings</h1>
 	<div class="col-lg-12 well">
-	<div class="row">
+		<div class="row">
+				
 				<form>
 					<div class="col-sm-12">
 						<div class="row">
@@ -47,40 +27,36 @@
 							<%= f.text_field :time, placeholder: 'Enter Address of Restaurant Here...', class:"form-control" %>
 							</div>	
 							<div class="col-sm-4 form-group">
-								<label>State</label>
-								<input type="text" placeholder="Enter State Name Here.." class="form-control">
+								<label>Phone</label>
+								<input type="text" placeholder="Enter Phone Number Here.." class="form-control">
 							</div>	
 							<div class="col-sm-4 form-group">
-								<label>Zip</label>
-								<input type="text" placeholder="Enter Zip Code Here.." class="form-control">
+								<label>Postal Code</label>
+								<input type="text" placeholder="Enter Postal Code Here.." class="form-control">
 							</div>		
 						</div>
 						<div class="row">
 							<div class="col-sm-6 form-group">
-								<label>Title</label>
-								<input type="text" placeholder="Enter Designation Here.." class="form-control">
+								<label>Email</label>
+								<input type="text" placeholder="Enter Email Here.." class="form-control">
 							</div>		
 							<div class="col-sm-6 form-group">
-								<label>Company</label>
-								<input type="text" placeholder="Enter Company Name Here.." class="form-control">
+								<label>Website</label>
+								<input type="text" placeholder="Enter Website Here.." class="form-control">
 							</div>	
 						</div>						
-					<div class="form-group">
-						<label>Phone Number</label>
-						<input type="text" placeholder="Enter Phone Number Here.." class="form-control">
-					</div>		
-					<div class="form-group">
-						<label>Email Address</label>
-						<input type="text" placeholder="Enter Email Address Here.." class="form-control">
-					</div>	
-					<div class="form-group">
-						<label>Website</label>
-						<input type="text" placeholder="Enter Website Name Here.." class="form-control">
-					</div>
-					<button type="button" class="btn btn-lg btn-info">Submit</button>					
+						<div class="form-group">
+							<%= f.label :Certification %>
+							<%= f.text_field :certification, placeholder: 'Any certification? (e.g. MUIS)', class:"form-control" %>
+						</div>		
+
+						<%= f.submit 'Update changes', class: "btn btn-lg btn-info" %>			
+					
 					</div>
 				</form> 
-				</div>
-	</div>
-	</div>
+				
+			</div>
+		</div>
 	<% end %>
+
+</div>
