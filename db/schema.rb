@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20171020085454) do
+ActiveRecord::Schema.define(version: 20171023072528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171020085454) do
     t.index ["foody_id"], name: "index_disapproves_on_foody_id"
     t.index ["restaurant_id"], name: "index_disapproves_on_restaurant_id"
   end
-  
+
   create_table "dislikes", force: :cascade do |t|
     t.bigint "foody_id"
     t.bigint "photo_id"
@@ -59,7 +58,7 @@ ActiveRecord::Schema.define(version: 20171020085454) do
     t.index ["foody_id"], name: "index_likes_on_foody_id"
     t.index ["photo_id"], name: "index_likes_on_photo_id"
   end
-  
+
   create_table "photos", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -88,11 +87,11 @@ ActiveRecord::Schema.define(version: 20171020085454) do
 
   add_foreign_key "disapproves", "foodies"
   add_foreign_key "disapproves", "restaurants"
-  add_foreign_key "recommends", "foodies"
-  add_foreign_key "recommends", "restaurants"
   add_foreign_key "dislikes", "foodies"
   add_foreign_key "dislikes", "photos"
   add_foreign_key "likes", "foodies"
   add_foreign_key "likes", "photos"
   add_foreign_key "photos", "foodies"
+  add_foreign_key "recommends", "foodies"
+  add_foreign_key "recommends", "restaurants"
 end

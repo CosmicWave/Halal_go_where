@@ -310,6 +310,13 @@
     height: 100%;
 }
 
+
+.profile-name, .profile-status {
+  margin-top: 0;
+  margin-left: 18px;
+  margin-bottom: 5px;
+}
+
 /* ------------ Profile Page ----------- */
 .profilebg {
   position: fixed; 
@@ -324,3 +331,4 @@
   display: block;
   margin: 0 auto;
 }
+
