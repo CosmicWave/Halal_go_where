@@ -1,9 +1,84 @@
 
-<h1>Home - Index</h1>
+<!-- <div class="container-fluid">
+	<div class="row">
+		<%= image_tag "home2.jpg", class: "indexbann" %>
+	</div>
+
+	<div class="row textspace">
+		<div class="col-md-3 col-xs-3"></div>
+		<div class="col-md-6 col-xs-6">
+			<div class="container-fluid">
+				<span class="homefont"><center>Find the best halal makan places in Singapore!</center></span>
+			</div>
+			<div class="col-md-3 col-xs-3"></div>
+		</div>
+	</div>
+	<div class="row searchrow">
+		<div class="col-md-4 col-xs-4"></div>
+			<div class="col-md-6 col-xs-6">
+				<form class="searchbar" role="search">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="I'm craving for...">
+			        <span class="input-group-btn">
+			            <button class="btn btn-danger searchbutton" type="button">
+			                <span class="searchfont">Search</span>
+			            </button>
+			        </span>
+					</div>
+				</form>
+			</div>
+		<div class="col-md-2 col-xs-2"></div>
+	</div>
+
+	<div class="row searchspace"></div>
+</div> -->
+
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="landing-banner">
+			<div class="row textspace">	
+				<div class="col-md-3 col-xs-3"></div>
+				<div class="col-md-6 col-xs-6">
+					<div class="homefont text-center">
+						Find the best halal makan places in Singapore!
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-3"></div>
+			</div>
+
+			<div class="row searchrow">
+				<div class="col-md-4 col-xs-4"></div>
+				<div class="col-md-6 col-xs-6">
+					<form class="searchbar" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="I'm craving for...">
+				        <span class="input-group-btn">
+				            <button class="btn btn-danger searchbutton" type="button">
+				                <span class="searchfont">Search</span>
+				            </button>
+				        </span>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-2 col-xs-2"></div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<div class="container-fluid">
+	<div class="row indexes">
+
+
+	<h1>Home - Index</h1>
 
 
 	<% unless current_foody %>
 	  <%= link_to "Sign in with Facebook", foody_facebook_omniauth_authorize_path %>
+	  <li><%= link_to "Login", new_foody_session_path %></li>
 	    <% else %>
 	  <%= link_to "Logout", destroy_foody_session_path, method: :delete %>
 	<% end %>
@@ -144,4 +219,8 @@
 	 <% end %>
    <% end %>
 
+				
 	  <%= link_to "Upload New Photo", new_foodies_photo_path %>
+  </div>
+</div>
+

@@ -1,3 +1,148 @@
+/* ------- flashes ---------- */
+.notice {
+  position: fixed;
+  text-align: center;
+  font-weight: 300;
+  top: 70px;
+  right:0px;
+  max-width: 200px;
+  width:100%;
+  background: rgba(255, 152, 0, 0.7);
+  color: white;
+  font-size: 15px;
+  border-radius: 20px;
+
+  // must be more than navbar z-index
+  z-index:1040; 
+}
+
+
+/* -------------- home page ------------ */
+.indexbann {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  -webkit-filter: brightness(0.7);
+  border: solid 2px;
+  display: block;
+}
+
+.landing-banner{
+  background-image: image-url('/assets/home2.jpg');
+  padding-top: 100px;
+  padding-bottom: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  margin-top: -50px;
+}
+
+.halalogo {
+  width: 50px;
+  height: auto;
+}
+
+.textspace {
+  margin-top: 0;
+}
+
+ @media screen and (min-width: 900px) {
+   .textspace {
+     margin-top: 20px;
+   }
+}
+
+.homefont, .homefont2 {
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+}
+
+@media screen and (min-width: 1200px) {
+  .homefont, .homefont2 {
+    color: white;
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
+.btn-danger {
+  background: #fb8c00 !important;
+  width: 100px;
+}
+
+.btn-danger:hover {
+  background: #ef6c00 !important;
+}
+
+.searchrow {
+  margin-top: 5px;
+  // position: absolute;
+}
+
+// @media screen and (min-width: 1200px) {
+//   .searchrow {
+//     margin-top: 30px;
+//   }
+// }
+
+.searchbar {
+  width: 70%;
+}
+
+.searchfont {
+  font-family: helvetica !important;
+  letter-spacing: 0.5px;
+}
+
+.allpost {
+  width: 50px;
+  height: auto;
+}
+
+.indexes {
+  position: relative;
+  display: block;
+  border: solid 10px red;
+}
+
+.searchspace {
+  height: 164px;
+}
+
+
+/* ---------- nav bar ------------------ */
+.navlogo {
+  width:170px;
+  height: auto;
+  margin-top: 9px;
+}
+
+.navfont {
+  color: #ffa726 !important;
+  font-weight: 300 !important;
+}
+
+.navfont:hover {
+  color: white !important;
+  transition: color 0.3s ease-in !important;
+  background-color: black !important;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer !important;
+}
+
+.dropdown-menu {
+  background-color: black !important;
+}
+
+.navbar-inverse {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  margin-bottom: 0;
+}
+
 /* ---------- sign in page ------------ */
 .bg {
   position: fixed; 
@@ -42,6 +187,10 @@
 .signinsmall {
   color: white;
 }
+
+.form-control {
+  text-align: center;
+}
 /* ---------------------------------- */
 .avatar_img {
   border-radius: 50%;
@@ -50,10 +199,9 @@
 /* ---------- sign up page ------------ */
 .logosignup {
   position: relative;
-  -webkit-filter: contrast(1.6) hue-rotate(180deg) invert(1);
   width: 100%;
   margin-bottom: -20px;
-  margin-top: -50px;
+  margin-top: -70px;
 }
 
 .bgsignup {
@@ -92,6 +240,22 @@
   margin-bottom: 20px;
 }
 
+.smallscreenspace {
+  margin-bottom: 70px;
+}
+
+.errors {
+  color: white;
+}
+
+.spacing {
+  margin-top: 20px;
+}
+
+.pass {
+  color: white;
+  font-size: 15px;
+}
 
 /*-------------- signup carousel ------------*/
 .carousel-fade .carousel-inner .item {
@@ -146,8 +310,25 @@
     height: 100%;
 }
 
+
 .profile-name, .profile-status {
   margin-top: 0;
   margin-left: 18px;
   margin-bottom: 5px;
 }
+
+/* ------------ Profile Page ----------- */
+.profilebg {
+  position: fixed; 
+  top: 0%; 
+  left: 0%; 
+  width: 100%; 
+  height: 100%;
+  background: #ef6c00;
+}
+
+.avatar {
+  display: block;
+  margin: 0 auto;
+}
+
