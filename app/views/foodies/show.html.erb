@@ -1,6 +1,8 @@
-<div class="container">
+<div class="container-fluid profilebg">
+  <div class="avatar">
+
 	
-	<%= avatar_for @foody %>
+  <%= avatar_for @foody %>
 
 	<h1>Name</h1>
 	<%= @foody.name %>
@@ -12,4 +14,5 @@
 		<%= link_to 'Settings', edit_foody_path(@foody) %>
 	<% end %>
 
+  </div>
 </div>
