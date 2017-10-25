@@ -2,6 +2,13 @@ class RecommendsController < ApplicationController
 
 	before_action :set_restaurant
 
+	def convert
+		current_restaurant = Restaurant.find(params[:restaurant_id])
+		current_recommend = current_restaurant.recommends.find_by(foody_id: current_foody.id)
+		current_recommend.disapprove_this(current_recommend)
+		redirect_to current_restaurant
+	end
+
 	def create
 		current_restaurant = Restaurant.find(params[:restaurant_id])
 		new_recommendation = current_restaurant.recommends.build(foody_id: current_foody.id)

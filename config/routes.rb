@@ -11,7 +11,15 @@ Rails.application.routes.draw do
   resources :foodies, only: [:show, :edit, :update]
 
   resources :restaurants, except: [:index] do
-  	resources :recommends, only: [:create, :destroy]
+    
+    resources :disapproves, only: [:create, :destroy] do
+      delete 'convert', on: :member
+    end
+
+    resources :recommends, only: [:create, :destroy] do
+      delete 'convert', on: :member
+    end
+ 
   end
   
 end

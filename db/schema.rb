@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023041050) do
+ActiveRecord::Schema.define(version: 20171023072528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "disapproves", force: :cascade do |t|
+    t.bigint "foody_id"
+    t.bigint "restaurant_id"
+    t.index ["foody_id"], name: "index_disapproves_on_foody_id"
+    t.index ["restaurant_id"], name: "index_disapproves_on_restaurant_id"
+  end
 
   create_table "foodies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -64,6 +71,8 @@ ActiveRecord::Schema.define(version: 20171023041050) do
     t.string "certification"
   end
 
+  add_foreign_key "disapproves", "foodies"
+  add_foreign_key "disapproves", "restaurants"
   add_foreign_key "photos", "foodies"
   add_foreign_key "recommends", "foodies"
   add_foreign_key "recommends", "restaurants"

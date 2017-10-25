@@ -1,31 +1,46 @@
 <div class="container">
 
-	<!-- A picture of a food or restaurant -->
-	
-	<h1><%= @restaurant.name %></h1>
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-6 res-profile">
+				<div class="row">
+					<div class="col-md-2">Avatar of Restaurant</div>
+					<div class="col-md-8"><h1><%= @restaurant.name %></h1></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12"><p><%= @restaurant.description %></p></div>
+				</div>
+			</div>
 
-	<p><%= @restaurant.description %></p>
+			<div class="col-md-2 res-details">
+				<table>
+					<tr><th>Timing:</th></tr>
+					<tr><td><p><%= @restaurant.time %></p></td></tr>
 
-	<p><%= @restaurant.time %></p>
+					<tr><th>Location:</th></tr>
+					<tr><td><p><%= @restaurant.location %></p></td></tr>
 
-	<p><%= @restaurant.location %></p>
+					<tr><th>Certification:</th></tr>
+					<tr><td><p><%= @restaurant.certification %></p></td></tr>
 
-	<p><%= @restaurant.certification %></p>
+					<tr><th>Are you the store owner?</th></tr>
+					<tr><td><p><%= link_to 'Claim your store!', edit_restaurant_path(@restaurant) %></p></td></tr>
+				</table>
+			</div>
 
-	<%= link_to 'Settings', edit_restaurant_path(@restaurant) %>
+			<div class="col-md-4 sidebar">
+				<% if @restaurant.recommends.find_by(foody_id: current_foody.id) || @restaurant.disapproves.find_by(foody_id: current_foody.id) %><%= render 'present_like_unlike', restaurant: @restaurant %>
+				<% else %><%= render 'new_like_unlike', restaurant: @restaurant %><% end %>				
+			</div>
+			
+		</div>
+	</div>
 
-	<p><%= @restaurant.recommends.count %> people recommends this restaurant</p>
+	<!-- Below is picture -->
 
-	<% if current_recommend = @restaurant.recommends.find_by(foody_id: current_foody.id) %>
-		<%= link_to 'Un-Recommend', restaurant_recommend_path(restaurant_id: @restaurant.id, recommend_id: current_recommend.id), method: :delete %>
-	<% else %>
-		<%= link_to 'Recommend', restaurant_recommends_path(@restaurant), method: :post %>
-	<% end %>
+	<!-- Pictures -->
+
+	<!-- Yup -->
 
 </div>
-
-<!-- Below is picture -->
-
-<!-- Pictures -->
-
-<!-- Yup -->
