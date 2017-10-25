@@ -1,29 +1,117 @@
-<h2>Sign up h</h2>
+  <%#--------------- carousel code--------------------- %>
+<!--
+<div id="carousel-example-generic" class="carousel carousel-fade slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    
+    <div class="item active">
+      <img src="<%= image_url "signup1", class: "bg" %>">
+    </div>
+    
+    <div class="item">
+      <img src="<%= image_url "signup2", class: "bg" %>">
+    </div>
+    
+    <div class="item">
+      <img src="<%= image_url "signup3", class: "bg" %>"> 
+    </div>
+  </div>
+</div> -->
+<%# ------------------------------------------------- %>
+<div class="container-fluid">
+  <%= image_tag "signup1", class: "bgsignup" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="row">
+    <div class="col-md-2 col-xs-2"></div>
+      <div class="col-md-8 col-xs-8">
+        <%= image_tag "logoA.png", class: "logosignup animated slideInDown" %>  
+      </div>
+    <div class="col-md-2 col-xs-2"></div>   
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="row introspace animated slideInLeft">
+    <div class="col-md-3 col-xs-3"></div>
+      <div class="col-md-6 col-xs-6">
+        <span class="signupintro">Post and share your halal food reviews and where to find them!</span>
+      </div>
+    <div class="col-md-3 col-xs-3"></div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  <div class="row animated lightSpeedIn">
+    <div class="col-md-3 col-xs-3"></div>
+      <div class="col-md-6 col-xs-6">
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <div class="row signupbox">
+          <div class="container-fluid">
 
-<%= render "foodies/shared/links" %>
+          <div class="form-group">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="row">
+              <div class="container-fluid">
+                <center>
+                  <%= f.label :name, class: "control-label bghomefont" %>
+                  <%= f.text_field :name, class: "form-control" %><br>
+                </center>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="container-fluid">
+                <center>
+                <%= f.label :email, class: "control-label bghomefont" %>
+                <%= f.email_field :email, autofocus: true, class: "form-control" %><br>
+                </center>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="container-fluid">
+                <center>
+                  <%= f.label :password, class: "control-label bghomefont" %>
+                  <% if @minimum_password_length %>
+                    <em class="homefont">(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br>
+                    <%= f.password_field :password, autocomplete: "off", class: "form-control" %><br>
+                </center>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="container-fluid">
+                <center>
+                  <%= f.label :password_confirmation, class: "control-label bghomefont" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %><br>
+                </center>
+              </div>
+            </div>
+
+            <div class="row loginbuttons">
+              <div class="col-md-6 col-xs-6 buttons">
+              <%= f.submit "Sign up!", class: "btn btn-primary btn-lg btn-block" %>
+              </div>
+
+              <div class="col-md-6 col-xs-6 buttons">
+                <%- if devise_mapping.omniauthable? %>
+                  <%- resource_class.omniauth_providers.each do |provider| %>
+                    <%= link_to "<i class=\"fa fa-facebook-official fa-lg fa-fw\"></i> Sign up with Facebook".html_safe, omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-lg btn-block" %>
+                  <% end -%>
+                  <% end -%>
+              </div>
+            </div>
+
+            <div class="row bghomefont signup">
+            Already a member? <strong><u><%= link_to "Log in!", new_foody_session_path, class: "bghomefont" %></u></strong>
+            </div>  
+        <% end %>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    <div class="col-md-3 col-xs-3"></div>
+  </div>
+</div>
+
+
+
