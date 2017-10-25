@@ -10,6 +10,24 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   </head>
 
+<% if current_page?(new_foody_session_path) %>
+
+<body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+</body>
+
+<% elsif current_page?(new_foody_registration_path) %>
+
+<body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+</body>
+
+<% else %>
+
   <body>
 <% if foody_signed_in? %>
 
@@ -95,3 +113,5 @@
     <%= yield %>
   </body>
 </html>
+
+<% end %>
