@@ -16,9 +16,6 @@ class Foody < ApplicationRecord
   #has_many :notrecommends,  dependent: :destroy
   #has_many :reviews,  dependent: :destroy
 
-
-
-
   def self.new_with_session(params, session)
     super.tap do |foody|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
