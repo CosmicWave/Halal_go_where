@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require rails-ujs
+// Load all Bootstrap JavaScript
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -20,6 +21,14 @@ $('.carousel').carousel({
   interval: 5000,
   pause: "null"
 });
+
+$(".dropdown").click(function(){
+$(".dropdown-menu").fadeToggle();
+}); 
+
+$('.notice').fadeOut(5000, function(){$(this).remove();
+});
+
 });
 
 

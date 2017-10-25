@@ -11,6 +11,85 @@
   </head>
 
   <body>
+<% if foody_signed_in? %>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a class="navfont visible-xs pull-left">Home</a></li>
+          <li><a class="navfont visible-xs pull-left">Top Rated Reviews</a></li>
+          <li><a class="navfont visible-xs pull-left">Restaurants</a></li>
+          <li><a class="navfont visible-xs pull-left">Most Recent Reviews</a></li>
+          <li><a class="navfont visible-xs pull-left">Your Profile</a></li>
+          <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont visible-xs pull-left" %></li>
+        </ul>
+      </div>
+      <div class="container-fluid">
+        <div class="navbar-header hidden-xs">
+          <%= image_tag "logoA4.png", class: "navlogo" %>
+        </div>
+          <ul class="nav navbar-nav navbar-right hidden-xs">
+            <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont" %></li>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle navfont hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>   
+              <ul class="dropdown-menu">
+                <li><a class="navfont">Top Rated Reviews</a></li>
+                <li><a class="navfont">Restaurants</a></li>
+                <li><a class="navfont">Most Recent Reviews</a></li>
+                <li><a class="navfont">Your Profile</a></li>         
+              </ul>
+            </li>
+          </ul>
+      </div>
+  </nav>
+  
+
+<% else %>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a class="navfont visible-xs pull-left">Home</a></li>
+            <li><a class="navfont visible-xs pull-left">Top Rated Reviews</a></li>
+            <li><a class="navfont visible-xs pull-left">Restaurants</a></li>
+            <li><a class="navfont visible-xs pull-left">Most Recent Reviews</a></li>
+            <li><%= link_to "Login", new_foody_session_path, class: "navfont visible-xs pull-left" %></li>
+          </ul>
+        </div>
+        
+        <div class="container-fluid">
+          <div class="navbar-header hidden-xs">
+            <%= image_tag "logoA4.png", class: "navlogo" %>
+          </div>
+            <ul class="nav navbar-nav navbar-right hidden-xs">
+              <li><%= link_to "Login", new_foody_session_path, class: "navfont" %></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle navfont hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+              
+                 <ul class="dropdown-menu">
+                  <li><a class="navfont">Top Rated Reviews</a></li>
+                  <li><a class="navfont">Restaurants</a></li>
+                  <li><a class="navfont">Most Recent Reviews</a></li>         
+                </ul>
+              </li>
+            </ul>
+        </div>
+    </nav>
+ 
+<% end %>
+ 
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
