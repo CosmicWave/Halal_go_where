@@ -15,7 +15,7 @@ class Foodies::PhotosController < ApplicationController
 		
 		product_params = params[:photo].permit(:title, :description, :price, :avatar)
     	@photo = Photo.new(product_params)
-    	@photo.foody = current_foody
+    	@photo.foody_id = current_foody.id
     	if  @photo.save
     	 	flash[:notice] = "Successfully Updated"
 			redirect_to root_path
@@ -27,19 +27,19 @@ class Foodies::PhotosController < ApplicationController
 
 
 	def show
-		@photos = Photo.find_by(id: params[:id])
+		@photo = Photo.find_by(id: params[:id])
 	end
 
 
 	def edit
-		@photos = Photo.find_by(id: params[:id])
+		@photo = Photo.find_by(id: params[:id])
 	end
 
 
 	def update
 		photo_params = params.require(:photo).permit(:title, :description, :price, :avatar)
-		@photo = photo.find(params[:id])
-		@photo.foody = current_foody
+		@photo = Photo.find(params[:id])
+		@photo.foody_id = current_foody.id
 		if @photo.update(photo_params)
 			flash[:notice] = "Successfully Updated"
 			redirect_to root_path

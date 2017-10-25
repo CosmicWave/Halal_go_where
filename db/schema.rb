@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019090629) do
+ActiveRecord::Schema.define(version: 20171020085454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dislikes", force: :cascade do |t|
+    t.bigint "foody_id"
+    t.bigint "photo_id"
+    t.index ["foody_id"], name: "index_dislikes_on_foody_id"
+    t.index ["photo_id"], name: "index_dislikes_on_photo_id"
+  end
 
   create_table "foodies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,6 +44,13 @@ ActiveRecord::Schema.define(version: 20171019090629) do
     t.index ["reset_password_token"], name: "index_foodies_on_reset_password_token", unique: true
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "foody_id"
+    t.bigint "photo_id"
+    t.index ["foody_id"], name: "index_likes_on_foody_id"
+    t.index ["photo_id"], name: "index_likes_on_photo_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -48,5 +62,9 @@ ActiveRecord::Schema.define(version: 20171019090629) do
     t.index ["foody_id"], name: "index_photos_on_foody_id"
   end
 
+  add_foreign_key "dislikes", "foodies"
+  add_foreign_key "dislikes", "photos"
+  add_foreign_key "likes", "foodies"
+  add_foreign_key "likes", "photos"
   add_foreign_key "photos", "foodies"
 end
