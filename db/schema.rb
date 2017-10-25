@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20171020085454) do
     t.string "uid"
     t.string "name"
     t.text "image"
+    t.text "status"
     t.index ["email"], name: "index_foodies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_foodies_on_reset_password_token", unique: true
   end
@@ -62,6 +63,14 @@ ActiveRecord::Schema.define(version: 20171020085454) do
     t.index ["foody_id"], name: "index_photos_on_foody_id"
   end
 
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "location"
+    t.string "time"
+    t.string "certification"
+  end
+  
   add_foreign_key "dislikes", "foodies"
   add_foreign_key "dislikes", "photos"
   add_foreign_key "likes", "foodies"
