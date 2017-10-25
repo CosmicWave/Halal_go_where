@@ -10,7 +10,9 @@
 	<h1>Status</h1>
 	<%= @foody.status %>
 
-	<%= link_to 'Settings', edit_foody_path(@foody) %>
+	<% if @foody == current_foody %>
+		<%= link_to 'Settings', edit_foody_path(@foody) %>
+	<% end %>
 
   </div>
 </div>

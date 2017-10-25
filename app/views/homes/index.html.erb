@@ -84,30 +84,213 @@
 	<% end %>
 
 
-
+	<% if foody_signed_in? %>
+	<%= link_to current_foody.name, foody_path(current_foody) %>
 
 	 <% @photos.each do |photo| %>
+		
 		<%= photo.title %>
 		<%= photo.description %>
 		<p>$<%= photo.price %></p>
 		
-		 <% if photo.avatar.present? %>
-			 <%= link_to root_path do %>
+		<% if photo.avatar.present? %>
+			
+			<%= link_to root_path do %>
 				<%= image_tag photo.avatar_url(:thumb).to_s, :size => '260x180' %>
-			 <% end %>
-		 <% else %>
-			 <%= link_to root_path do %>
+			<% end %>
+		
+		<% else %>
+		
+			<%= link_to root_path do %>
 				<%= image_tag ('/assets/mee.jpg'), :size => "260x180" %>
+
 			 <% end %>
 		 <% end %>
+
+
+     
+		       <% photo_id = photo.id %>
+            <% a = Like.where(photo_id:photo_id) %>
+   			      <% likecheck = photo.likes.find_by(foody_id: current_foody) %>
+             
+
+            <% b = Dislike.where(photo_id:photo_id) %>
+              <% dislikecheck = photo.dislikes.find_by(foody_id: current_foody) %>
+              
+            
+
+
+                <% if likecheck != nil && dislikecheck == nil %>
+                  <%= link_to foodies_photo_like_path(photo_id: photo.id, id: likecheck.id), method: :delete do %>
+                    <button style="color: #1DA1F2;">
+                      <span class="glyphicon glyphicon-thumbs-up"></span> </small></br>
+                    </button> 
+                   
+                <% end %> 
+                 <%= a.count %>
+                  <%= link_to foodies_photo_dislikes_path(photo_id: photo.id),method: :post do %>
+                   <button style="color: #434A54;">
+                    <span class="glyphicon glyphicon-thumbs-down"></span><small> </small></br>
+                   </button>  
+                          
+                  <% end %>
+                  <%= b.count %> 
+                        
+
+                  <% elsif likecheck == nil && dislikecheck == nil%>
+                    <%= link_to foodies_photo_likes_path(photo_id: photo.id),method: :post do %>
+                      <button style="color: #434A54;">
+                        <span class="glyphicon glyphicon-thumbs-up"></span><small> </small></br>
+                      </button>
+                    <% end %> 
+                    <%= a.count %>
+                    <%= link_to foodies_photo_dislikes_path(photo_id: photo.id),method: :post do %>
+                       <button style="color: #434A54;">
+                        <span class="glyphicon glyphicon-thumbs-down"></span><small> </small></br>
+                       </button>          
+                    <% end %>
+                    <%= b.count %>
+                 
+        
+
+                    <% elsif dislikecheck != nil && likecheck == nil %>
+
+                    <%= link_to foodies_photo_likes_path(photo_id: photo.id),method: :post do %>
+                      <button style="color: #434A54;">
+                        <span class="glyphicon glyphicon-thumbs-up"></span><small> </small></br>
+                      </button>
+                      <%= a.count %>
+                      <% end %>
+                      
+                       <%= link_to foodies_photo_dislike_path(photo_id: photo.id, id: dislikecheck.id), method: :delete do %>
+                        <button style="color: #1DA1F2;">
+                          <span class="glyphicon glyphicon-thumbs-down"></span> </small></br>
+                        </button>
+                        <%= b.count %>
+                      <% end %> 
+                      
+
+                       <% elsif dislikecheck == nil && likecheck == nil%>
+                        <%= link_to foodies_photo_likes_path(photo_id: photo.id),method: :post do %>
+                      <button style="color: #434A54;">
+                        <span class="glyphicon glyphicon-thumbs-up"></span><small> </small></br>
+                      </button>
+                      <%= a.count %>
+                       <% end %>
+                      
+
+                      <%= link_to foodies_photo_dislikes_path(photo_id: photo.id),method: :post do %>
+                       <button style="color: #434A54;">
+                        <span class="glyphicon glyphicon-thumbs-down"></span><small> </small></br>
+                       </button> 
+                       <%= b.count %>         
+                      <% end %>
+
+
+
+
+                      <% elsif likecheck != nil && dislikecheck != nil %>
+                        
+                       <% @current_like = Like.find_by(photo_id: photo.id, foody_id: current_foody.id) %>
+                       <%link_to invalid_foodies_photo_like_path(photo_id: photo.id, id: @current_like.id), method: :delete do%>
+                        <button style="color: #434A54;">
+                        <span class="glyphicon glyphicon-thumbs-up"></span><small> </small></br>
+                      </button>
+                      
+                       <% end %>
+
+
+                      <% @current_dislike = Dislike.find_by(photo_id: photo.id, foody_id: current_foody.id) %>
+                      <%link_to invalid_foodies_photo_dislike_path(photo_id: photo.id, id: @current_dislike.id), method: :delete do%>
+                      <button style="color: #434A54;">
+                        <span class="glyphicon glyphicon-thumbs-down"></span><small> </small></br>
+                       </button> 
+                              
+                      <% end %>
+
+                  
+                <% end %>
+                      
+  
+
+
+
+               
+                     
+
+
+                      
+                 
+
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+               <% photo_id = photo.id %>
+                <% a = Dislike.where(photo_id:photo_id) %>
+       			      <% dislikecheck = photo.dislikes.find_by(foody_id: current_foody) %>
+                   <% a = Dislike.where(photo_id:photo_id) %>
+
+           
+                    <% if dislikecheck != nil %>
+                      <%= link_to foodies_photo_dislike_path(photo_id: photo.id, id: dislikecheck.id), method: :delete do %>
+                        <button style="color: #1DA1F2;">
+                          <span class="glyphicon glyphicon-thumbs-down"></span> <%= a.count %></small></br>
+                        </button>
+                      <% end %>
+                  <% elsif dislikecheck == nil %>
+                    <%= link_to foodies_photo_dislikes_path(photo_id: photo.id),method: :post do %>
+                      <button style="color: #434A54;">
+                        <span class="glyphicon glyphicon-thumbs-down"></span><small> <%= a.count %></small></br>
+                      </button>
+                    <% end %>
+                  <% end %>
+
+
+
+-->
+
+
+
+
 		
-		 <% if photo.foody_id == current_foody.id %>  
+		<% if photo.foody == current_foody %>  
 			 <td><div class=""><%= link_to "Edit", edit_foodies_photo_path(id: photo.id) %>    </div></td>
 			 <td><div class=""><%= link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %></div></td>
 		<% end %>
+	
 	 <% end %>
 
 				
 	  <%= link_to "Upload New Photo", new_foodies_photo_path %>
   </div>
 </div>
+
