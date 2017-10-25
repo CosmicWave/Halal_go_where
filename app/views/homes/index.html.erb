@@ -210,77 +210,6 @@
 
                   
                 <% end %>
-                      
-  
-
-
-
-               
-                     
-
-
-                      
-                 
-
-              
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-               <% photo_id = photo.id %>
-                <% a = Dislike.where(photo_id:photo_id) %>
-       			      <% dislikecheck = photo.dislikes.find_by(foody_id: current_foody) %>
-                   <% a = Dislike.where(photo_id:photo_id) %>
-
-           
-                    <% if dislikecheck != nil %>
-                      <%= link_to foodies_photo_dislike_path(photo_id: photo.id, id: dislikecheck.id), method: :delete do %>
-                        <button style="color: #1DA1F2;">
-                          <span class="glyphicon glyphicon-thumbs-down"></span> <%= a.count %></small></br>
-                        </button>
-                      <% end %>
-                  <% elsif dislikecheck == nil %>
-                    <%= link_to foodies_photo_dislikes_path(photo_id: photo.id),method: :post do %>
-                      <button style="color: #434A54;">
-                        <span class="glyphicon glyphicon-thumbs-down"></span><small> <%= a.count %></small></br>
-                      </button>
-                    <% end %>
-                  <% end %>
-
-
-
--->
-
-
-
-
 		
 		<% if photo.foody == current_foody %>  
 			 <td><div class=""><%= link_to "Edit", edit_foodies_photo_path(id: photo.id) %>    </div></td>
@@ -288,6 +217,7 @@
 		<% end %>
 	
 	 <% end %>
+   <% end %>
 
 				
 	  <%= link_to "Upload New Photo", new_foodies_photo_path %>

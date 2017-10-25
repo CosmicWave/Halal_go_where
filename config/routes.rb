@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 	
   resources :foodies, only: [:show, :edit, :update]
 
+
   resources :restaurants, except: [:index] do
     
     resources :disapproves, only: [:create, :destroy] do
@@ -31,4 +32,5 @@ Rails.application.routes.draw do
  
   end
   
+
 end
