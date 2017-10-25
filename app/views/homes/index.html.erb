@@ -9,20 +9,26 @@
 	<% end %>
 
 
-
 	<% if foody_signed_in? %>
+	<%= link_to current_foody.name, foody_path(current_foody) %>
+
 	 <% @photos.each do |photo| %>
+		
 		<%= photo.title %>
 		<%= photo.description %>
 		<p>$<%= photo.price %></p>
 		
-		 <% if photo.avatar.present? %>
-			 <%= link_to root_path do %>
+		<% if photo.avatar.present? %>
+			
+			<%= link_to root_path do %>
 				<%= image_tag photo.avatar_url(:thumb).to_s, :size => '260x180' %>
-			 <% end %>
-		 <% else %>
-			 <%= link_to root_path do %>
+			<% end %>
+		
+		<% else %>
+		
+			<%= link_to root_path do %>
 				<%= image_tag ('/assets/mee.jpg'), :size => "260x180" %>
+
 			 <% end %>
 		 <% end %>
 
@@ -200,12 +206,12 @@
 
 
 
-
 		
-		 <% if photo.foody_id == current_foody.id %>  
+		<% if photo.foody == current_foody %>  
 			 <td><div class=""><%= link_to "Edit", edit_foodies_photo_path(id: photo.id) %>    </div></td>
 			 <td><div class=""><%= link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %></div></td>
 		<% end %>
+	
 	 <% end %>
 
 	  <%= link_to "Upload New Photo", new_foodies_photo_path %>

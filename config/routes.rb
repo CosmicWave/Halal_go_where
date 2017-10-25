@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   devise_for :foodies, :controllers => { :omniauth_callbacks => "foodies/omniauth_callbacks" }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-	root to: "homes#index"
 
-
-
+	devise_for :foodies, controllers: { registrations: "registrations", omniauth_callbacks: "foodies/omniauth_callbacks"  }
+  
 	namespace :foodies do
 		resources :photos do
 			resources :likes do
@@ -23,5 +22,16 @@ Rails.application.routes.draw do
 	
   resources :foodies, only: [:show, :edit, :update]
 
-  resources :restaurants, except: [:index] 
+  resources :restaurants, except: [:index] do
+    
+    resources :disapproves, only: [:create, :destroy] do
+      delete 'convert', on: :member
+    end
+
+    resources :recommends, only: [:create, :destroy] do
+      delete 'convert', on: :member
+    end
+ 
+  end
+  
 end

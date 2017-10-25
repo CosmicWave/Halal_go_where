@@ -1,26 +1,65 @@
 <div class="container">
-	
-	<h1>Register your restaurant</h1>
+<%= form_for @new_restaurant, url: restaurants_path, method: :post do |f| %>
+	<h1 class="well">Register your business!</h1>
+	<div class="col-lg-12 well">
+		<div class="row">
+				
+				<form>
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<%= f.label :'Title of Restaurant' %>
+								<%= f.text_field :name, placeholder: 'Enter Name of Restaurant Here...', class:"form-control" %>
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Owner</label>
+								<input type="text" placeholder="Enter Owner's Name Here.." class="form-control">
+							</div>
+						</div>					
+						<div class="form-group">
+							<%= f.label :Address %>
+							<%= f.text_area :location, placeholder: 'Enter Address of Restaurant Here...', class:"form-control" %>
+						</div>	
+						<div class="form-group">
+							<%= f.label :Description %>
+							<%= f.text_area :description, placeholder: 'Describe your restaurant in less than 140 characters...', class:"form-control" %>
+						</div>	
+						<div class="row">
+							<div class="col-sm-4 form-group">
+							<%= f.label :'Operating hours' %>
+							<%= f.text_field :time, placeholder: 'Enter Address of Restaurant Here...', class:"form-control" %>
+							</div>	
+							<div class="col-sm-4 form-group">
+								<label>Phone</label>
+								<input type="text" placeholder="Enter Phone Number Here.." class="form-control">
+							</div>	
+							<div class="col-sm-4 form-group">
+								<label>Postal Code</label>
+								<input type="text" placeholder="Enter Postal Code Here.." class="form-control">
+							</div>		
+						</div>
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Email</label>
+								<input type="text" placeholder="Enter Email Here.." class="form-control">
+							</div>		
+							<div class="col-sm-6 form-group">
+								<label>Website</label>
+								<input type="text" placeholder="Enter Website Here.." class="form-control">
+							</div>	
+						</div>						
+						<div class="form-group">
+							<%= f.label :Certification %>
+							<%= f.text_field :certification, placeholder: 'Any certification? (e.g. MUIS)', class:"form-control" %>
+						</div>		
 
-	<%= form_for @new_restaurant, url: restaurants_path, method: :post do |f| %>
-
-		<%= f.label :name %>
-		<%= f.text_area :name %>
-
-		<%= f.label :description %>
-		<%= f.text_field :description %>
-
-		<%= f.label :time %>
-		<%= f.text_area :time %>
-
-		<%= f.label :location %>
-		<%= f.text_field :location %>
-
-		<%= f.label :certification %>
-		<%= f.text_area :certification %>
-
-		<%= f.submit 'Register' %>
-
+						<%= f.submit 'Update changes', class: "btn btn-lg btn-info" %>			
+					
+					</div>
+				</form> 
+				
+			</div>
+		</div>
 	<% end %>
 
 </div>

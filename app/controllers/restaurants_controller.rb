@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		new_restaurant = Restaurant.new(restaurant_params)
+		new_restaurant = Restaurant.create(restaurant_params)
 		if new_restaurant.save
 			flash[:notice] = "Succesful restaurant application"
 			redirect_to restaurant_path(new_restaurant)
@@ -29,7 +29,7 @@ class RestaurantsController < ApplicationController
 			redirect_to restaurant_path(@restaurant)
 		else
 			flash.now[:notice] = "Fill in your blanks"
-			render :update
+			render :edit
 		end
 	end
 
