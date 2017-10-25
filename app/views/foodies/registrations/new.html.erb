@@ -70,7 +70,7 @@
                 <center>
                   <%= f.label :password, class: "control-label bghomefont" %>
                   <% if @minimum_password_length %>
-                    <em class="homefont">(<%= @minimum_password_length %> characters minimum)</em>
+                    <em class="pass">(<%= @minimum_password_length %> characters minimum)</em>
                   <% end %><br>
                     <%= f.password_field :password, autocomplete: "off", class: "form-control" %><br>
                 </center>
