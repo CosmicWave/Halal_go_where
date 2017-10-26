@@ -1,0 +1,10 @@
+<% current_status = Likeable.find_by(photo_id: photo.id, foody: current_foody) %>
+<% current_review = photo.likeables.find_by(foody_id: current_foody.id) %>
+<% if current_review.review == 2 %>
+	<%= link_to 'like2', foodies_photo_likeable_path(photo_id: photo.id, id: current_status.id), method: :delete %>	
+	<%= link_to 'dislike2', convert_like_foodies_photo_likeable_path(photo_id: photo.id, id: current_status.id), method: :get %>
+<% elsif current_review.review == 1 %>
+	<%= link_to 'like1', convert_dislike_foodies_photo_likeable_path(photo_id: photo.id, id: current_status.id), method: :get %>
+	<%= link_to 'dislike1', foodies_photo_likeable_path(photo_id: photo.id, id: current_status.id), method: :delete %>
+	<%= photo.likeables.count %>
+<% end %>

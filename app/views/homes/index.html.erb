@@ -45,7 +45,14 @@
 		<%= photo.description %>
 		<p>$<%= photo.price %></p>		
 		<%= image_tag photo.avatar_url(:thumb).to_s, :size => '260x180' %>
+	
+		<% if current_review = photo.likeables.find_by(foody_id: current_foody.id) %>
+			<%= render 'got_likeable', photo: photo %>
+		<% else %>
+			<%= render 'no_likeable', photo: photo %>
 		<% end %>
+		
+	<% end %>
 
 			 <!-- <td><div class="">< link_to "Edit", edit_foodies_photo_path(id: photo.id) %>    </div></td> -->
 			 <!-- <td><div class="">< link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %></div></td> -->

@@ -5,7 +5,17 @@ Rails.application.routes.draw do
   
 	namespace :foodies do
 		resources :photos do
-			
+      resources :likeables, only: [:create, :new, :destroy] do
+        
+        member do
+          get 'convert_like'
+        end
+        
+        member do
+          get 'convert_dislike'
+        end
+      
+      end
 		end
 	end		
 
