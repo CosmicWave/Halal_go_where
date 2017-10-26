@@ -5,13 +5,7 @@ Rails.application.routes.draw do
   
 	namespace :foodies do
 		resources :photos do
-			resources :likes do
-				delete 'invalid', on: :member
-			end
-
-			resources :dislikes do
-				delete 'invalid', on: :member
-			end
+			
 		end
 	end		
 
@@ -19,17 +13,15 @@ Rails.application.routes.draw do
 	
   resources :foodies, only: [:show, :edit, :update]
 
+  patch 'search_foods', to: 'homes#search_foods'
 
   resources :restaurants, except: [:index] do
-    
     resources :disapproves, only: [:create, :destroy] do
       delete 'convert', on: :member
     end
-
     resources :recommends, only: [:create, :destroy] do
       delete 'convert', on: :member
     end
- 
   end
   
 
