@@ -8,4 +8,13 @@ class Photo < ApplicationRecord
 
 	mount_uploader :avatar, AvatarUploader
 
+	def self.search(search)
+		if search
+			where("title LIKE ?", "%#{search}%")
+		else
+			all
+		end
+	end
+
+
 end
