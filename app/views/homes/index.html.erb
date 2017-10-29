@@ -17,9 +17,10 @@
 				<div class="col-md-6 col-xs-6">
 					<form class="searchbar" role="search">
 						<div class="input-group">
-							<%= form_tag search_path, method: :patch do %>
+							<%= form_tag simple_search_path, method: :patch do %>
 							<%= text_field_tag :search, params[:search] %>
 							<%= submit_tag 'Search', class: 'btn btn-danger searchbutton' %><% end %>
+							<%= link_to 'Advance Search', new_search_path, class: 'btn btn-danger searchbutton' %>
 						</div>
 					</form>
 				</div>

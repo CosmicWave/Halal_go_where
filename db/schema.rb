@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026072138) do
+ActiveRecord::Schema.define(version: 20171029135305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,16 @@ ActiveRecord::Schema.define(version: 20171026072138) do
     t.string "location"
     t.string "time"
     t.string "certification"
+    t.string "category"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "keyword"
+    t.string "certification"
+    t.string "location"
+    t.string "category"
+    t.decimal "min_price"
+    t.decimal "max_price"
   end
 
   add_foreign_key "disapproves", "foodies"

@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 	
   resources :foodies, only: [:show, :edit, :update]
 
-  patch 'search', to: 'homes#search'
+  patch 'simple_search', to: 'homes#search'
 
   resources :restaurants, except: [:index] do
     resources :disapproves, only: [:create, :destroy] do
@@ -34,6 +34,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :search  
+  resources :searches, only: [:show, :new, :create]
 
 end
