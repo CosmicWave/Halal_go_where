@@ -8,6 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
      <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
   </head>
 
 <% if current_page?(new_foody_session_path) %>
@@ -28,8 +29,11 @@
 
 <% else %>
 
+
+
   <body>
 <% if foody_signed_in? %>
+
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -50,7 +54,9 @@
       </div>
       <div class="container-fluid">
         <div class="navbar-header hidden-xs">
+        <%= link_to root_path do %>
           <%= image_tag "logoA4.png", class: "navlogo" %>
+        <% end %>
         </div>
           <ul class="nav navbar-nav navbar-right hidden-xs">
             <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont" %></li>
@@ -106,12 +112,72 @@
         </div>
     </nav>
  
-<% end %>
- 
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <% end %>
     <%= yield %>
-  </body>
-</html>
+
+<div class="container-fluid">
+  <div class="row footerrow">
+    <footer>
+      <div class="col-md-11 col-xs-11 visible-lg">
+        <ul class="list-inline">
+              <li>
+                <a href="#">Home</a>
+              </li>
+              
+              <li class="footer-menu-divider">&sdot;</li>
+              
+              <li>
+                <a href="#about">About</a>
+              </li>
+                    
+              <li class="footer-menu-divider">&sdot;</li>
+              
+              <li>
+                <a href="#contact">Contact</a>
+              </li>
+          </ul>
+
+          <div class="row">
+            <p class="copyright">Copyright &copy; Halal Go Where 2017. All Rights Reserved</p>
+          </div>
+      </div>
+        <div class="col-md-1 col-xs-1 visible-lg">
+          <a href="https://www.instagram.com/halal_go_where/"><i class="fa fa-instagram fa-2x pull-left fa-inverse visible-lg" aria-hidden="true"></i></a>
+          <div class="fblogins">
+            <a href="https://www.facebook.com/halalgowhere/"><i class="fa fa-facebook-official fa-2x pull-right fa-inverse visible-lg" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+
+
+       <div class="col-md-10 col-xs-10 hidden-lg">
+        <p class="copyright">Copyright &copy; Halal Go Where 2017. All Rights Reserved</p>
+       </div>
+        <div class="col-md-1 col-xs-1">
+          <a href="https://www.instagram.com/halal_go_where/"><i class="fa fa-instagram pull-center pull-right fa-inverse fa-lg hidden-lg" aria-hidden="true"></i></a>
+        </div>
+        
+        <div class="col-md-1 col-xs-1">
+          <div class="fblogins">
+            <a href="https://www.facebook.com/halalgowhere/"><i class="fa fa-facebook-official pull-left fa-inverse fa-lg hidden-lg" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        
+    </footer>
+  </div>  
+</div>
+       
 
 <% end %>
+
+
+  </body>
+
+</html>
+
+
+
