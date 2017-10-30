@@ -1,6 +1,6 @@
 class Foodies::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    @foodies = Foody.from_omniauth(request.env["omniauth.auth"])
+    @foody = Foody.from_omniauth(request.env["omniauth.auth"])
 
     if @foody.persisted?
       sign_in_and_redirect @foody, :event => :authentication

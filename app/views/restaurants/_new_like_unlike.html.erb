@@ -1,0 +1,11 @@
+<% if current_recommend = restaurant.recommends.find_by(foody_id: current_foody.id) %>
+		<%= link_to "<i class=\"glyphicon glyphicon-thumbs-up\"></i>".html_safe, restaurant_recommend_path(restaurant_id: restaurant.id, recommend_id: current_recommend.id), method: :delete, class: "btn btn-success btn-sm" %> <%= @restaurant.recommends.count %>
+	<% else %>
+		<%= link_to "<i class=\"glyphicon glyphicon-thumbs-up\"></i>".html_safe, restaurant_recommends_path(restaurant), method: :post, class: "btn btn-success btn-sm" %> <%= @restaurant.recommends.count %>
+	<% end %>
+
+	<% if current_dissaprove = restaurant.disapproves.find_by(foody_id: current_foody.id) %>
+		<%= link_to "<i class=\"glyphicon glyphicon-thumbs-down\"></i>".html_safe, restaurant_disapprofe_path(restaurant_id: restaurant.id, disapprove_id: current_dissaprove.id), method: :delete, class: "btn btn-danger btn-sm" %> <%= @restaurant.disapproves.count %>
+	<% else %>
+		<%= link_to "<i class=\"glyphicon glyphicon-thumbs-down\"></i>".html_safe, restaurant_disapproves_path(restaurant), method: :post, class: "btn btn-danger btn-sm" %> <%= @restaurant.disapproves.count %>
+	<% end %>

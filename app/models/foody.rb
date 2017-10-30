@@ -6,18 +6,14 @@ class Foody < ApplicationRecord
 
          mount_uploader :avatar, AvatarUploader
 
-  devise :omniauthable, :omniauth_providers => [:facebook]
-
+  devise :omniauthable, omniauth_providers: [:facebook]
 
   has_many :photos, dependent: :destroy
   #has_many :likes,  dependent: :destroy
   #has_many :dislikes,  dependent: :destroy
-  #has_many :recommends,  dependent: :destroy
-  #has_many :notrecommends,  dependent: :destroy
+  has_many :recommends, dependent: :destroy
+  has_many :disapproves, dependent: :destroy
   #has_many :reviews,  dependent: :destroy
-
-
-
 
   def self.new_with_session(params, session)
     super.tap do |foody|

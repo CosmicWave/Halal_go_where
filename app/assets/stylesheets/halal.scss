@@ -676,6 +676,13 @@
     height: 100%;
 }
 
+
+.profile-name, .profile-status {
+  margin-top: 0;
+  margin-left: 18px;
+  margin-bottom: 5px;
+}
+
 /* ------------ Profile Page ----------- */
 /*.profilebg {
   position: fixed; 
@@ -697,6 +704,7 @@
     margin-top: -75px;
     margin-left: -75px;
 }
+
 
 
 /* ------------------ footer ------------------ */
@@ -1023,3 +1031,4 @@ footer {
         opacity: 0;
     }
 }
+

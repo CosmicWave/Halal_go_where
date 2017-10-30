@@ -2,17 +2,32 @@
 <div class="pulse1"></div>
 <div class="pulse2"></div>
 
-
 	<div class= "stats">
   <%= avatar_for @foody %>
 
-
 	<%= @foody.name %>
 
-	<h1>Status</h1>
-	<%= @foody.status %>
+	<div class="container">
+		<div class="row">
 
-	<%= link_to 'Settings', edit_foody_path(@foody) %>
+			<div class="col-md-1">
+				<%= avatar_for @foody %>	
+			</div>
+
+			<div class="col-md-4">
+				<h1 class="profile-name"><%= @foody.name %></h1>
+				<p class="profile-status"><%= @foody.status %></p>
+				<p class="profile-status">www.instababe.com</p>
+			</div>
+
+			<div class="col-md-offset-4 col-md-2">	
+				<% if @foody == current_foody %>
+					<%= link_to 'Settings', edit_foody_path(@foody) %>
+				<% end %>
+			</div>
+		
+		</div>
+	</div>
 
 </div>
 </div>
