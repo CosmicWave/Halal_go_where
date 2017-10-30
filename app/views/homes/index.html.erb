@@ -1,37 +1,4 @@
-
-<!-- <div class="container-fluid">
-	<div class="row">
-		<%= image_tag "home2.jpg", class: "indexbann" %>
-	</div>
-
-	<div class="row textspace">
-		<div class="col-md-3 col-xs-3"></div>
-		<div class="col-md-6 col-xs-6">
-			<div class="container-fluid">
-				<span class="homefont"><center>Find the best halal makan places in Singapore!</center></span>
-			</div>
-			<div class="col-md-3 col-xs-3"></div>
-		</div>
-	</div>
-	<div class="row searchrow">
-		<div class="col-md-4 col-xs-4"></div>
-			<div class="col-md-6 col-xs-6">
-				<form class="searchbar" role="search">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="I'm craving for...">
-			        <span class="input-group-btn">
-			            <button class="btn btn-danger searchbutton" type="button">
-			                <span class="searchfont">Search</span>
-			            </button>
-			        </span>
-					</div>
-				</form>
-			</div>
-		<div class="col-md-2 col-xs-2"></div>
-	</div>
-
-	<div class="row searchspace"></div>
-</div> -->
+<!-- ///////////////////////// main banner ///////////////////////////////////////// -->
 
 <div class="container-fluid">
 	<div class="row">
@@ -39,11 +6,11 @@
 		<div class="landing-banner">
 			<div class="row textspace">	
 				<div class="col-md-3 col-xs-3"></div>
-				<div class="col-md-6 col-xs-6">
-					<div class="homefont text-center">
-						Find the best halal makan places in Singapore!
-					</div>
-				</div>
+  				<div class="col-md-6 col-xs-6">
+  					<div class="homefont text-center">
+              Find the best halal makan places in Singapore!
+  					</div>
+  				</div>
 				<div class="col-md-3 col-xs-3"></div>
 			</div>
 
@@ -52,12 +19,10 @@
 				<div class="col-md-6 col-xs-6">
 					<form class="searchbar" role="search">
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="I'm craving for...">
-				        <span class="input-group-btn">
-				            <button class="btn btn-danger searchbutton" type="button">
-				                <span class="searchfont">Search</span>
-				            </button>
-				        </span>
+							<%= form_tag simple_search_path, method: :patch do %>
+							<%= text_field_tag :search, params[:search] %>
+							<%= submit_tag 'Search', class: 'btn btn-danger searchbutton' %><% end %>
+							<%= link_to 'Advance Search', new_search_path, class: 'btn btn-danger searchbutton' %>
 						</div>
 					</form>
 				</div>
@@ -67,160 +32,227 @@
 
 	</div>
 </div>
+<!-- ///////////////////////// Latest reviews ///////////////////////////////////////// -->
+
+<div class="container-fluid cardcont">
+	<div class="row cardrow">
+
+  <div class="posthead">Latest Reviews</div>
+
+	<div class="card-box col-md-4 col-sm-6">
+    <div class="card cardleft">                            
+        <div class="header">
+        <div class="insidephoto"></div>
+          <div class="filter"></div>
+            <img src="assets/images/cake2.jpg"/>
+          <div class="actions">
+            <button class="btn btn-round btn-fill btn-neutral btn-modern">
+                Read Article
+            </button>
+          </div>
+        </div>
+        
+        <div class="content">
+          <h6 class="category">Food</h6>
+          <h4 class="title"><a href="#">Try the new laksa from Auntie Shop! </a></h4>
+          <p class="description">The portion is huge and the gravy super delicious! Price is good too!</p>
+          <div class="bywho"><small>By Regent on 20th Oct 2017</small></div>
+        </div>                                           
+    </div> <!-- end card -->
+   </div>
+
+   <div class="card-box col-md-4 col-sm-6">
+    <div class="card">                            
+      <div class="header">
+
+        <div class="filter"></div>
+        
+        <div class="actions">
+            <button class="btn btn-round btn-fill btn-neutral btn-modern">
+                Read Article
+            </button>
+          </div>
+        </div>
+        
+        <div class="content">
+          <h6 class="category">Food</h6>
+          <h4 class="title"><a href="#">Try the new laksa from Auntie Shop! </a></h4>
+          <p class="description">The portion is huge and the gravy super delicious! Price is good too!</p>
+          <div class="bywho"><small>By Regent on 20th Oct 2017</small></div>
+        </div>                                           
+    </div> <!-- end card -->
+   </div>
+
+   <div class="card-box col-md-4 col-sm-6">
+    <div class="card cardright">                            
+        <div class="header">
+
+          <div class="filter"></div>
+          
+          <div class="actions">
+            <button class="btn btn-round btn-fill btn-neutral btn-modern">
+                Read Article
+            </button>
+          </div>
+        </div>
+        
+        <div class="content">
+          <h6 class="category">Food</h6>
+          <h4 class="title"><a href="#">Try the new laksa from Auntie Shop! </a></h4>
+          <p class="description">The portion is huge and the gravy super delicious! Price is good too!</p>
+          <div class="bywho"><small>By Regent on 20th Oct 2017</small></div>
+        </div>                                           
+    </div> <!-- end card -->
+   </div>
+
+  </div>
 
 
-<div class="container-fluid">
-	<div class="row indexes">
+  <div class="row viewmore">
+    <button type="button" class="btn btn-primary btn-xs buttonwide">View More</button>
+  </div>
+</div>
+
+<!-- ///////////////////////// Categories ///////////////////////////////////////// -->
+
+<div class= "container-fluid">
+  <div class="row paramargin">
+    <section class="module parallax parallax-2">
+      <div class="contain row">
+        <div class="category"><u>CATEGORIES</u></div>
+      </div>
+
+      <div class="row categories">
+        <div class="butttons">
+          <a href="#" class="bttn">Wallet Friendly</a>
+          <a href="#" class="bttn">Great Ambience</a>
+          <a href="#" class="bttn">Big Gatherings</a>
+        </div>
+      </div>
+
+      <div class="row categories">
+        <div class="butttons">
+          <a href="#" class="bttn">Instagram-able</a>
+          <a href="#" class="bttn">Supper Joints</a>
+          <a href="#" class="bttn">Near Mosque</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ///////////////////////// High Rated Reviews ///////////////////////////////////////// -->
+
+<div class="container-fluid cardcont">
+  <div class="row cardrow">
+
+  <div class="posthead">High Rated Reviews</div>
+
+  <div class="card-box col-md-4 col-sm-6">
+    <div class="card cardleft">                            
+        <div class="header">
+
+          <div class="filter"></div>
+
+          <div class="actions">
+            <button class="btn btn-round btn-fill btn-neutral btn-modern">
+                Read Article
+            </button>
+          </div>
+        </div>
+        
+        <div class="content">
+          <h6 class="category">Food</h6>
+          <h4 class="title"><a href="#">Try the new laksa from Auntie Shop! </a></h4>
+          <p class="description">The portion is huge and the gravy super delicious! Price is good too!</p>
+          <div class="rating">8.0</div>
+          <div class="bywho"><small>By Regent on 20th Oct 2017</small></div>
+        </div>                                           
+    </div> <!-- end card -->
+
+   </div>
+
+   <div class="card-box col-md-4 col-sm-6">
+    <div class="card">                            
+        <div class="header">
+          <img src="assets/img/lifestyle-8.jpg"/>
+          <div class="filter"></div>
+          
+          <div class="actions">
+            <button class="btn btn-round btn-fill btn-neutral btn-modern">
+                Read Article
+            </button>
+          </div>
+        </div>
+        
+        <div class="content">
+          <h6 class="category">Food</h6>
+          <h4 class="title"><a href="#">Try the new laksa from Auntie Shop! </a></h4>
+          <p class="description">The portion is huge and the gravy super delicious! Price is good too!</p>
+          <div class="rating">8.8</div>
+          <div class="bywho"><small>By Regent on 20th Oct 2017</small></div>
+        </div>                                           
+    </div> <!-- end card -->
+   </div>
+
+   <div class="card-box col-md-4 col-sm-6">
+    <div class="card cardright">                            
+        <div class="header">
+
+          <div class="filter"></div>
+          
+          <div class="actions">
+            <button class="btn btn-round btn-fill btn-neutral btn-modern">
+                Read Article
+            </button>
+          </div>
+        </div>
+        
+        <div class="content">
+          <h6 class="category">Food</h6>
+          <h4 class="title"><a href="#">Try the new laksa from Auntie Shop! </a></h4>
+          <p class="description">The portion is huge and the gravy super delicious! Price is good too!</p>
+          <div class="rating">9.0</div>
+          <div class="bywho"><small>By Regent on 20th Oct 2017</small></div>
+        </div>                                           
+    </div> <!-- end card -->
+   </div>
+
+  </div>
+
+  <div class="row viewmore">
+    <button type="button" class="btn btn-primary btn-xs buttonwide">View More</button>
+  </div>
+</div>
 
 
-	<h1>Home - Index</h1>
-
-
-	<% unless current_foody %>
-	  <%= link_to "Sign in with Facebook", foody_facebook_omniauth_authorize_path %>
-	  <li><%= link_to "Login", new_foody_session_path %></li>
-	    <% else %>
-	  <%= link_to "Logout", destroy_foody_session_path, method: :delete %>
-	<% end %>
 
 
 	<% if foody_signed_in? %>
-	<%= link_to current_foody.name, foody_path(current_foody) %>
+		<%= link_to current_foody.name, foody_path(current_foody) %>
+	<% end %>
 
 	 <% @photos.each do |photo| %>
 		
 		<%= photo.title %>
 		<%= photo.description %>
-		<p>$<%= photo.price %></p>
-		
-		<% if photo.avatar.present? %>
-			
-			<%= link_to root_path do %>
-				<%= image_tag photo.avatar_url(:thumb).to_s, :size => '260x180' %>
-			<% end %>
-		
-		<% else %>
-		
-			<%= link_to root_path do %>
-				<%= image_tag ('/assets/mee.jpg'), :size => "260x180" %>
-
-			 <% end %>
-		 <% end %>
-
-
-     
-		       <% photo_id = photo.id %>
-            <% a = Like.where(photo_id:photo_id) %>
-   			      <% likecheck = photo.likes.find_by(foody_id: current_foody) %>
-             
-
-            <% b = Dislike.where(photo_id:photo_id) %>
-              <% dislikecheck = photo.dislikes.find_by(foody_id: current_foody) %>
-              
-            
-
-
-                <% if likecheck != nil && dislikecheck == nil %>
-                  <%= link_to foodies_photo_like_path(photo_id: photo.id, id: likecheck.id), method: :delete do %>
-                    <button style="color: #1DA1F2;">
-                      <span class="glyphicon glyphicon-thumbs-up"></span> </small></br>
-                    </button> 
-                   
-                <% end %> 
-                 <%= a.count %>
-                  <%= link_to foodies_photo_dislikes_path(photo_id: photo.id),method: :post do %>
-                   <button style="color: #434A54;">
-                    <span class="glyphicon glyphicon-thumbs-down"></span><small> </small></br>
-                   </button>  
-                          
-                  <% end %>
-                  <%= b.count %> 
-                        
-
-                  <% elsif likecheck == nil && dislikecheck == nil%>
-                    <%= link_to foodies_photo_likes_path(photo_id: photo.id),method: :post do %>
-                      <button style="color: #434A54;">
-                        <span class="glyphicon glyphicon-thumbs-up"></span><small> </small></br>
-                      </button>
-                    <% end %> 
-                    <%= a.count %>
-                    <%= link_to foodies_photo_dislikes_path(photo_id: photo.id),method: :post do %>
-                       <button style="color: #434A54;">
-                        <span class="glyphicon glyphicon-thumbs-down"></span><small> </small></br>
-                       </button>          
-                    <% end %>
-                    <%= b.count %>
-                 
-        
-
-                    <% elsif dislikecheck != nil && likecheck == nil %>
-
-                    <%= link_to foodies_photo_likes_path(photo_id: photo.id),method: :post do %>
-                      <button style="color: #434A54;">
-                        <span class="glyphicon glyphicon-thumbs-up"></span><small> </small></br>
-                      </button>
-                      <%= a.count %>
-                      <% end %>
-                      
-                       <%= link_to foodies_photo_dislike_path(photo_id: photo.id, id: dislikecheck.id), method: :delete do %>
-                        <button style="color: #1DA1F2;">
-                          <span class="glyphicon glyphicon-thumbs-down"></span> </small></br>
-                        </button>
-                        <%= b.count %>
-                      <% end %> 
-                      
-
-                       <% elsif dislikecheck == nil && likecheck == nil%>
-                        <%= link_to foodies_photo_likes_path(photo_id: photo.id),method: :post do %>
-                      <button style="color: #434A54;">
-                        <span class="glyphicon glyphicon-thumbs-up"></span><small> </small></br>
-                      </button>
-                      <%= a.count %>
-                       <% end %>
-                      
-
-                      <%= link_to foodies_photo_dislikes_path(photo_id: photo.id),method: :post do %>
-                       <button style="color: #434A54;">
-                        <span class="glyphicon glyphicon-thumbs-down"></span><small> </small></br>
-                       </button> 
-                       <%= b.count %>         
-                      <% end %>
-
-
-
-
-                      <% elsif likecheck != nil && dislikecheck != nil %>
-                        
-                       <% @current_like = Like.find_by(photo_id: photo.id, foody_id: current_foody.id) %>
-                       <%link_to invalid_foodies_photo_like_path(photo_id: photo.id, id: @current_like.id), method: :delete do%>
-                        <button style="color: #434A54;">
-                        <span class="glyphicon glyphicon-thumbs-up"></span><small> </small></br>
-                      </button>
-                      
-                       <% end %>
-
-
-                      <% @current_dislike = Dislike.find_by(photo_id: photo.id, foody_id: current_foody.id) %>
-                      <%link_to invalid_foodies_photo_dislike_path(photo_id: photo.id, id: @current_dislike.id), method: :delete do%>
-                      <button style="color: #434A54;">
-                        <span class="glyphicon glyphicon-thumbs-down"></span><small> </small></br>
-                       </button> 
-                              
-                      <% end %>
-
-                  
-                <% end %>
-		
-		<% if photo.foody == current_foody %>  
-			 <td><div class=""><%= link_to "Edit", edit_foodies_photo_path(id: photo.id) %>    </div></td>
-			 <td><div class=""><%= link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %></div></td>
-		<% end %>
+		<p>$<%= photo.price %></p>		
+		<%= image_tag photo.avatar_url(:thumb).to_s, :size => '260x180' %>
 	
-	 <% end %>
-   <% end %>
+		<% if current_review = photo.likeables.find_by(foody_id: current_foody.id) %>
+			<%= render 'got_likeable', photo: photo %>
+		<% else %>
+			<%= render 'no_likeable', photo: photo %>
+		<% end %>
+		
+	<% end %>
 
-				
+			 <!-- <td><div class="">< link_to "Edit", edit_foodies_photo_path(id: photo.id) %>    </div></td> -->
+			 <!-- <td><div class="">< link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %></div></td> -->
+
 	  <%= link_to "Upload New Photo", new_foodies_photo_path %>
+
   </div>
 </div>
+
 

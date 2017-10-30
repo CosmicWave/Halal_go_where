@@ -7,13 +7,17 @@ Rails.application.routes.draw do
   
 	namespace :foodies do
 		resources :photos do
-			resources :likes do
-				delete 'invalid', on: :member
-			end
-
-			resources :dislikes do
-				delete 'invalid', on: :member
-			end
+      resources :likeables, only: [:create, :new, :destroy] do
+        
+        member do
+          get 'convert_like'
+        end
+        
+        member do
+          get 'convert_dislike'
+        end
+      
+      end
 		end
 	end		
 
@@ -21,19 +25,18 @@ Rails.application.routes.draw do
 	
   resources :foodies, only: [:show, :edit, :update]
 
+  patch 'simple_search', to: 'homes#search'
 
   resources :restaurants, except: [:index] do
-    
     resources :disapproves, only: [:create, :destroy] do
       delete 'convert', on: :member
     end
-
     resources :recommends, only: [:create, :destroy] do
       delete 'convert', on: :member
     end
- 
   end
   
+  resources :searches, only: [:show, :new, :create]
 
   resources :foods
 

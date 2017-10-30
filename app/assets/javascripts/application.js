@@ -19,6 +19,7 @@
 
 
 $(document).ready(function() {
+
 $('.carousel').carousel({
   interval: 5000,
   pause: "null"
@@ -32,5 +33,3 @@ $('.notice').fadeOut(5000, function(){$(this).remove();
 });
 
 });
-
-

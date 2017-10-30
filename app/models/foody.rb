@@ -9,8 +9,7 @@ class Foody < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:facebook]
 
   has_many :photos, dependent: :destroy
-  #has_many :likes,  dependent: :destroy
-  #has_many :dislikes,  dependent: :destroy
+  has_many :likeables, dependent: :destroy
   has_many :recommends, dependent: :destroy
   has_many :disapproves, dependent: :destroy
   #has_many :reviews,  dependent: :destroy

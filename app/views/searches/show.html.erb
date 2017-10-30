@@ -1,0 +1,24 @@
+<h2>Search Results</h2>
+
+<% if @search.search_restaurant.empty? %>
+
+	<p>No records found</p>
+
+<% else %>
+
+	<% @search.search_restaurant.each do |restaurant| %>
+
+		<br/>
+
+		<div class="container">
+			<h1><%= restaurant.name %></h1>
+			<p>Location : <%= restaurant.location %></p>
+			<p>Category : <%= restaurant.category %></p>
+			<p>Timing : <%= restaurant.time %></p>
+			<p>Certification : <%= restaurant.certification %></p>
+
+		</div>
+
+	<% end %>
+
+<% end %>

@@ -1,12 +1,20 @@
 class Photo < ApplicationRecord
 
-
 	belongs_to :foody
+	has_many :likeables, dependent: :destroy
+	has_many :users_liked, through: :likeables, source: :foody
 #	belongs_to :food
-	has_many :dislikes, dependent: :destroy
-	has_many :likes, dependent: :destroy
 #	has_many :reviews,  dependent: :destroy
 
 	mount_uploader :avatar, AvatarUploader
+
+	def self.search(search)
+		if search
+			where("title LIKE ?", "%#{search}%")
+		else
+			all
+		end
+	end
+
 
 end
