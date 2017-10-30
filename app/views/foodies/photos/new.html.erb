@@ -1,48 +1,81 @@
-<h1>Foodies::Photos - New</h1>
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+<div class="container-fluid">
+
+  <%= image_tag "muffin.jpg", class: "bg" %>
+			<div class="row">
+				<div class="col-md-7 col-xs-7">
+				  <p>Foodies::Photos - New</p>
+				   <div id="contact-form">
+				  	
+					<%= form_for :photo, url: foodies_photos_path, method: :post do |f| %>
+
+							<div class="">
+								<%= f.label  :title, "Food", :class =>"" %>
+							    <%= f.text_field :title %>
+
+							</div>
+
+							<div class="">
+								<%= f.label  :description, "Review" %>
+								<%= f.text_area :description %>
+							</div>
+							
+							<div class="">
+								<%= f.label  :price %>
+								<%= f.text_field :price %>
+							</div>
+
+
+							<div class="">
+								<%= f.label  :restaurant %>
+								<%= f.text_field :restaurant %>
+							</div>
+				                              
+							<div class="">
+					  			<%= f.submit "Submit" %>
+					  		</div>
+					  	
+							<div class="">
+					  		    <%= f.file_field :avatar, id: "avatar-upload", :class => "" %></span>
+					  			<% f.hidden_field :avatar_cache %>
+					  		</div>
+				  </div>
+				</div>
+					
+
+					  	<div class="col-md-5 col-xs-5">	
+					  		 
+							 <div class="preview-photo">
+					  			<img id="img-prev" class="img-new" src="#" alt="Food for the body is not enough. There must be food for the soul. Dorothy Day"  class="img-thumbnail hidden"/>			
+						</div>
+					  <% end %>
+		
+		    </div>
+</div>
 
 
 
 
-	<%= form_for :photo, url: foodies_photos_path, method: :post do |f| %>
-
-			<div class="">
-			<%= f.label  :title %></br>
-			  <%= f.text_field :title %>
-			</div>
-
-			<div class="">
-			<%= f.label  :description %></br>
-			 <%= f.text_field :description %>
-			 </div>
-			
-
-			 <div class="">
-			<%= f.label  :price %></br></div>
-			<div class="">
-			<%= f.text_field :price %>
-			</div>
 
 
+<script type="text/javascript">
 
+$(function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
 
-			<div class="">
-			<%= f.label  :avatar %></br></div>
-			<div class="">
-			<%= f.file_field :avatar %>
-			</div>                                    
+      reader.onload = function (e) {
+        $('#img-prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
 
+  $("#avatar-upload").change(function(){
+    $('#img-prev').removeClass('hidden');
+    readURL(this);
+  });
+});
 
-			
-
-
-			<div class="">
-	  		<%= f.submit "Submit" %>
-	  		</div>
-	 
-<!--	 <div class="form">
-	 <%= button_tag(type: 'submit', class: "btn btn-success") do %>
-	 <%= link_to "Submit", root_path %>
-	 <% end %>
-	 </div>   -->
-
-<% end %>
+</script>

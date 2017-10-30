@@ -1,46 +1,93 @@
-<h1>Foodies::Photos - Edit</h1>
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+<div class="container-fluid">
+
+  <%= image_tag "donuts.jpeg", class: "bg" %>
 
 
-<%= form_for @photo, url: foodies_photo_path(id: @photo.id), method: :put do |f| %>
+			<div class="row">
 
-			<div class="">
-			<%= f.label  :title %></br>
-			  <%= f.text_field :title %>
-			</div>
+				<div class="col-md-7 col-xs-7 ">
+					<p>Foodies::Photos - edit</p>
+				  <div id="contact-form">
 
-			<div class="">
-			<%= f.label  :description %></br>
-			 <%= f.text_field :description %>
-			 </div>
+
+					<%= form_for @photo, url: foodies_photo_path(id: @photo.id), method: :put do |f| %>
+
+
+							<div class="">
+								<%= f.label  :title, "Food", :class =>"" %>
+							    <%= f.text_field :title %>
+
+							</div>
+
+							<div class="">
+								<%= f.label  :description, "Review" %>
+								<%= f.text_area :description %>
+							</div>
+							
+							<div class="">
+								<%= f.label  :price %>
+								<%= f.text_field :price %>
+							</div>
+
+
+							<div class="">
+								<%= f.label  :restaurant %>
+								<%= f.text_field :restaurant %>
+							</div>
+				                              
+							<div class="">
+					  			<%= f.submit "Submit" %>
+					  		</div>
+		  		
+					  		
+							<div class="fileinputs">
+					  		    <input id="avatar-upload" class="file" name="photo[avatar]" type="file">
+					  		    <div class="fakefile">
+					  		    	<%= f.hidden_field :avatar_cache %>
+					  		   	<input  size="30"  value="Add Your Image" ></input> 
+					  				
+					  			</div>
+					  		</div>
+				  </div>
+				</div>
 			
 
-			 <div class="">
-			<%= f.label  :price %></br></div>
-			<div class="">
-			<%= f.text_field :price %>
-			</div>
+					  	<div class="col-md-5 col-xs-5">	
+					  	   
+							<div class="preview-photo">
+					  			<img id="img-prev" class="img-new" src="#" alt="	Your diet is a bank account. Good food choices are good investments. Bethenny Frankel"  class="img-thumbnail hidden"/>
+							</div>
+							
+						</div>
+				    <% end %>
+		    </div>
+</div>
 
 
 
 
-			<div class="">
-			<%= f.label  :avatar %></br></div>
-			<div class="">
-			<%= f.file_field :avatar %>
-			</div>                                    
 
 
-			
+<script type="text/javascript">
+
+$(function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img-prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#avatar-upload").change(function(){
+    $('#img-prev').removeClass('hidden');
+    readURL(this);
+  });
+});
 
 
-			<div class="">
-	  		<%= f.submit "Submit" %>
-	  		</div>
-	 
-<!--	 <div class="form">
-	 <%= button_tag(type: 'submit', class: "btn btn-success") do %>
-	 <%= link_to "Submit", root_path %>
-	 <% end %>
-	 </div>   -->
-
-<% end %>
+</script>

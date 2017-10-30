@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20171029135305) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
 
   create_table "disapproves", force: :cascade do |t|
     t.bigint "foody_id"
@@ -45,6 +64,14 @@ ActiveRecord::Schema.define(version: 20171029135305) do
     t.index ["reset_password_token"], name: "index_foodies_on_reset_password_token", unique: true
   end
 
+  create_table "foods", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.bigint "photo_id"
+    t.index ["photo_id"], name: "index_foods_on_photo_id"
+    t.index ["restaurant_id"], name: "index_foods_on_restaurant_id"
+  end
+
+
   create_table "likeables", force: :cascade do |t|
     t.integer "review", default: 1
     t.bigint "foody_id"
@@ -53,8 +80,26 @@ ActiveRecord::Schema.define(version: 20171029135305) do
     t.index ["photo_id"], name: "index_likeables_on_photo_id"
   end
 
+  create_table "owners", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_owners_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "title"
+    t.string "restaurant"
     t.text "description"
     t.string "avatar"
     t.decimal "price", precision: 12, scale: 3
@@ -91,6 +136,8 @@ ActiveRecord::Schema.define(version: 20171029135305) do
 
   add_foreign_key "disapproves", "foodies"
   add_foreign_key "disapproves", "restaurants"
+  add_foreign_key "foods", "photos"
+  add_foreign_key "foods", "restaurants"
   add_foreign_key "likeables", "foodies"
   add_foreign_key "likeables", "photos"
   add_foreign_key "photos", "foodies"

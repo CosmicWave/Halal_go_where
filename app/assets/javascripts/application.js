@@ -14,7 +14,9 @@
 //= require rails-ujs
 // Load all Bootstrap JavaScript
 //= require bootstrap-sprockets
+
 //= require_tree .
+
 
 $(document).ready(function() {
 
