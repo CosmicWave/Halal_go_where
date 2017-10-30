@@ -3,6 +3,7 @@ class CreatePhotos < ActiveRecord::Migration[5.1]
     create_table :photos do |t|
 
     	t.string :title
+        t.string :restaurant
     	t.text   :description
     	t.string :avatar
     	t.decimal :price, precision: 12, scale: 3
@@ -10,6 +11,7 @@ class CreatePhotos < ActiveRecord::Migration[5.1]
     	t.timestamps
 
     	t.references :foody, foreign_key: true
+       
     end
   end
 end

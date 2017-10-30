@@ -6,6 +6,8 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
     	t.string :location
     	t.string :time
     	t.string :certification
+
+    	
     end
   end
 end
