@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   
 	namespace :foodies do
 		resources :photos do
+
+          member do
+          get 'view_more'
+        end
+        
       resources :likeables, only: [:create, :new, :destroy] do
         
         member do

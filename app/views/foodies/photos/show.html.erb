@@ -15,11 +15,13 @@
   </div>
 
 
-<% if foody_signed_in? %>
+
+<div class="container-fluid cardcont">
+  <div class="row cardrow">
+
+ <% if foody_signed_in? %>
 
 
-  <% @photos.each do |photo| %>
-    <% if photo.foody == current_foody %>
       <div class="card-box col-md-4 col-sm-6">
        <div class="card">                            
            <div class="header">
@@ -28,12 +30,12 @@
                <button class="btn btn-round btn-fill btn-neutral btn-modern">
 
 
-                    <% if photo.avatar.present? %> 
-                      <%= link_to foodies_photo_path(id: photo.id) do %>
-                        <%= image_tag photo.avatar_url.to_s, :size => "250x180" %>
+                    <% if @photo.avatar.present? %> 
+                      <%= link_to foodies_photo_path(id: @photo.id) do %>
+                        <%= image_tag @photo.avatar_url.to_s, :size => "250x180" %>
                         <% end %>
                     <% else %>
-                      <%= link_to foodies_photo_path(id: photo.id) do %>
+                      <%= link_to foodies_photo_path(id: @photo.id) do %>
                         <%= image_tag ('/assets/mee.jpg'), :size => "250x180" %>
                       <% end %>
                     <% end %>
@@ -42,21 +44,24 @@
            </div>
            
         <div class="content">
-         <h4>Place: <%= photo.restaurant %></h4>
-         <p>Food: <%= photo.title %></p>
-         <p>Review: <%= photo.description %></p>
-         <p>Price:<b> $<%= photo.price %></b></p>
+         <h4>Place: <%= @photo.restaurant %></h4>
+         <p>Food: <%= @photo.title %></p>
+         <p>Review: <%= @photo.description %></p>
+         <p>Price:<b> $<%= @photo.price %></b></p>
              
-            <div class="bywho"><small><%= link_to photo.foody.name, foody_path(current_foody) %></br> Created: <%= time_ago_in_words(photo.created_at) %> ago</small></div>
+            <div class="bywho"><small><%= link_to @photo.foody.name, foody_path(current_foody) %></br> Created: <%= time_ago_in_words(@photo.created_at) %> ago</small></div>
             
-            <% if photo.foody == current_foody %>  
-              <%= link_to "Edit", edit_foodies_photo_path(id: photo.id) %>
-              <%= link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %>
+            <% if @photo.foody == current_foody %>  
+              <%= link_to "Edit", edit_foodies_photo_path(id: @photo.id) %>
+              <%= link_to "Delete", foodies_photo_path(id: @photo.id), method: :delete %>
             <% end %>
 
        </div>                                          
       </div> <!-- end card -->
      </div>
     <% end %>
-  <% end %>
-<% end %>
+
+
+
+</div>                                          
+</div>
