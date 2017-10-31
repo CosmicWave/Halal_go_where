@@ -83,7 +83,7 @@
           <p>Venue: </br> <%= truncate(@photo.restaurant, :length => 40) %></p>
           <p>Review:</br> <%= truncate(@photo.description, :length => 90) %></p>
           <p>Price:<b> $<%= @photo.price %></b></p>   
-          <div class="bywho"><small><%= link_to @photo.foody.name, foody_path(current_foody) %></br> Created: <%= time_ago_in_words(@photo.created_at) %> ago</small></div>
+          <div class="bywho"><small><%= link_to @photo.foody.name, foody_path(@photo.foody) %></br> Created: <%= time_ago_in_words(@photo.created_at) %> ago</small></div>
         </div>                        
 
     </div> <!-- end card -->
@@ -149,7 +149,7 @@
           <p>Venue: </br> <%= truncate(@photo2last.restaurant, :length => 40) %></p>
           <p>Review:</br> <%= truncate(@photo2last.description, :length => 90) %></p>
           <p>Price:<b> $<%= @photo2last.price %></b></p>   
-          <div class="bywho"><small><%= link_to @photo.foody.name, foody_path(current_foody) %></br> Created: <%= time_ago_in_words(@photo2last.created_at) %> ago</small></div>
+          <div class="bywho"><small><%= link_to @photo.foody.name, foody_path(@photo.foody) %></br> Created: <%= time_ago_in_words(@photo2last.created_at) %> ago</small></div>
         </div>                        
 
     </div> <!-- end card -->
@@ -215,7 +215,7 @@
           <p>Venue: </br> <%= truncate(@photo3last.restaurant, :length => 40) %></p>
           <p>Review:</br> <%= truncate(@photo3last.description, :length => 90) %></p>
           <p>Price:<b> $<%= @photo3last.price %></b></p>   
-          <div class="bywho"><small><%= link_to @photo.foody.name, foody_path(current_foody) %></br> Created: <%= time_ago_in_words(@photo3last.created_at) %> ago</small></div>
+          <div class="bywho"><small><%= link_to @photo.foody.name, foody_path(@photo.foody) %></br> Created: <%= time_ago_in_words(@photo3last.created_at) %> ago</small></div>
         </div>                        
 
     </div> <!-- end card -->
@@ -252,30 +252,7 @@
 
 <!-- end card 3 -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  <div><%= link_to "Upload New Photo", new_foodies_photo_path %></div>
-
-
-
 
   <div class="row viewmore">
       <%= link_to view_more_foodies_photo_path(id: @photos) do %>
