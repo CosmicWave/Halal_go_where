@@ -15,18 +15,27 @@
 			</div>
 
 			<div class="row searchrow">
-				<div class="col-md-4 col-xs-4"></div>
+				<div class="col-md-3 col-xs-3"></div>
 				<div class="col-md-6 col-xs-6">
 					<form class="searchbar" role="search">
 						<div class="input-group">
 							<%= form_tag simple_search_path, method: :patch do %>
-							<%= text_field_tag :search, params[:search] %>
-							<%= submit_tag 'Search', class: 'btn btn-danger searchbutton' %><% end %>
-							<%= link_to 'Advance Search', new_search_path, class: 'btn btn-danger searchbutton' %>
+              <div class="row">
+							 <%= text_field_tag :search, params[:search], class: "bar" %>
+              </div>
+              
+              <div class="row searchbuttonrow">
+                <div class="col-md-6 col-xs-6">
+                  <%= submit_tag 'Search', class: 'btn btn-danger searchbutton' %><% end %>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                  <%= link_to 'Advance Search', new_search_path, class: 'btn btn-danger searchbutton' %>
+                </div>					 
+              </div>
 						</div>
 					</form>
 				</div>
-				<div class="col-md-2 col-xs-2"></div>
+				<div class="col-md-3 col-xs-3"></div>
 			</div>
 		</div>
 
@@ -35,6 +44,7 @@
 <!-- ///////////////////////// Latest reviews ///////////////////////////////////////// -->
 
 <div class="container-fluid cardcont">
+
   <div class="row cardrow">
 
   <div class="posthead">Latest Reviews</div>
@@ -232,6 +242,7 @@
           <div class="bywho"><small>By Regent on 20th Oct 2017</small></div>
         </div>                                           
     </div> <!-- end card -->
+
   </div>
 <% end %>
 
