@@ -61,4 +61,10 @@ class Foodies::PhotosController < ApplicationController
 		redirect_to root_path
 	end
 
+
+	def view_more
+	#	@photo = Photo.find_by(id: params[:id])
+		@photos = Photo.all
+	end
+
 end

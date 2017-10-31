@@ -185,7 +185,7 @@
 }
 
 .bywho {
-  margin-top: 40px;
+  margin-top: 25px;
   margin-bottom: 10px;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.5) 
@@ -1309,7 +1309,7 @@ input:required, textarea:required {
 }
 
 
-/*---------------- photos - show-----------*/
+/*---------------- cards - photos/show &&  homes/index-----------*/
 
 
 .card h4, .card a {
@@ -1496,12 +1496,18 @@ input:required, textarea:required {
  background-color: #FFFFFF;
  margin-bottom: 20px;
  position: relative;
+
  max-width: 360px;
  margin-left: auto;
  margin-right: auto;
 }
 
-
+.card-index {
+ min-height: 530px;
+ max-height: 530px;
+ max-width: 360px;
+ 
+}
 
 /*---------------- photos - edit - browse button-----------*/
 
