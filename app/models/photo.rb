@@ -3,8 +3,9 @@ class Photo < ApplicationRecord
 	belongs_to :foody
 	has_many :likeables, dependent: :destroy
 	has_many :users_liked, through: :likeables, source: :foody
-#	belongs_to :food
-#	has_many :reviews,  dependent: :destroy
+
+	has_many :taggings
+	has_many :photos, through: :taggings
 
 	mount_uploader :avatar, AvatarUploader
 
@@ -16,5 +17,15 @@ class Photo < ApplicationRecord
 		end
 	end
 
+	def self.tagged_with(name)
+		Tag.find_by_name!(name).photos
+	end
 
+	def self.tag_counts
+		Tag.select
+	end
+
+	def tag.list
+		tags.map(&:name).join(", ")
+	end
 end
