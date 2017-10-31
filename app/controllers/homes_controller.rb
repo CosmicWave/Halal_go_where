@@ -3,13 +3,7 @@ class HomesController < ApplicationController
 	def index
 		@photos = Photo.search(params[:search])
 		@foodies = Foody.all
-
-		@likes = Like.all
-		@dislikes = Dislike.all	
-	end
-
-
-	
+	end	
 
 	def search
 		@params = params
