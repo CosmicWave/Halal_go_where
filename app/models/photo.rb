@@ -9,6 +9,10 @@ class Photo < ApplicationRecord
 
 	mount_uploader :avatar, AvatarUploader
 
+	def tags
+		Tag.all
+	end
+	
 	def self.search(search)
 		if search
 			where("title LIKE ?", "%#{search}%")
@@ -22,10 +26,16 @@ class Photo < ApplicationRecord
 	end
 
 	def self.tag_counts
-		Tag.select
+		Tag.select("tags.*, count(taggings.tag_id) as count").joins(:taggings).group("taggings.tag_id")
 	end
 
-	def tag.list
+	def tag_list
 		tags.map(&:name).join(", ")
+	end
+
+	def tag_list=(names)
+		self.tags = names.split(",").map do |n|
+			Tag.where(name: n.strip).first_or_create!
+		end
 	end
 end

@@ -1,8 +1,14 @@
 class Foodies::PhotosController < ApplicationController
 
 	def index
+		if params[:tag]
+			@photos = Photo.tagged_with(params[:tag])
+		else
+			@photos = Photo.all
+		end
+
 		@foodies = Foody.all
-		@photos = Photo.all
+		
 	end
 
 

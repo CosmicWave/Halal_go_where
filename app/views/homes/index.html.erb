@@ -225,19 +225,13 @@
   </div>
 </div>
 
-
-
-
-	<% if foody_signed_in? %>
-		<%= link_to current_foody.name, foody_path(current_foody) %>
-	<% end %>
-
-	 <% @photos.each do |photo| %>
+	<% @photos.each do |photo| %>
 		
 		<%= photo.title %>
 		<%= photo.description %>
 		<p>$<%= photo.price %></p>		
 		<%= image_tag photo.avatar_url(:thumb).to_s, :size => '260x180' %>
+    <p>Tags: <%= raw photo.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 	
 		<% if current_review = photo.likeables.find_by(foody_id: current_foody.id) %>
 			<%= render 'got_likeable', photo: photo %>
@@ -247,8 +241,7 @@
 		
 	<% end %>
 
-			 <!-- <td><div class="">< link_to "Edit", edit_foodies_photo_path(id: photo.id) %>    </div></td> -->
-			 <!-- <td><div class="">< link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %></div></td> -->
+
 
 	  <%= link_to "Upload New Photo", new_foodies_photo_path %>
 

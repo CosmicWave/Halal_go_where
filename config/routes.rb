@@ -40,5 +40,6 @@ Rails.application.routes.draw do
 
   resources :foods
 
+  get 'tags/:tag', to: 'homes#index', as: :tag
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030091641) do
+ActiveRecord::Schema.define(version: 20171031085947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20171030091641) do
     t.string "restaurant"
     t.text "description"
     t.string "avatar"
+    t.string "tag_list"
     t.decimal "price", precision: 12, scale: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -128,12 +129,11 @@ ActiveRecord::Schema.define(version: 20171030091641) do
     t.decimal "max_price"
   end
 
+  create_table "taggings", force: :cascade do |t|
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
-    t.bigint "restaurant_id"
-    t.bigint "photo_id"
-    t.index ["photo_id"], name: "index_tags_on_photo_id"
-    t.index ["restaurant_id"], name: "index_tags_on_restaurant_id"
   end
 
   add_foreign_key "disapproves", "foodies"
@@ -145,6 +145,4 @@ ActiveRecord::Schema.define(version: 20171030091641) do
   add_foreign_key "recommends", "foodies"
   add_foreign_key "recommends", "restaurants"
   add_foreign_key "restaurants", "tags"
-  add_foreign_key "tags", "photos"
-  add_foreign_key "tags", "restaurants"
 end
