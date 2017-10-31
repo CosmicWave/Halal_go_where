@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171029135305) do
+ActiveRecord::Schema.define(version: 20171030091641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,7 +103,9 @@ ActiveRecord::Schema.define(version: 20171029135305) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "foody_id"
+    t.bigint "tag_id"
     t.index ["foody_id"], name: "index_photos_on_foody_id"
+    t.index ["tag_id"], name: "index_photos_on_tag_id"
   end
 
   create_table "recommends", force: :cascade do |t|
@@ -120,6 +122,8 @@ ActiveRecord::Schema.define(version: 20171029135305) do
     t.string "time"
     t.string "certification"
     t.string "category"
+    t.bigint "tag_id"
+    t.index ["tag_id"], name: "index_restaurants_on_tag_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -131,6 +135,14 @@ ActiveRecord::Schema.define(version: 20171029135305) do
     t.decimal "max_price"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.bigint "restaurant_id"
+    t.bigint "photo_id"
+    t.index ["photo_id"], name: "index_tags_on_photo_id"
+    t.index ["restaurant_id"], name: "index_tags_on_restaurant_id"
+  end
+
   add_foreign_key "disapproves", "foodies"
   add_foreign_key "disapproves", "restaurants"
   add_foreign_key "foods", "photos"
@@ -138,6 +150,10 @@ ActiveRecord::Schema.define(version: 20171029135305) do
   add_foreign_key "likeables", "foodies"
   add_foreign_key "likeables", "photos"
   add_foreign_key "photos", "foodies"
+  add_foreign_key "photos", "tags"
   add_foreign_key "recommends", "foodies"
   add_foreign_key "recommends", "restaurants"
+  add_foreign_key "restaurants", "tags"
+  add_foreign_key "tags", "photos"
+  add_foreign_key "tags", "restaurants"
 end
