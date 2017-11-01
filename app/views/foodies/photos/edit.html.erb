@@ -39,20 +39,25 @@
 								<%= f.label  :restaurant %>
 								<%= f.text_field :restaurant %>
 							</div>
-				                              
-							<div class="">
-					  			<%= f.submit "Submit" %>
-					  		</div>
-		  		
-					  		
+				                          
+
+							<div class="row">
+							<div class="col-md-6 col-xs-6 ">
+							 
+					  			<%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
+					  		</div>	
+		  				
+					  	 <div class="col-md-6 col-xs-6 ">
 							<div class="fileinputs">
 					  		    <input id="avatar-upload" class="file" name="photo[avatar]" type="file">
 					  		    <div class="fakefile">
 					  		    	<%= f.hidden_field :avatar_cache %>
-					  		   	<input  size="30"  value="Add Your Image" ></input> 
+					  		   	<button type="button" class="btn btn-primary btn-lg">Add you image </button>
 					  				
 					  			</div>
 					  		</div>
+					  	</div>
+					  	</div>
 				  </div>
 				</div>
 			

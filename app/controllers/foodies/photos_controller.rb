@@ -62,11 +62,17 @@ class Foodies::PhotosController < ApplicationController
 		flash[:notice] = "Photo deleted successfully"
 		redirect_to root_path
 	end
+  
+  def view_more
+	#	@photo = Photo.find_by(id: params[:id])
+		@photos = Photo.all
+	end
 
 	private
 
 	def photo_params
 		params.require(:photo).permit(:title, :description, :price, :avatar, :restaurant, :tag_list)
 	end
+
 end
 
