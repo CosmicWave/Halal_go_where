@@ -588,7 +588,7 @@
   color: white;
 }
 
-.form-control {
+.signinup .form-control {
   text-align: center;
 }
 
@@ -852,6 +852,32 @@
   margin-top: 16px;
 }
 }
+/* ------------------- edit profile --------------- */
+.invisidiv {
+  height: 164px;
+}
+
+.editprofile {
+  font-weight: 400;
+  font-size: 40px;
+  text-align: center;
+}
+
+.editprofilesize {
+    height: 100%;
+    width: 100%;
+
+    /* Set the height to match that of the viewport. */
+    height: 100vh;
+    padding-bottom: -150px;
+
+    /* Set the width to match that of the viewport. */
+    width: 100vw;
+
+    /* Remove any browser-default margins. */
+    margin: 0;
+}
+
 /* ------------------ footer ------------------ */
 
 
