@@ -1,7 +1,12 @@
 class TagsController < ApplicationController
 
 	def index
-		@tags = ActsAsTaggableOn::Tag.all
+		# @tags = ActsAsTaggableOn::Tag.all
+		if params[:tag]
+			@photos = Photo.tagged_with(params[:tag])
+  	else
+  		@photos = Photo.all
+		end
 	end
 
 	def show
