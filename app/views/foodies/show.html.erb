@@ -1,33 +1,100 @@
 <div class="container-fluid profilebg">
-<div class="pulse1"></div>
-<div class="pulse2"></div>
+  <div class="row">
+    <div class="profile-banner">
+      <div class="row profilerow">
+        <div class="col-md-1 col-xs-2"></div>
+          <div class="col-md-4 col-xs-8 profilebox">
+            <div class="row">
+              <div class="col-md-3 col-xs-4">
+                <%= avatar_for @foody %>
+                <% if @foody == current_foody %>
+                  <%= link_to 'Settings', edit_foody_path(@foody), class: "settinglink btn btn-primary btn-xs settingsbutton" %>
+                <% end %>    
+              </div>
+              
+              <div class="col-md-9 col-xs-8">
+                <div class="row namerow">
+                  <span class="profilename"><%= @foody.name %></span><br>
+                  <span class="profilestatus"><%= @foody.status %></span>
+                </div>
 
-	<div class= "stats">
-  <%= avatar_for @foody %>
-
-	<%= @foody.name %>
-
-	<div class="container">
-		<div class="row">
-
-			<div class="col-md-1">
-				<%= avatar_for @foody %>	
-			</div>
-
-			<div class="col-md-4">
-				<h1 class="profile-name"><%= @foody.name %></h1>
-				<p class="profile-status"><%= @foody.status %></p>
-				<p class="profile-status">www.instababe.com</p>
-			</div>
-
-			<div class="col-md-offset-4 col-md-2">	
-				<% if @foody == current_foody %>
-					<%= link_to 'Settings', edit_foody_path(@foody) %>
-				<% end %>
-			</div>
-		
-		</div>
-	</div>
-
+                <div class="row foodystatsrow">
+                  <ul class="list-inline">
+                    <li>
+                      <span class="statsnum">3</span> Reviews
+                    </li>
+                    
+                    <li>
+                      <span class="statsnum">30</span> Likes
+                    </li>                 
+                  </ul>                
+                </div>
+                                        
+              </div>
+           
+            </div>
+          </div>
+        <div class="col-md-7 col-xs-2"></div>
+      </div>
+    </div>
+  </div>
 </div>
+
+  <div class="container-fluid cardcont">
+  <div class="row cardrow">
+    <div class="posthead">Your Reviews</div>
+
+   <div class="container-fluid cardcont">
+  <div class="row cardrow">
+
+ 
+
+
+
+  <% @foodyphoto.each do |photo| %> 
+
+  
+      <div class="card-box col-md-6 col-sm-6">
+       <div class="card">                            
+           <div class="header">
+             <div class="filter"></div>
+             <div class="actions">
+               <div class="btn btn-round btn-fill btn-neutral btn-modern">
+
+
+                    <% if photo.avatar.present? %> 
+                      <%= link_to foodies_photo_path(id: photo.id) do %>
+                        <%= image_tag photo.avatar_url.to_s, :size => "250x180" %>
+                        <% end %>
+                    <% else %>
+                      <%= link_to foodies_photo_path(id: photo.id) do %>
+                        <%= image_tag ('/assets/mee.jpg'), :size => "250x180" %>
+                      <% end %>
+                    <% end %>
+               </div>
+             </div>
+           </div>
+           
+        <div class="content">
+         <h4>Place: <%= photo.restaurant %></h4>
+         <p>Food: <%= photo.title %></p>
+         <p>Review: <%= photo.description %></p>
+         <p>Price:<b> $<%= photo.price %></b></p>
+             
+            <div class="bywho"><small><%= link_to photo.foody.name, foody_path(photo.foody) %></br> Created: <%= time_ago_in_words(photo.created_at) %> ago</small></div>
+            
+            <% if photo.foody == current_foody %>  
+              <%= link_to "Edit", edit_foodies_photo_path(id: photo.id) %>
+              <%= link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %>
+            <% end %>
+
+       </div>                                          
+      </div> <!-- end card -->
+     </div>
+    <% end %>
+
+
+
+</div>                                          
 </div>
+
