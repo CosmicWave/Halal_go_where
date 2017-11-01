@@ -38,8 +38,6 @@ Rails.application.routes.draw do
   
   resources :searches, only: [:show, :new, :create]
 
-  resources :foods
-
-  get 'tags/:tag', to: 'homes#index', as: :tag
+  resources :tags, only: [:index, :show]
 
 end

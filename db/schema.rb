@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 20171101034661) do
     t.string "restaurant"
     t.text "description"
     t.string "avatar"
-    t.string "tag_list"
     t.decimal "price", precision: 12, scale: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

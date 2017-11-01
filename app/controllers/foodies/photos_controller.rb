@@ -19,11 +19,10 @@ class Foodies::PhotosController < ApplicationController
 
 	def create
     @photo = Photo.new(photo_params)
-    @photo.foody_id = current_foody.id
+    @photo.foody = current_foody
     if @photo.save	
 			flash[:notice] = "Successfully Updated"
 			redirect_to foodies_photo_path(id: @photo.id)
-			
 		else
 			flash.now[:notice] = "Not Successfully Updated"
 			render :new

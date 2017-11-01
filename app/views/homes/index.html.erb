@@ -231,7 +231,6 @@
 		<%= photo.description %>
 		<p>$<%= photo.price %></p>		
 		<%= image_tag photo.avatar_url(:thumb).to_s, :size => '260x180' %>
-    <p>Tags: <%= raw photo.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 	
 		<% if current_review = photo.likeables.find_by(foody_id: current_foody.id) %>
 			<%= render 'got_likeable', photo: photo %>

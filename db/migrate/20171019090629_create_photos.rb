@@ -6,7 +6,6 @@ class CreatePhotos < ActiveRecord::Migration[5.1]
         t.string :restaurant
     	t.text   :description
     	t.string :avatar
-        t.string :tag_list
     	t.decimal :price, precision: 12, scale: 3
 
     	t.timestamps
