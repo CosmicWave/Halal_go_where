@@ -5,6 +5,13 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+     <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+  </head>
+
+
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
      <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
   </head>
@@ -15,24 +22,11 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <%= yield %>
-</body>
-
-<% elsif current_page?(new_foody_registration_path) %>
-
-<body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
-</body>
-
-<% else %>
-
-
-
-  <body>
-<% if foody_signed_in? %>
-
+  <% if current_page?(new_foody_session_path) || current_page?(new_foody_registration_path) %>
+  
+    <%= yield %>
+  
+  <% else %>
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -43,12 +37,17 @@
       </button>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
+          <% if foody_signed_in? %>
+          <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfront pull-left" %></li>
+          <li><%= link_to current_foody.name, foody_path(current_foody) %></li>
+          <% else %>
+          <li><%= link_to "Login", new_foody_session_path, class: "navfront pull-left" %></li>
+          <% end %>          
           <li><a class="navfont visible-xs pull-left">Home</a></li>
           <li><a class="navfont visible-xs pull-left">Top Rated Reviews</a></li>
           <li><a class="navfont visible-xs pull-left">Restaurants</a></li>
           <li><a class="navfont visible-xs pull-left">Most Recent Reviews</a></li>
           <li><a class="navfont visible-xs pull-left">Your Profile</a></li>
-          <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont visible-xs pull-left" %></li>
         </ul>
       </div>
       <div class="container-fluid">
@@ -58,7 +57,11 @@
         <% end %>
         </div>
           <ul class="nav navbar-nav navbar-right hidden-xs">
-            <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont" %></li>
+            <% if foody_signed_in? %>
+            <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont visible-xs pull-left" %></li>
+            <% else %>
+            <li><%= link_to "Login", new_foody_session_path, class: "navfont visible-xs pull-left" %></li>
+            <% end %> 
               <li class="dropdown">
               <a href="#" class="dropdown-toggle navfont hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>   
               <ul class="dropdown-menu">
@@ -71,53 +74,9 @@
           </ul>
       </div>
   </nav>
-  
 
-<% else %>
-
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a class="navfont visible-xs pull-left">Home</a></li>
-            <li><a class="navfont visible-xs pull-left">Top Rated Reviews</a></li>
-            <li><a class="navfont visible-xs pull-left">Restaurants</a></li>
-            <li><a class="navfont visible-xs pull-left">Most Recent Reviews</a></li>
-            <li><%= link_to "Login", new_foody_session_path, class: "navfont visible-xs pull-left" %></li>
-          </ul>
-        </div>
-        
-        <div class="container-fluid">
-          <div class="navbar-header hidden-xs">
-            <%= image_tag "logoA4.png", class: "navlogo" %>
-          </div>
-            <ul class="nav navbar-nav navbar-right hidden-xs">
-              <li><%= link_to "Login", new_foody_session_path, class: "navfont" %></li>
-                <li class="dropdown">
-                <a href="#" class="dropdown-toggle navfont hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
-              
-                 <ul class="dropdown-menu">
-                  <li><a class="navfont">Top Rated Reviews</a></li>
-                  <li><a class="navfont">Restaurants</a></li>
-                  <li><a class="navfont">Most Recent Reviews</a></li>         
-                </ul>
-              </li>
-            </ul>
-        </div>
-    </nav>
- 
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <% end %>
-    <%= yield %>
-
-<div class="container-fluid">
+<%= yield %>
+ <!--  <div class="container-fluid">
   <div class="row footerrow">
     <footer>
       <div class="col-md-11 col-xs-11 visible-lg">
@@ -168,11 +127,13 @@
         
     </footer>
   </div>  
-</div>
-       
+</div> -->
+
+  
+
 
 <% end %>
-
+       
 
   </body>
 

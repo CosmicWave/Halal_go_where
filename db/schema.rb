@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031085947) do
-
+ActiveRecord::Schema.define(version: 20171101045814) do
+  
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,9 +67,6 @@ ActiveRecord::Schema.define(version: 20171031085947) do
     t.bigint "photo_id"
     t.index ["photo_id"], name: "index_foods_on_photo_id"
     t.index ["restaurant_id"], name: "index_foods_on_restaurant_id"
-  end
-
-  create_table "likeables", force: :cascade do |t|
     t.integer "review", default: 1
     t.bigint "foody_id"
     t.bigint "photo_id"
@@ -136,6 +133,30 @@ ActiveRecord::Schema.define(version: 20171031085947) do
     t.decimal "max_price"
   end
 
+  create_table "taggings", id: :serial, force: :cascade do |t|
+    t.integer "tag_id"
+    t.string "taggable_type"
+    t.integer "taggable_id"
+    t.string "tagger_type"
+    t.integer "tagger_id"
+    t.string "context", limit: 128
+    t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
+  end
+
+  create_table "tags", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true
+    
   create_table "taggings", force: :cascade do |t|
   end
 
@@ -145,8 +166,6 @@ ActiveRecord::Schema.define(version: 20171031085947) do
 
   add_foreign_key "disapproves", "foodies"
   add_foreign_key "disapproves", "restaurants"
-  add_foreign_key "foods", "photos"
-  add_foreign_key "foods", "restaurants"
   add_foreign_key "likeables", "foodies"
   add_foreign_key "likeables", "photos"
   add_foreign_key "photos", "foodies"

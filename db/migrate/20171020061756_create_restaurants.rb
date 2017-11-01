@@ -7,7 +7,6 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
     	t.string :time
     	t.string :certification
     	t.string :category
-
     end
   end
 end

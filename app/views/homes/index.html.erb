@@ -376,11 +376,13 @@
 </div>
 
 
+	
+		<%# if current_review = photo.likeables.find_by(foody_id: current_foody.id) %>
+			<%#= render 'got_likeable', photo: photo %>
+		<%# else %>
+			<%#= render 'no_likeable', photo: photo %>
+		<%# end %>
 
 
-	  <%= link_to "Upload New Photo", new_foodies_photo_path %>
-
-  </div>
-</div>
 
 
