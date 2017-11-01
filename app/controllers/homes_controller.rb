@@ -6,6 +6,8 @@ class HomesController < ApplicationController
 		@photo = Photo.last
 		@photo2last = Photo.second_to_last
 		@photo3last = Photo.third_to_last
+		
+		
 	end
 
 	def search
