@@ -5,6 +5,10 @@ class FoodiesController < ApplicationController
 	before_action :set_foodies
 
 	def show
+		@photos = Photo.all
+		@foody = Foody.find(params[:id])
+		@foodyphoto = @foody.photos
+	
 	end
 
 	def edit
@@ -30,6 +34,7 @@ class FoodiesController < ApplicationController
 
 	def set_foodies
 		@foody = Foody.find(params[:id])
+
 	end
 
 	def foody_params
