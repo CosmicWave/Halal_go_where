@@ -26,8 +26,6 @@ Rails.application.routes.draw do
 	
   resources :foodies, only: [:show, :edit, :update]
 
-  patch 'simple_search', to: 'homes#search'
-
   resources :restaurants, except: [:index] do
     resources :disapproves, only: [:create, :destroy] do
       delete 'convert', on: :member
@@ -40,7 +38,9 @@ Rails.application.routes.draw do
   resources :searches, only: [:show, :new, :create]
 
   resources :tags, only: [:index]
-
+  
+  patch 'search_photos', to: 'homes#search_photos'
+  get 'homes/simple_search', to: 'homes#simple_search', as: :simple_search
   get 'tags/:tag', to: 'tags#index', as: :tag
   get 'homes/view_more', to: 'homes#view_more', as: :view_more
 

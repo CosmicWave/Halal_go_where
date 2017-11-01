@@ -8,10 +8,10 @@ class Foodies::LikeablesController < ApplicationController
 	
 	def create #new like
 		create_like = Likeable.create(foody: current_foody, photo_id: set_current_photo.id, review: 2)
-		if create_like.save
-			redirect_to root_url
-		else
-			redirect_to current_foody
+		create_like.save
+		respond_to do |format|
+			format.js {render 'no_likeable'}
+
 		end
 	end
 

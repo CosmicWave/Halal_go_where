@@ -11,10 +11,10 @@ class HomesController < ApplicationController
 		@photos = Photo.all
 	end
 
-	def search
+	def search_photos
 		@params = params
-		searched_restaurants = params[:search_query]
-		@restaurants = Restaurant.where(name: searched_restaurants)
+		searched_photo = params[:search_query]
+		@photos = Photo.where('title LIKE :query OR restaurant LIKE :query', { query: "%#{searched_photo}%" })
 	end
 
 

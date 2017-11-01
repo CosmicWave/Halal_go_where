@@ -11,7 +11,7 @@ class Photo < ApplicationRecord
 	
 	def self.search(search)
 		if search
-			where("title LIKE ?", "%#{search}%")
+			where("title LIKE :query OR restaurant LIKE :query", { query: "%#{ search }%" })
 		else
 			all
 		end

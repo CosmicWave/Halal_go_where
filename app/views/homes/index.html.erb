@@ -19,11 +19,12 @@
 			<div class="row searchrow">
 				<div class="col-md-3 col-xs-3"></div>
 				<div class="col-md-6 col-xs-6">
-					<form class="searchbar" role="search">
+
 						<div class="input-group">
-							<%= form_tag simple_search_path, method: :patch do %>
+              
+							<%= form_tag(search_photos_path, method: :patch) do %>
               <div class="row">
-							 <%= text_field_tag :search, params[:search], class: "bar" %>
+							 <%= text_field_tag :search_query,params[:search_query], class: "bar" %>
               </div>
               
               <div class="row searchbuttonrow">
@@ -35,7 +36,7 @@
                 </div>					 
               </div>
 						</div>
-					</form>
+
 				</div>
 				<div class="col-md-3 col-xs-3"></div>
 			</div>
