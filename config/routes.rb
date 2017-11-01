@@ -7,10 +7,6 @@ Rails.application.routes.draw do
   
 	namespace :foodies do
 		resources :photos do
-
-          member do
-          get 'view_more'
-        end
         
       resources :likeables, only: [:create, :new, :destroy] do
         
@@ -46,5 +42,6 @@ Rails.application.routes.draw do
   resources :tags, only: [:index]
 
   get 'tags/:tag', to: 'tags#index', as: :tag
+  get 'homes/view_more', to: 'homes#view_more', as: :view_more
 
 end

@@ -1,0 +1,9 @@
+<div class="container-fluid cardcont">
+  <div class="row cardrow">
+
+  <% @photos.each do |photo| %>
+    <%= render 'photo_card', photo: photo %>
+  <% end %>
+
+  </div>                                          
+</div>

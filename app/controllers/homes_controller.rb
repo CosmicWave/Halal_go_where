@@ -4,11 +4,11 @@ class HomesController < ApplicationController
 		@photos = Photo.search(params[:search])
 		@foodies = Foody.all
 
-		@photo = Photo.last
-		@photo2last = Photo.second_to_last
-		@photo3last = Photo.third_to_last
-		
-		
+		@latest_photos = Photo.last(3)
+	end
+
+	def view_more
+		@photos = Photo.all
 	end
 
 	def search

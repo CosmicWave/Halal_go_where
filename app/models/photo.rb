@@ -17,6 +17,17 @@ class Photo < ApplicationRecord
 		end
 	end
 
+	def rating(photo)
+		if photo.likeables.exists?
+
+			((photo.likeables.where(review: 2).count) - (photo.likeables.where(review: 1).count) /
+			# -----------------------------------------------------------------------------------
+																			photo.likeables.count).round(1)
+		else
+			0
+		end
+	end
+
 	acts_as_taggable_on :tags
 
 
