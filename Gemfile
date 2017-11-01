@@ -39,6 +39,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave', '~> 1.0'
 
 gem 'mini_magick'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
