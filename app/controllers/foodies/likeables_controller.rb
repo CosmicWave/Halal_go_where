@@ -10,35 +10,39 @@ class Foodies::LikeablesController < ApplicationController
 		create_like = Likeable.create(foody: current_foody, photo_id: set_current_photo.id, review: 2)
 		create_like.save
 		respond_to do |format|
-			format.js {render 'no_likeable'}
-
+			format.js {render 'create.js.erb'}
 		end
 	end
 
 	def new #new dislike
 		create_dislike = Likeable.create(foody: current_foody, photo_id: set_current_photo.id, review: 1)
-		if create_dislike.save
-			redirect_to root_url
-		else
-			redirect_to current_foody
+		create_dislike.save
+		respond_to do |format|
+			format.js {render 'create.js.erb'}
 		end
 	end
 
 	def convert_like
 		current_status = Likeable.find_by(photo_id: Photo.find(params[:photo_id]), foody: current_foody)
 		current_status.update(review: 1)
-		redirect_to root_url
+		respond_to do |format|
+			format.js {render 'create.js.erb'}
+		end
 	end
 
 	def convert_dislike
 		current_status = Likeable.find_by(photo_id: Photo.find(params[:photo_id]), foody: current_foody)
 		current_status.update(review: 2)
-		redirect_to root_url
+		respond_to do |format|
+			format.js {render 'create.js.erb'}
+		end
 	end
 
 	def destroy
 		current_status.destroy
-		redirect_to root_url
+		respond_to do |format|
+			format.js {render 'destroy.js.erb'}
+		end
 	end
 
 	private

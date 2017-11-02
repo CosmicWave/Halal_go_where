@@ -25,16 +25,16 @@
         <div>  <!-- likes -->
           <% if foody_signed_in? %>
             <% if current_review = photo.likeables.find_by(foody_id: current_foody.id) %>
-              <%= render 'got_likeable', photo: photo %>
+              <div id="like-<%photo.id%>"><%= render 'got_likeable', photo: photo %></div>
             <% else %>
-              <%= render 'no_likeable', photo: photo %>
+              <div id="no-like-<%photo.id%>"><%= render 'no_likeable', photo: photo %></div>
             <%end %>
           <% else %>
             <%= link_to "<i class=\"glyphicon glyphicon-thumbs-up\"></i>".html_safe, new_foody_session_path %>
             <%= link_to "<i class=\"glyphicon glyphicon-thumbs-down\"></i>".html_safe, new_foody_session_path %>
           <% end %>
         </div>
-        <div class="rating"><%= photo.rating(photo) %></div>
+        <div id="rating"><%= photo.rating(photo) %></div>
         <div class="bywho"><small><%= link_to photo.foody.name, foody_path(photo.foody) %></br> Created: <%= time_ago_in_words(photo.created_at) %> ago</small></div>
       </div>                        
 
