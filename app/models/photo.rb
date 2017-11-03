@@ -1,5 +1,10 @@
 class Photo < ApplicationRecord
 
+	validates :avatar, presence: true
+	validates :title, presence: true
+	validates :description, length: { maximum: 130 }, presence: true
+	validates :price, presence: true
+
 	belongs_to :foody
 	has_many :likeables, dependent: :destroy
 	has_many :users_liked, through: :likeables, source: :foody

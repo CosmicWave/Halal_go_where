@@ -7,6 +7,12 @@ class HomesController < ApplicationController
 		@latest_photos = Photo.last(3)
 	end
 
+	def contact
+	end
+
+	def about_us
+	end
+
 	def view_more
 		@photos = Photo.all
 	end
