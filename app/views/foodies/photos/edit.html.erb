@@ -5,6 +5,7 @@
 
 
   <%= image_tag "donuts.jpeg", class: "bg" %>
+  		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6 col-xs-6 ">
 				  <div id="contact-form">
@@ -13,23 +14,22 @@
 
 
 							<div class="">
-								<%= f.label  :title, "Food", :class =>"" %>
-							    <%= f.text_field :title %>
-
-							</div>
+      							<%= f.label  :title, "Food", :class =>"" %>
+    		    				<%= f.text_field :title %>
+      						</div>
+          
+      						<div class="">
+      							<%= f.label  :description, "Review" %>
+      							<%= f.text_area :description %>
+      						</div>
+      		
+      						<div class="">
+      							<%= f.label  :price %>
+      							<%= f.text_field :price %>
+      						</div>
 
 							<div class="">
-								<%= f.label  :description, "Review" %>
-								<%= f.text_area :description %>
-							</div>
-							
-							<div class="">
-								<%= f.label  :price %>
-								<%= f.text_field :price %>
-							</div>
-
-							<div class="">
-								<%= f.label  :tag_list %>
+								<%= f.label  :tag_list, "Tags (separated by commas)" %>
 								<%= f.text_field :tag_list %>
 							</div>
 
@@ -38,18 +38,15 @@
 								<%= f.text_field :restaurant %>
 							</div>
 				                          
-
-						
 							<div class="fileinputs submit">
-					  		    <input id="avatar-upload" class="file submit" name="photo[avatar]" type="file"></input>
-					  		    <div class="fakefile submit" style="width:100%;">
+					  		   <%= f.file_field :avatar, id: "avatar-upload", :class => "file" %>
+					  		   <div class="fakefile" style="width:100%;">
 					  		    	<%= f.hidden_field :avatar_cache %>
 					  		   	<button type="button" class="submit" style="width:100%;" >Add Your Image </button>
 					  				
 					  			</div>
 					  		</div>
 					  	
-
 							<div class="fileinputs">
 					  			<input class="" name="commit" value="Save Changes" data-disable-with="" type="submit">
 					  			<div class="fakefile" style="width:100%;"></input>
@@ -71,6 +68,7 @@
 						</div>
 				    <% end %>
 		    </div>
+	</div>
 </div>
 
 

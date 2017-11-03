@@ -59,7 +59,7 @@
 
 <div class="grid">
   <% @foodyphoto.each do |photo| %>
-      <div class=" grid-item box card-box col-md-4">
+      <div class=" grid-item card-box col-md-4">
        <div class="card">                            
            <div class="header">
              <div class="filter"></div>
@@ -97,22 +97,7 @@
        </div>
      </div>
        
-    <div class="content">
-     <h4>Place: <%= photo.restaurant %></h4>
-     <p>Food: <%= photo.title %></p>
-     <p>Review: <%= photo.description %></p>
-     <p>Price:<b> $<%= photo.price %></b></p>
-         
-    <div class="bywho"><small><%= link_to photo.foody.name, foody_path(photo.foody) %></br> Created: <%= time_ago_in_words(photo.created_at) %> ago</small></div>
-    
-    <% if photo.foody == current_foody %>  
-      <%= link_to "Edit", edit_foodies_photo_path(id: photo.id) %>
-      <%= link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %>
-    <% end %>
 
-   </div>                                          
-  </div> <!-- end card -->
- </div>
 <% end %>
 
 

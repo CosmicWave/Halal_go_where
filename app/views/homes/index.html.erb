@@ -51,6 +51,8 @@
   <div class="row cardrow">
 
   <div class="posthead">Latest Reviews</div>
+
+ <div class="grid">
   <% @latest_photos.each do |photo| %>
     <%= render 'photo_card', photo: photo %>
   <% end %>
@@ -58,6 +60,7 @@
   <div class="row viewmore">
    <%= link_to 'View More', view_more_path, class: 'btn btn-primary btn-xs buttonwide' %>
   </div>
+ </div>
 </div>
 
 <!-- ///////////////////////// Categories ///////////////////////////////////////// -->
@@ -177,4 +180,13 @@
 
 
 
+<script src="/path/to/masonry.pkgd.min.js"></script>
 
+<script type="">
+
+$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+</script>
