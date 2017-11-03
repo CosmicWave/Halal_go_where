@@ -60,22 +60,24 @@
       <div class="card cardleft card-index">          
         <div class="header">
          <div class="insidephoto"></div>
-          <div class="filter"></div>
-            
-             <div class="actions">
-              
-               <div class="btn btn-round btn-fill btn-neutral btn-modern">
-                  <% if @photo.avatar.present? %>
+         <% if @photo.avatar.present? %>
                      <%= link_to foodies_photo_path(id: @photo.id) do %>
-                       <%= image_tag @photo.avatar_url(:thumb).to_s, :size => "260x180" %>
+                       <%= image_tag @photo.avatar_url(:thumb).to_s, class: "fixed-ratio-resize" %>
                         
                      <% end %>
                   <% else %>
                      <%= link_to foodies_photo_path(id: @photo.id) do %>
-                       <%= image_tag ('/assets/mee.jpg'), :size => "280x180" %>
+                       <%= image_tag ('/assets/mee.jpg'), :size => "360x265" %>
                      <% end %>
                   <% end %>
+          <div class="filter">
+            
+             <div class="actions">
+              
+               <div class="btn btn-round btn-fill btn-neutral btn-modern">
+                  
                </div>
+        </div>
         </div>
       </div>           
         
@@ -254,10 +256,8 @@
 
 <!-- end card 3 -->
 
- <div><%= link_to "Upload New Photo", new_foodies_photo_path %></div>
-
   <div class="row viewmore">
-      <%= link_to view_more_foodies_photo_path(id: @photos) do %>
+      <%= link_to view_more_foodies_photos_path do %>
     <button type="button" class="btn btn-primary btn-xs buttonwide">View More</button>
       <% end %>
   </div>

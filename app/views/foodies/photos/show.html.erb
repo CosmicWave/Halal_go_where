@@ -1,64 +1,54 @@
-  <p>Foodies::Photos - Show</p>
-
-
-
-
-  <div class="container-fluid">
-  	<% unless current_foody %>
-  	  <%= link_to "Sign in with Facebook", foody_facebook_omniauth_authorize_path %>
-  	   <li><%= link_to "Login", new_foody_session_path %></li>
-  	  <% else %>
-  	   <%= link_to "Logout", destroy_foody_session_path, method: :delete %>
-  	<% end %>
-
-  	  <%= link_to "Upload New Photo", new_foodies_photo_path %>
-  </div>
-
-
-
-<div class="container-fluid cardcont">
-  <div class="row cardrow">
-
- <% if foody_signed_in? %>
-
-
-     
-       <div class="card">                            
-           <div class="header">
-             <div class="filter"></div>
-             <div class="actions">
-               <button class="btn btn-round btn-fill btn-neutral btn-modern">
-
-
-                    <% if @photo.avatar.present? %> 
-                      <%= link_to foodies_photo_path(id: @photo.id) do %>
-                        <%= image_tag @photo.avatar_url.to_s, :size => "250x180" %>
-                        <% end %>
-                    <% else %>
-                      <%= link_to foodies_photo_path(id: @photo.id) do %>
-                        <%= image_tag ('/assets/mee.jpg'), :size => "250x180" %>
-                      <% end %>
-                    <% end %>
-               </button>
-             </div>
-           </div>
-           
-        <div class="content">
-         <h4>Place: <%= @photo.restaurant %></h4>
-         <p>Food: <%= @photo.title %></p>
-         <p>Review: <%= @photo.description %></p>
-         <p>Price:<b> $<%= @photo.price %></b></p>
+<div class="container-fluid cardshowcont">
+  <div class="row cardshowrow">
+      <div class="col-md-8 col-xs-8">
+        <div class="cardshow">  
+          <div class="headershow">
+            <%= image_tag @photo.avatar_url.to_s, class: "fixed-ratio-resize" %>        
+          </div>
+          
+          <div class="content">
+            <h4>Food: <%= @photo.title %></h4>
+             <p></p>
+             <p>Review: <%= @photo.description %></p>
+             <p>Price:<b> $<%= @photo.price %></b></p>
              
+           
             <div class="bywho"><small><%= link_to @photo.foody.name, foody_path(@photo.foody) %></br> Created: <%= time_ago_in_words(@photo.created_at) %> ago</small></div>
-            
+          
             <% if @photo.foody == current_foody %>  
               <%= link_to "Edit", edit_foodies_photo_path(id: @photo.id) %>
               <%= link_to "Delete", foodies_photo_path(id: @photo.id), method: :delete %>
             <% end %>
+          </div>  
 
-       </div>                                          
-      </div> <!-- end card -->
-     </div>
-    <% end %>
-                                   
+        </div>
+      </div> 
+    <div class="col-md-4 col-xs-4">
+      <div class="row">
+        <div class="card">
+          <div class="headershow">
+          <%= image_tag "maxwell.png", class: "fixed-ratio-resize" %>
+          </div>
+
+          <div class="content">
+            <p>Place: <%= @photo.restaurant %></p>
+            <p>Tags: Family Friendly, Instagrammable</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row rowbreak">
+        <p class="break" >YOU MIGHT ALSO LIKE</p>
+      </div>
+
+      <div class="row">
+        <div class="card">                                            
+          <div class="content suggestion">
+            <h4>Yugo Wrap</h4>
+            <p class="description">The best wrap i've tried. Cheaper than Subway too!</p>
+          </div>                                           
+        </div> <!-- end card -->
+      </div>
+    </div>
+  </div>
 </div>
