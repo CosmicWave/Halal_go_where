@@ -1,4 +1,7 @@
-/* ------- flashes ---------- */
+/* -------//////////////////////////////////////////////////////------------- */
+/* -------////////////////// flashes /////////////////////////////---------- */
+/* -------//////////////////////////////////////////////////////------------- */
+
 .notice {
   position: fixed;
   text-align: center;
@@ -16,19 +19,10 @@
   z-index:1040; 
 }
 
+/* -------//////////////////////////////////////////////////////------------- */
+/* -------///////////////// home page ///////////////////////////------------ */
+/* -------//////////////////////////////////////////////////////------------- */
 
-/* -------------- home page ------------ */
-
-
-/*.indexbann {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  -webkit-filter: brightness(0.7);
-  border: solid 2px;
-  display: block;
-} */
 
 .landing-banner{
   background-image: image-url('/assets/home2.jpg');
@@ -83,12 +77,12 @@
   }
 }
 
-.btn-danger {
+.searchbuttonrow .btn-danger {
   background: #fb8c00 !important;
   width: 100px;
 }
 
-.btn-danger:hover {
+.searchbuttonrow .btn-danger:hover {
   background: #ef6c00 !important;
 }
 
@@ -101,7 +95,7 @@
   letter-spacing: 0.5px;
 }
 
-.searchbutton {
+.searchbuttonrow .searchbutton {
   white-space: normal;
   width: 150px;
 }
@@ -138,6 +132,12 @@
 }
 }
 
+.posthead {
+  font-size: 25px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
+
 .allpost {
   width: 50px;
   height: auto;
@@ -148,7 +148,7 @@
 }
 
 .cardrow {
-  margin-top: 30px;
+  margin-top: 47px;
   margin-bottom: 50px;
 
 }
@@ -156,12 +156,10 @@
 .cardcont {
   background: rgba(158, 158, 158, 0.1);
 }
+/* -------//////////////////////////////////////////////////////------------- */
+/* ---\\\\\\\\\\\\\\\\\\\\-------- CARD CSS -----------\\\\\\\\\\\\\\\\\\---- */
+/* -------//////////////////////////////////////////////////////------------- */
 
-/* ---\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-------- CARD CSS -----------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\---- */
-/* ----------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\---- */
-/* ----------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\---- */
-/* ----------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\---- */
-/* ----------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\---- */
 .card {
   border-radius: 6px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
@@ -191,22 +189,9 @@
   color: rgba(0, 0, 0, 0.5) 
 }
 
-.posthead {
-  text-align: left;
-  margin-bottom: 20px;
-  font-family: helvetica;
-  letter-spacing: 0.5px;
-  font-size: 25px;
-  margin-left: 20px;
-  max-width: 300px;
-}
-
-
 /* ----------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\---- */
 /* ----------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\---- */
-/* ----------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\---- */
-/* ----------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\---- */
-/* ----------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\---- */
+/* -------//////////////////////////////////////////////////////------------- */
 
 .viewmore {
   margin-bottom: 60px;
@@ -217,7 +202,9 @@
   width: 200px;
 }
 
-/* ----------------- creative tim css -------------- */
+/* -------//////////////////////////////////////////////////////------------- */
+/* -------------------------- creative tim css ------------------------------ */
+/* -------//////////////////////////////////////////////////////------------- */
 
 .card h4, .card a {
   -moz-osx-font-smoothing: grayscale;
@@ -394,7 +381,9 @@
   }
 }
 
-/* --------------- parallax home --------------------- */
+/* -------//////////////////////////////////////////////////////------------- */
+/* ------------------------- parallax home ---------------------------------- */
+/* -------//////////////////////////////////////////////////////------------- */
 
 
 .module {
@@ -499,8 +488,10 @@
   transition: background-color 0.2s ease-in;
   text-decoration: none;
 }
+/* -------//////////////////////////////////////////////////////------------- */
+/* --------------------------- rating --------------------------------------- */
+/* -------//////////////////////////////////////////////////////------------- */
 
-/* -------------- rating ----------------- */
 .rating {
   width: 50px;
   height: 50px;
@@ -514,7 +505,10 @@
   font-weight: bold;
 }
 
-/* ---------- nav bar ------------------ */
+/* -------//////////////////////////////////////////////////////------------- */
+/* ------------------------------- nav bar ---------------------------------- */
+/* -------//////////////////////////////////////////////////////------------- */
+
 .navlogo {
   width:170px;
   height: auto;
@@ -543,7 +537,10 @@
   margin-bottom: 0;
 }
 
-/* ---------- sign in page ------------ */
+/* -------//////////////////////////////////////////////////////------------- */
+/* ---------------------------- sign in page -------------------------------- */
+/* -------//////////////////////////////////////////////////////------------- */
+
 .bg {
   position: fixed; 
   top: 0%; 
@@ -592,7 +589,10 @@
   text-align: center;
 }
 
-/* ---------- sign up page ------------ */
+/* -------//////////////////////////////////////////////////////------------- */
+/* ----------------------------- sign up page ------------------------------- */
+/* -------//////////////////////////////////////////////////////------------- */
+
 .logosignup {
   position: relative;
   width: 100%;
@@ -652,81 +652,9 @@
   color: white;
   font-size: 15px;
 }
-
-/*-------------- signup carousel ------------*/
-.carousel-fade .carousel-inner .item {
-    opacity: 0;
-    transition-property: opacity;
-}
-.carousel-fade .carousel-inner .active {
-    opacity: 1;
-}
-.carousel-fade .carousel-inner .active.left,
-.carousel-fade .carousel-inner .active.right {
-    left: 0;
-    opacity: 0;
-    z-index: 1;
-}
-.carousel-fade .carousel-inner .next.left,
-.carousel-fade .carousel-inner .prev.right {
-    opacity: 1;
-}
-.carousel-fade .carousel-control {
-    z-index: 2;
-}
-@media all and (transform-3d),
-(-webkit-transform-3d) {
-    .carousel-fade .carousel-inner > .item.next,
-    .carousel-fade .carousel-inner > .item.active.right {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-    .carousel-fade .carousel-inner > .item.prev,
-    .carousel-fade .carousel-inner > .item.active.left {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-    .carousel-fade .carousel-inner > .item.next.left,
-    .carousel-fade .carousel-inner > .item.prev.right,
-    .carousel-fade .carousel-inner > .item.active {
-        opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-.carousel {
-    z-index: -99;
-}
-.carousel .item {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-
-/* ------------ Profile Page ----------- */
-/*.profilebg {
-  position: fixed; 
-  top: 0%; 
-  left: 0%; 
-  width: 100%; 
-  height: 100%;
-  background: #ef6c00;
-} */
-
-/* .avatar_img {
-    border-radius: 50%;
-    width: 140px;
-    height: 140px;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -75px;
-    margin-left: -75px;
-} */
+/* -------//////////////////////////////////////////////////////------------- */
+/* --------------------------- Profile Page --------------------------------- */
+/* -------//////////////////////////////////////////////////////------------- */
 
 .avatar_img {
   border-radius: 50%;
@@ -798,6 +726,10 @@
 }
 
 @media screen and (min-width: 1400px) {
+.profilebg {
+  margin-top: -50px;
+}
+
 
 .profilename {
   font-size: 30px;
@@ -852,7 +784,10 @@
   margin-top: 16px;
 }
 }
-/* ------------------- edit profile --------------- */
+/* -------//////////////////////////////////////////////////////------------- */
+/* --------------------------- edit profile --------------------------------- */
+/* -------//////////////////////////////////////////////////////------------- */
+
 .invisidiv {
   height: 164px;
 }
@@ -878,7 +813,16 @@
     margin: 0;
 }
 
-/* ------------------ footer ------------------ */
+.editprofileform .btn-danger {
+  background: #fb8c00 !important;
+}
+.editprofileform .btn-danger:hover {
+  background: #ef6c00 !important;
+}
+
+/* -------//////////////////////////////////////////////////////------------- */
+/* ------------------------------- footer ----------------------------------- */
+/* -------//////////////////////////////////////////////////////------------- */
 
 
 .footerrow {
@@ -926,7 +870,6 @@ footer {
   color: white;
   height: 150px;
   right: 0;
-  bottom: 0;
   left: 0;
   width: 100%;
   bottom: 0;
@@ -959,269 +902,38 @@ footer {
 
 }
 
+/* -------//////////////////////////////////////////////////////------------- */
+/*----------------------------- photos - new & edit---------------------------*/
+/* -------//////////////////////////////////////////////////////------------- */
 
-/* ---------------- Profile Pulse ----------------- */
-
-.pulse1 {
-    position: absolute;  
-    width: 200px;
-    height: 200px;
-    margin: auto; 
-    top: 0; left: 0; bottom: 0; right: 0;
-    z-index: 1;
-    opacity: 0;
-    border: 3px solid rgba(255,255,255,.1);
-  
-    -webkit-animation: pulsejg1 4s linear infinite;
-    -moz-animation: pulsejg1 4s linear infinite;
-    animation: pulsejg1 4s linear infinite;
-    -webkit-border-radius: 999px;
-    -moz-border-radius: 999px;
-    border-radius: 999px;
-    -webkit-box-shadow: inset 0px 0px 15px 10px rgba(0, 0, 0, .6);
-    -moz-box-shadow: inset 0px 0px 15px 10px rgba(0, 0, 0, .6);
-    box-shadow: inset 0px 0px 15px 10px rgba(0, 0, 0, .6);
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.pulse2 {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    margin: auto; 
-    top: 0; left: 0; bottom: 0; right: 0;
-    z-index: 2;
-    opacity: 0;
-    border: 1px solid rgba(255,255,255,0);
-  
-    -webkit-animation: pulsejg2 4s linear infinite;
-    -moz-animation: pulsejg2 4s linear infinite;
-    animation: pulsejg2 4s linear infinite;
-    -webkit-border-radius: 999px;
-    -moz-border-radius: 999px;
-    border-radius: 999px;
-    -webkit-box-shadow: inset 0px 0px 12px 5px rgba(255, 255, 255, .8);
-    -moz-box-shadow: inset 0px 0px 12px 5px rgba(255, 255, 255, .8);
-    box-shadow: inset 0px 0px 12px 5px rgba(255, 255, 255, .8);
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-@-webkit-keyframes pulsejg1 {
-    0% {
-        -webkit-transform: scale(.6);
-        opacity: 0;
-    }
-
-    50% {
-        -webkit-transform: scale(.6);
-        opacity: 0;
-    }
-
-    60% {
-        -webkit-transform: scale(.9);
-        opacity: .2;
-    }
-
-    70% {
-        -webkit-transform: scale(1.1);
-        opacity: .35;
-    }
-
-    80% {
-        -webkit-transform: scale(1.25);
-        opacity: .2;
-    }
-
-    100% {
-        -webkit-transform: scale(1.4);
-        opacity: 0;
-    }
-}
-
-@-moz-keyframes pulsejg1 {
-    0% {
-        -moz-transform: scale(.6);
-        opacity: 0;
-    }
-
-    50% {
-        -moz-transform: scale(.6);
-        opacity: 0;
-    }
-
-    60% {
-        -moz-transform: scale(.9);
-        opacity: .2;
-    }
-
-    70% {
-        -moz-transform: scale(1.1);
-        opacity: .35;
-    }
-
-    80% {
-        -moz-transform: scale(1.25);
-        opacity: .2;
-    }
-
-    100% {
-        -moz-transform: scale(1.4);
-        opacity: 0;
-    }
-}
-
-@keyframes pulsejg1 {
-    0% {
-        transform: scale(.6);
-        opacity: 0;
-    }
-
-    50% {
-        transform: scale(.6);
-        opacity: 0;
-    }
-
-    60% {
-        transform: scale(.9);
-        opacity: .1;
-    }
-
-    70% {
-        transform: scale(1.1);
-        opacity: .25;
-    }
-
-    80% {
-        transform: scale(1.25);
-        opacity: .1;
-    }
-
-    100% {
-        transform: scale(1.4);
-        opacity: 0;
-    }
-}
-
-@-webkit-keyframes pulsejg2 {
-    0% {
-        -webkit-transform: scale(.6);
-        opacity: 0;
-    }
-
-    40% {
-        -webkit-transform: scale(.8);
-        opacity: .05;
-    }
-
-    50% {
-        -webkit-transform: scale(1);
-        opacity: .1;
-    }
-
-    60% {
-        -webkit-transform: scale(1.1);
-        opacity: .3;
-    }
-
-    80% {
-        -webkit-transform: scale(1.2);
-        opacity: .1;
-    }
-
-    100% {
-        -webkit-transform: scale(1.3);
-        opacity: 0;
-    }
-}
-
-@-moz-keyframes pulsejg2 {
-    0% {
-        -moz-transform: scale(.6);
-        opacity: 0;
-    }
-
-    40% {
-        -moz-transform: scale(.8);
-        opacity: .05;
-    }
-
-    50% {
-        -moz-transform: scale(1);
-        opacity: .1;
-    }
-
-    60% {
-        -moz-transform: scale(1.1);
-        opacity: .3;
-    }
-
-    80% {
-        -moz-transform: scale(1.2);
-        opacity: .1;
-    }
-
-    100% {
-        -moz-transform: scale(1.3);
-        opacity: 0;
-    }
-}
-
-@keyframes pulsejg2 {
-    0% {
-        transform: scale(.6);
-        opacity: 0;
-    }
-
-    40% {
-        transform: scale(.8);
-        opacity: .05;
-    }
-
-    50% {
-        transform: scale(1);
-        opacity: .1;
-    }
-
-    60% {
-        transform: scale(1.1);
-        opacity: .3;
-    }
-
-    80% {
-        transform: scale(1.2);
-        opacity: .1;
-    }
-
-    100% {
-        transform: scale(1.3);
-        opacity: 0;
-    }
+.newreviewbg {
+  background-image: image-url('/assets/muffin2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -50px;
+  padding-bottom: 500px;
+  padding-top: 100px;
 }
 
 
-
-
-
-
-/*---------------- photos - new & edit-----------*/
 #contact-form {
-   background-color:rgba(72,72,72,0.7);
-   padding: 10px 20px 30px 20px;
-   max-width:100%;
-   float: left;
-   left: 60%;
-   position: absolute;
-   margin-top: 10px;
-   margin-left: -260px;
-   border-radius:7px;
-   -webkit-border-radius:7px;
-   -moz-border-radius:7px;
-    color: black; 
+  background-color:rgba(72,72,72,0.7);
+  padding: 10px 20px 30px 20px;
+  max-width:100%;
+  float: left;
+  left: 60%;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: -260px;
+  border-radius:7px;
+  -webkit-border-radius:7px;
+  -moz-border-radius:7px;
+  color: black; 
 
+}
+
+#contact-form label {
+  color: white;
 }
 
 
@@ -1229,9 +941,9 @@ footer {
 #contact-form select,   
 #contact-form textarea,   
 #contact-form label { 
-   font-size: 15px;  
-   margin-bottom: 2px;
-   font-family: Arial, san-serif;
+  font-size: 15px;  
+  margin-bottom: 2px;
+  font-family: Arial, san-serif;
 } 
 
 
@@ -1239,65 +951,54 @@ footer {
 #contact-form input,   
 #contact-form select,   
 #contact-form textarea { 
-   width:100%;
-   background: #fff;
-   border: 0; 
-   -moz-border-radius: 4px;  
-   -webkit-border-radius: 4px;  
-   border-radius: 4px;
-   margin-bottom: 25px;  
-   padding: 5px;  
+  width:100%;
+  background: #fff;
+  border: 0; 
+  -moz-border-radius: 4px;  
+  -webkit-border-radius: 4px;  
+  border-radius: 4px;
+  margin-bottom: 25px;  
+  padding: 5px;  
 }  
-#contact-form input:focus,   
-#contact-form select:focus,   
-#contact-form textarea:focus {  
-   background-color: #E5E6E7; 
-}  
+
 #contact-form textarea {
-   width:100%;
-   height: 100px;
+  width:100%;
+  height: 100px;
 }
 #contact-form button[type="submit"] {
-   cursor:pointer;
-   width:100%;
-   border:none;
-   background:#991D57;
-   background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-   background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-   background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-   color:#FFF;
-   margin:0 0 5px;
-   padding:10px;
-   border-radius:5px;
+  cursor:pointer;
+  width:100%;
+  border:none;
+  background:#991D57;
+  background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+  background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+  background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+  color:#FFF;
+  margin:0 0 5px;
+  padding:10px;
+border-radius:5px;
 }
 #contact-form button[type="submit"]:hover {
-   background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-   background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-   background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-   -webkit-transition:background 0.3s ease-in-out;
-   -moz-transition:background 0.3s ease-in-out;
-   transition:background-color 0.3s ease-in-out;
+  background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+  background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+  background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+  -webkit-transition:background 0.3s ease-in-out;
+  -moz-transition:background 0.3s ease-in-out;
+  transition:background-color 0.3s ease-in-out;
 }
 #contact-form button[type="submit"]:active {
-   box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
 }
 input:required, textarea:required {  
-   box-shadow: none;
-   -moz-box-shadow: none;  
-   -webkit-box-shadow: none;  
-   -o-box-shadow: none;  
+  box-shadow: none;
+  -moz-box-shadow: none;  
+  -webkit-box-shadow: none;  
+  -o-box-shadow: none;  
 } 
 #contact-form .required {  
-   font-weight:bold;  
-   color: #E5E6E7;      
-}
-
-/* Hide success/failure message
-   (especially since the php is missing) */
-#failure, #success {
-   color: #6EA070; 
-   display:none;  
-}
+  font-weight:bold;  
+  color: #E5E6E7;      
+  }
 
 /* Make form look nice on smaller screens */
 @media only screen and (max-width: 580px) {
@@ -1318,25 +1019,25 @@ input:required, textarea:required {
 
 }
 
-
 .preview-photo {
   margin-top: 150px;
   margin-right: 30px; 
   display: block;
 }
 
-
 .img-new{
-    max-height:400px;
-   max-width:350px;
-   border-radius: 25px;
-   font-size:30px;
-   font-family: 'Pacifico', cursive;
-   object-fit: cover;
+  max-height:400px;
+  max-width:350px;
+  font-size:30px;
+  font-family: 'Pacifico', cursive;
+  border-radius: 10px;
+  object-fit: cover;
+
 }
 
-
-/*---------------- cards - photos/show &&  homes/index-----------*/
+/* -------//////////////////////////////////////////////////////------------- */
+/*--------------------- cards - photos/show &&  homes/index-------------------*/
+/* -------//////////////////////////////////////////////////////------------- */
 
 
 .card h4, .card a {
@@ -1536,7 +1237,9 @@ input:required, textarea:required {
  
 }
 
-/*---------------- photos - edit - browse button-----------*/
+/* -------//////////////////////////////////////////////////////------------- */
+/*----------------------- photos - edit - browse button ----------------------*/
+/* -------//////////////////////////////////////////////////////------------- */
 
 div.fileinputs {
   position: relative;
@@ -1578,8 +1281,6 @@ input.file {
   .l { font-size: 1.8em; }
 }
 
-
-
 /*------------------ masonart effect ---------------------*/
 
 
@@ -1587,3 +1288,91 @@ input.file {
   font-size: 0;
   display: inline-block;
   }
+/* -------//////////////////////////////////////////////////////------------- */
+/* --------------------------- review show ---------------------------------- */
+/* -------//////////////////////////////////////////////////////------------- */
+
+.cardshowcont {
+  background: rgba(158, 158, 158, 0.1);
+}
+
+
+.cardshowrow {
+  margin-top: 50px;
+}
+
+
+.cardshow {
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  background-color: #FFFFFF;
+  margin-bottom: 20px;
+  position: relative;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 88px;
+}
+
+.cardshow .headershow {
+  position: relative;
+  border-radius: 6px 6px 0 0;
+  z-index: 3;
+}
+
+.card .header .category {
+  padding: 15px;
+}
+
+.cardshow .content {
+  position: relative;
+  z-index: 3;
+}
+
+.cardshow .content {
+  padding: 15px 15px 5px 15px;
+}
+.cardshow .content .title {
+  margin: 10px 0 20px 0;
+}
+.cardshow .content .category ~ .title {
+  margin-top: 0px;
+}
+.cardshow .content .description ~ .title {
+  margin-top: -10px;
+}
+
+.cardshow h4 {
+  font-size: 30px;
+  font-family: 'Contrail One', cursive;
+}
+
+.rowbreak {
+  margin-top: 50px;
+}
+
+.card .suggestion h4 {
+  font-family: 'Contrail One', cursive;
+  font-size: 20px;
+}
+
+.cardshow p {
+  font-size: 16px;
+  line-height: 1.3;
+  font-family: "Raleway","Helvetica","Arial", sans-serif;
+}
+
+.fixed-ratio-resize { /* basic responsive img */
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* IE8 */
+  border-radius: 6px 6px 0 0;
+}
+
+.break {
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 100;
+  font-size: 13px;
+}
+

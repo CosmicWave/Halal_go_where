@@ -4,16 +4,13 @@
     <title>HalalGoWhereApp</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-     <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-
-     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Contrail+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   </head>
-
-
-
 
 <body>
   <p class="notice"><%= notice %></p>
@@ -33,17 +30,16 @@
       </button>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <% if foody_signed_in? %>
-          <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfront pull-left" %></li>
-          <li><%= link_to current_foody.name, foody_path(current_foody) %></li>
-          <% else %>
-          <li><%= link_to "Login", new_foody_session_path, class: "navfront pull-left" %></li>
-          <% end %>          
-          <li><a class="navfont visible-xs pull-left">Home</a></li>
+          <li><%= link_to "Upload A Review", new_foodies_photo_path, class: "navfont pull-left visible-xs" %></li>       
+          <li><%= link_to "Home", root_path, class: "navfont visible-xs pull-left" %></li>
           <li><a class="navfont visible-xs pull-left">Top Rated Reviews</a></li>
-          <li><a class="navfont visible-xs pull-left">Restaurants</a></li>
-          <li><a class="navfont visible-xs pull-left">Most Recent Reviews</a></li>
-          <li><a class="navfont visible-xs pull-left">Your Profile</a></li>
+          <li><%= link_to "Most Recent Reviews", view_more_foodies_photos_path, class: "navfont visible-xs pull-left"  %></li>
+          <% if foody_signed_in? %>
+          <li><%= link_to "Your Profile", foody_path(current_foody), class: "navfont visible-xs pull-left" %></li>
+          <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont pull-left visible-xs" %></li>
+          <% else %>
+          <li><%= link_to "Login", new_foody_session_path, class: "navfont pull-left visible-xs" %></li>
+          <% end %>   
         </ul>
       </div>
       <div class="container-fluid">
@@ -53,25 +49,33 @@
         <% end %>
         </div>
           <ul class="nav navbar-nav navbar-right hidden-xs">
+            <li><%= link_to "Upload A Review", new_foodies_photo_path, class: "navfont pull-left hidden-xs" %></li>
             <% if foody_signed_in? %>
-            <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont visible-xs pull-left" %></li>
+            <li><%= link_to foody_path(current_foody) do %><i class="fa fa-user-circle fa-lg fa-inverse navfont hidden-xs"></i></li>
+            <% end %>
             <% else %>
-            <li><%= link_to "Login", new_foody_session_path, class: "navfont visible-xs pull-left" %></li>
+            <li><%= link_to "Login", new_foody_session_path, class: "navfont hidden-xs pull-left" %></li>
             <% end %> 
               <li class="dropdown">
               <a href="#" class="dropdown-toggle navfont hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>   
               <ul class="dropdown-menu">
+                <li><%= link_to "Most Recent Reviews", view_more_foodies_photos_path, class: "navfont" %></li>
                 <li><a class="navfont">Top Rated Reviews</a></li>
-                <li><a class="navfont">Restaurants</a></li>
-                <li><a class="navfont">Most Recent Reviews</a></li>
-                <li><a class="navfont">Your Profile</a></li>         
+                <% if foody_signed_in? %>
+                <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont" %></li>
+                <% end %>     
               </ul>
             </li>
           </ul>
       </div>
   </nav>
-
-<%= yield %>
+  
+  <!--                  -->
+  <div style="min-height: 100vh;">
+  <%= yield %>
+  </div>
+  <!--                  -->
+  
   <div class="container-fluid">
   <div class="row footerrow">
     <footer>
@@ -121,15 +125,10 @@
         </div>
 
         
-    </footer>
-  </div>  
-</div> 
-  
-
-
-<% end %>
-       
-
+       </footer>
+      </div>
+    <% end %>
+   </div> 
   </body>
 
 </html>
