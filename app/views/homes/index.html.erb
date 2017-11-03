@@ -47,52 +47,47 @@
 <!-- ///////////////////////// Latest reviews ///////////////////////////////////////// -->
 
 <div class="container-fluid cardcont">
-
   <div class="row cardrow">
-
-  <div class="posthead">Latest Reviews</div>
-
- <div class="grid">
-  <% @latest_photos.each do |photo| %>
-    <%= render 'photo_card', photo: photo %>
-  <% end %
-  <div id='card-photo'>
-    <%= render 'photo_card', photos: @latest_photos %>
+    <div class="posthead">Latest Reviews</div>
+    
+    <div id='card-photo'>
+      <%= render 'photo_card', photos: @latest_photos %>
     </div>
 
-  <div class="row viewmore">
-   <%= link_to 'View More', view_more_path, class: 'btn btn-primary btn-xs buttonwide' %>
+    <div class="row viewmore">
+      <%= link_to 'View More', view_more_path, class: 'btn btn-primary btn-xs buttonwide' %>
+    </div>
   </div>
  </div>
-</div>
+
 
 <!-- ///////////////////////// Categories ///////////////////////////////////////// -->
 
-<div class= "container-fluid">
-  <div class="row paramargin">
-    <section class="module parallax parallax-2">
-      <div class="contain row">
-        <div class="category"><u>CATEGORIES</u></div>
-      </div>
 
-      <div class="row categories">
-        <div class="butttons">
-          <a href="#" class="bttn">Wallet Friendly</a>
-          <a href="#" class="bttn">Great Ambience</a>
-          <a href="#" class="bttn">Big Gatherings</a>
-        </div>
-      </div>
+<div class="row paramargin">
+  <section class="module parallax parallax-2">
+    <div class="contain row">
+      <div class="category"><u>CATEGORIES</u></div>
+    </div>
 
-      <div class="row categories">
-        <div class="butttons">
-          <a href="#" class="bttn">Instagram-able</a>
-          <a href="#" class="bttn">Supper Joints</a>
-          <a href="#" class="bttn">Near Mosque</a>
-        </div>
+    <div class="row categories">
+      <div class="butttons">
+        <a href="#" class="bttn">Wallet Friendly</a>
+        <a href="#" class="bttn">Great Ambience</a>
+        <a href="#" class="bttn">Big Gatherings</a>
       </div>
-    </section>
-  </div>
+    </div>
+
+    <div class="row categories">
+      <div class="butttons">
+        <a href="#" class="bttn">Instagram-able</a>
+        <a href="#" class="bttn">Supper Joints</a>
+        <a href="#" class="bttn">Near Mosque</a>
+      </div>
+    </div>
+  </section>
 </div>
+
 
 <!-- ///////////////////////// High Rated Reviews ///////////////////////////////////////// -->
 
