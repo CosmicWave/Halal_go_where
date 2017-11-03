@@ -3,7 +3,6 @@ class Foodies::LikeablesController < ApplicationController
 	before_action :check_authorisation
 	before_action :set_current_photo
 	before_action :current_status
-
 	# 2 = like, 1 = dislike
 	
 	def create #new like
@@ -34,10 +33,6 @@ class Foodies::LikeablesController < ApplicationController
 
 	def set_current_photo
 		Photo.find(params[:photo_id])
-	end
-
-	def current_review 
-		photo.likeables.find_by(foody_id: current_foody.id)
 	end
 
 	def current_status
