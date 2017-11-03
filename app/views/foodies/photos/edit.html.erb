@@ -1,37 +1,35 @@
+
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
 <div class="container-fluid">
 
+
+
   <%= image_tag "donuts.jpeg", class: "bg" %>
-
-
+  		<div class="container-fluid">
 			<div class="row">
-
-				<div class="col-md-7 col-xs-7 ">
-					<p>Foodies::Photos - edit</p>
+				<div class="col-md-6 col-xs-6 ">
 				  <div id="contact-form">
-
 
 					<%= form_for @photo, url: foodies_photo_path(id: @photo.id), method: :put do |f| %>
 
 
 							<div class="">
-								<%= f.label  :title, "Food", :class =>"" %>
-							    <%= f.text_field :title %>
-
-							</div>
+      							<%= f.label  :title, "Food", :class =>"" %>
+    		    				<%= f.text_field :title %>
+      						</div>
+          
+      						<div class="">
+      							<%= f.label  :description, "Review" %>
+      							<%= f.text_area :description %>
+      						</div>
+      		
+      						<div class="">
+      							<%= f.label  :price %>
+      							<%= f.text_field :price %>
+      						</div>
 
 							<div class="">
-								<%= f.label  :description, "Review" %>
-								<%= f.text_area :description %>
-							</div>
-							
-							<div class="">
-								<%= f.label  :price %>
-								<%= f.text_field :price %>
-							</div>
-
-							<div class="">
-								<%= f.label  :tag_list %>
+								<%= f.label  :tag_list, "Tags (separated by commas)" %>
 								<%= f.text_field :tag_list %>
 							</div>
 
@@ -40,29 +38,28 @@
 								<%= f.text_field :restaurant %>
 							</div>
 				                          
-
-							<div class="row">
-							<div class="col-md-6 col-xs-6 ">
-							 
-					  			<%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
-					  		</div>	
-		  				
-					  	 <div class="col-md-6 col-xs-6 ">
-							<div class="fileinputs">
-					  		    <input id="avatar-upload" class="file" name="photo[avatar]" type="file">
-					  		    <div class="fakefile">
+							<div class="fileinputs submit">
+					  		   <%= f.file_field :avatar, id: "avatar-upload", :class => "file" %>
+					  		   <div class="fakefile" style="width:100%;">
 					  		    	<%= f.hidden_field :avatar_cache %>
-					  		   	<button type="button" class="btn btn-primary btn-lg">Add you image </button>
+					  		   	<button type="button" class="submit" style="width:100%;" >Add Your Image </button>
 					  				
 					  			</div>
 					  		</div>
-					  	</div>
-					  	</div>
+					  	
+							<div class="fileinputs">
+					  			<input class="" name="commit" value="Save Changes" data-disable-with="" type="submit">
+					  			<div class="fakefile" style="width:100%;"></input>
+					  				<button type="" class="" style="width:100%;"> Submit </button>
+					  			</div>
+					  		</div>	
+		  				
+					  
 				  </div>
 				</div>
 			
 
-					  	<div class="col-md-5 col-xs-5">	
+					  	<div class="col-md-6 col-xs-6">	
 					  	   
 							<div class="preview-photo">
 					  			<img id="img-prev" class="img-new" src="#" alt="	Your diet is a bank account. Good food choices are good investments. Bethenny Frankel"  class="img-thumbnail hidden"/>
@@ -71,6 +68,7 @@
 						</div>
 				    <% end %>
 		    </div>
+	</div>
 </div>
 
 
@@ -100,3 +98,10 @@ $(function() {
 
 
 </script>
+
+
+
+
+
+							 
+

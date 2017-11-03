@@ -1,39 +1,98 @@
+
+<style type="text/css">
+
+.my_centered_buttons { 
+	display: flex; justify-content: center; 
+}
+
+</style>
+
+
+
 <div class="container-fluid">
-	<div class="row invisidiv"></div>
+	
 		<div class="row">
-			<div class="col-md-3 col-xs-3"></div>
-				<div class="col-md-6 col-xs-6">
+			<div class="col-md-6 col-xs-6">
 					<p class="editprofile">Edit Your Profile</p>
 					<%= form_for @foody, url: foody_path(@foody), method: :patch do |f| %>
 
 					<form>
 					  <div class="form-group">
+
 							<%= f.label :name %>
-							<%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+							
+							<%= f.text_field :name, class: "form-control", placeholder: "Name" %></br>
 					  </div>
 					  <div class="form-group">
 							<%= f.label :status %>
-							<%= f.text_field :status, class: "form-control", placeholder: "Brief description" %>		
+							<%= f.text_field :status, class: "form-control", placeholder: "Brief description" %></br>		
+					  
+					  <div class="form-group" style="text-align: center;">
+
+
+							</br><%= f.label :Your_picture %>
+							<div class="my_centered_buttons">
+					  		    <%= f.file_field :avatar, id: "avatar-upload", :class => "" %>
+					  			<% f.hidden_field :avatar_cache %>
+					  		</div>
+
+
+
+					    <p class="help-block">Upload your profile picture!</p></br>
 					  </div>
-					  <div class="form-group">
-							<%= f.label :Your_picture %>
-							<%= f.file_field :avatar, type: "file" %>
-					    <p class="help-block">Upload your profile picture!</p>
-					  </div>
-					  <div class="checkbox">
+
+				<!--	  <div class="checkbox">
 					    <label>
 					      <input type="checkbox"> Check me out
-					    </label>
+					    </label></br>  
+					  </div> -->
+					  <div class="my_centered_buttons">
+					  		</br><%= f.submit 'Save Changes', class: "btn btn-default" %>
 					  </div>
-					  <div class="editprofileform">
-					  <%= link_to "Back", foody_path(@foody), class: "btn btn-default" %>
-					  <%= f.submit 'Save Changes', class: "btn btn-danger" %>
-					  </div>
+
+					  <!-- Regent's <div class="editprofileform">
+					  <%# link_to "Back", foody_path(@foody), class: "btn btn-default" %>
+					  <%# f.submit 'Save Changes', class: "btn btn-danger" %>
+					  </div> -->
+
 					</form>
 
 					<% end %>
-				</div>
-			<div class="col-md-3 col-xs-3"></div>
+			</div>
 		</div>
-	<div class="row invisidiv"></div>
+
+			 		<div class="col-md-6 col-xs-6">						  		 
+						<div class="preview-photo">
+					  		<img id="img-prev" class="img-new" src="#" alt="" class="img-thumbnail hidden"/>	
+					  	</div>		
+			 		</div>
+
+	
+
 </div>
+
+
+
+
+
+<script type="text/javascript">
+
+$(function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img-prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#avatar-upload").change(function(){
+    $('#img-prev').removeClass('hidden');
+    readURL(this);
+  });
+});
+
+</script>

@@ -20,6 +20,8 @@ gem 'puma', '~> 3.7'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 gem "font-awesome-rails"
+gem 'masonry-rails'
+
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -44,6 +46,8 @@ gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'omniauth-facebook'
+
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

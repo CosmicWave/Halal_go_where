@@ -26,7 +26,7 @@ before_action :authenticate_foody!, only: [:create, :edit, :update, :destroy, :n
 			flash[:notice] = "Review Submitted"
 			redirect_to foodies_photo_path(id: @photo.id)
 		else
-			flash.now[:notice] = "Not Successfully Updated"
+			flash.now[:notice] = "Upload Unsuccessful"
 			render :new
 		end
 	end
@@ -52,7 +52,7 @@ before_action :authenticate_foody!, only: [:create, :edit, :update, :destroy, :n
 			redirect_to foodies_photo_path(id: @photo.id)
 			
 		else
-			flash.now[:notice] = "Not Successfully Updated"
+			flash.now[:notice] = "Update Unsuccessful"
 			render :edit
 		end
 	end
@@ -67,7 +67,7 @@ before_action :authenticate_foody!, only: [:create, :edit, :update, :destroy, :n
   
   def view_more
 	#	@photo = Photo.find_by(id: params[:id])
-		@photos = Photo.all
+		@photos = Photo.all.order(created_at: :desc)
 	end
 
 	private

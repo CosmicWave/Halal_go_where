@@ -19,23 +19,27 @@
 			<div class="row searchrow">
 				<div class="col-md-3 col-xs-3"></div>
 				<div class="col-md-6 col-xs-6">
-					<form class="searchbar" role="search">
-						<div class="input-group">
-							<%= form_tag simple_search_path, method: :patch do %>
-              <div class="row">
-							 <%= text_field_tag :search, params[:search], class: "bar" %>
-              </div>
-              
-              <div class="row searchbuttonrow">
-                <div class="col-md-6 col-xs-6">
-                  <%= submit_tag 'Search', class: 'btn btn-danger searchbutton' %><% end %>
-                </div>
-                <div class="col-md-6 col-xs-6">
-                  <%= link_to 'Advance Search', new_search_path, class: 'btn btn-danger searchbutton' %>
-                </div>					 
-              </div>
-						</div>
-					</form>
+
+        <div class="row">
+          <div class="col-md-2 col-xs-2"></div>
+            <div class="col-md-8 col-xs-8">
+              <%= form_tag(search_photos_path, method: :patch) do %>
+
+              <form class="searchbar" role="search">
+                <div class="input-group">
+                  <%= text_field_tag :search_query,params[:search_query], placeholder: "I'm craving for...", class: "form-control" %>
+                  <span class="input-group-btn">
+                    <%= button_tag(type: "submit", class: "btn btn-danger") do %>
+                    <i class="fa fa-search fa-lg"></i>
+                  <% end %>
+                  </span>
+                    <% end %>
+                 </div>
+              </form>
+
+            </div>
+
+          <div class="col-md-2 col-xs-2"></div>
 				</div>
 				<div class="col-md-3 col-xs-3"></div>
 			</div>
@@ -46,250 +50,47 @@
 <!-- ///////////////////////// Latest reviews ///////////////////////////////////////// -->
 
 <div class="container-fluid cardcont">
-
   <div class="row cardrow">
+    <div class="posthead">Latest Reviews</div>
+    
+    <div id='card-photo'>
+      <%= render 'photo_card', photos: @latest_photos %>
+    </div>
 
-  <div class="posthead">Latest Reviews</div>
-
-
-
-
-<% if !@photo.blank? %>
-
-  <div class="card-box col-md-4 col-sm-4">
-      <div class="card cardleft card-index">          
-        <div class="header">
-         <div class="insidephoto"></div>
-         <% if @photo.avatar.present? %>
-                     <%= link_to foodies_photo_path(id: @photo.id) do %>
-                       <%= image_tag @photo.avatar_url(:thumb).to_s, class: "fixed-ratio-resize" %>
-                        
-                     <% end %>
-                  <% else %>
-                     <%= link_to foodies_photo_path(id: @photo.id) do %>
-                       <%= image_tag ('/assets/mee.jpg'), :size => "360x265" %>
-                     <% end %>
-                  <% end %>
-          <div class="filter">
-            
-             <div class="actions">
-              
-               <div class="btn btn-round btn-fill btn-neutral btn-modern">
-                  
-               </div>
-        </div>
-        </div>
-      </div>           
-        
-        <div class="content">
-                      
-          <h4 style="font-family: 'Anton', sans-serif;"><%= truncate(@photo.title, :length => 20) %> </h4>
-          <p>Venue: </br> <%= truncate(@photo.restaurant, :length => 40) %></p>
-          <p>Review:</br> <%= truncate(@photo.description, :length => 90) %></p>
-          <p>Price:<b> $<%= @photo.price %></b></p>   
-          <div class="bywho"><small><%= link_to @photo.foody.name, foody_path(@photo.foody) %></br> Created: <%= time_ago_in_words(@photo.created_at) %> ago</small></div>
-        </div>                        
-
-    </div> <!-- end card -->
-   </div>
-
-<% else %>
-
-    <div class="card-box col-md-4 col-sm-4">
-      <div class="card cardleft card-index">          
-        <div class="header">
-         <div class="insidephoto"></div>
-          <div class="filter"></div>
-             <div class="actions">      
-               <div class="btn btn-round btn-fill btn-neutral btn-modern">
-                Read Article
-            </div>
-          </div>
-        </div>
-        
-        <div class="content">
-          <h6 class="category">Food</h6>
-          <h4 class="title"><a href="#">Try the new laksa from Auntie Shop! </a></h4>
-          <p class="description">The portion is huge and the gravy super delicious! Price is good too!</p>
-          <div class="bywho"><small>By Regent on 20th Oct 2017</small></div>
-        </div>                                           
-    </div> <!-- end card -->
+    <div class="row viewmore">
+      <%= link_to 'View More', view_more_path, class: 'btn btn-primary btn-xs buttonwide' %>
+    </div>
   </div>
-<% end %>
+ </div>
 
-
-<!-- end of card 1 -->
-
-
-
-
-<!-- start of card 2 -->
-
-  <% if !@photo2last.blank? %>
-   <div class="card-box col-md-4 col-sm-4">
-    <div class="card card-index">                            
-      <div class="header">
-         <div class="insidephoto"></div>
-          <div class="filter"></div>
-             <div class="actions">
-               <div class="btn btn-round btn-fill btn-neutral btn-modern">
-                  <% if @photo2last.avatar.present? %>
-                     <%= link_to foodies_photo_path(id: @photo2last.id) do %>
-                       <%= image_tag @photo2last.avatar_url.to_s, :size => "285x210" %>
-                        
-                     <% end %>
-                  <% else %>
-                     <%= link_to foodies_photo_path(id: @photo2last.id) do %>
-                       <%= image_tag ('/assets/mee.jpg'), :size => "280x180" %>
-                     <% end %>
-                  <% end %>
-               </div>
-        </div>
-      </div>
-        
-        <div class="content">
-                      
-          <h4 style="font-family: 'Anton', sans-serif;"><%= truncate(@photo2last.title, :length => 20) %> </h4>
-          <p>Venue: </br> <%= truncate(@photo2last.restaurant, :length => 40) %></p>
-          <p>Review:</br> <%= truncate(@photo2last.description, :length => 90) %></p>
-          <p>Price:<b> $<%= @photo2last.price %></b></p>   
-          <div class="bywho"><small><%= link_to @photo2last.foody.name, foody_path(@photo2last.foody) %></br> Created: <%= time_ago_in_words(@photo2last.created_at) %> ago</small></div>
-        </div>                        
-
-    </div> <!-- end card -->
-   </div>
-
-
-<% else %>
-
-    <div class="card-box col-md-4 col-sm-4">
-      <div class="card card-index">          
-        <div class="header">
-         <div class="insidephoto"></div>
-          <div class="filter"></div>
-             <div class="actions">      
-               <div class="btn btn-round btn-fill btn-neutral btn-modern">
-                Read Article
-            </div>
-          </div>
-        </div>
-        
-        <div class="content">
-          <h6 class="category">Food</h6>
-          <h4 class="title"><a href="#">Try the new laksa from Auntie Shop! </a></h4>
-          <p class="description">The portion is huge and the gravy super delicious! Price is good too!</p>
-          <div class="bywho"><small>By Regent on 20th Oct 2017</small></div>
-        </div>                                           
-    </div> <!-- end card -->
-  </div>
-<% end %>
-
-
-<!-- end card 2 -->
-
-<!-- start card 3 -->
-
-
-
- <% if !@photo3last.blank? %>
-   <div class="card-box col-md-4 col-sm-4">
-    <div class="card cardright card-index">                            
-      <div class="header">
-         <div class="insidephoto"></div>
-          <div class="filter"></div>
-             <div class="actions">
-               <div class="btn btn-round btn-fill btn-neutral btn-modern">
-                  <% if @photo3last.avatar.present? %>
-                     <%= link_to foodies_photo_path(id: @photo3last.id) do %>
-                       <%= image_tag @photo3last.avatar_url.to_s, :size => "280x180" %>
-                        
-                     <% end %>
-                  <% else %>
-                     <%= link_to foodies_photo_path(id: @photo3last.id) do %>
-                       <%= image_tag ('/assets/mee.jpg'), :size => "280x180" %>
-                     <% end %>
-                  <% end %>
-               </div>
-        </div>
-      </div>
-        
-       <div class="content">
-                      
-          <h4 style="font-family: 'Anton', sans-serif;"><%= truncate(@photo3last.title, :length => 20) %> </h4>
-          <p>Venue: </br> <%= truncate(@photo3last.restaurant, :length => 40) %></p>
-          <p>Review:</br> <%= truncate(@photo3last.description, :length => 90) %></p>
-          <p>Price:<b> $<%= @photo3last.price %></b></p>   
-          <div class="bywho"><small><%= link_to @photo3last.foody.name, foody_path(@photo3last.foody) %></br> Created: <%= time_ago_in_words(@photo3last.created_at) %> ago</small></div>
-        </div>                        
-
-    </div> <!-- end card -->
-   </div>
-
-<% else %>
-
-    <div class="card-box col-md-4 col-sm-4">
-      <div class="card cardright card-index">          
-        <div class="header">
-         <div class="insidephoto"></div>
-          <div class="filter"></div>
-             <div class="actions">      
-               <div class="btn btn-round btn-fill btn-neutral btn-modern">
-                Read Article
-            </div>
-          </div>
-        </div>
-        
-        <div class="content">
-          <h6 class="category">Food</h6>
-          <h4 class="title"><a href="#">Try the new laksa from Auntie Shop! </a></h4>
-          <p class="description">The portion is huge and the gravy super delicious! Price is good too!</p>
-          <div class="bywho"><small>By Regent on 20th Oct 2017</small></div>
-        </div>                                           
-    </div> <!-- end card -->
-
-  </div>
-<% end %>
-
-
-</div>
-
-
-<!-- end card 3 -->
-
-  <div class="row viewmore">
-      <%= link_to view_more_foodies_photos_path do %>
-    <button type="button" class="btn btn-primary btn-xs buttonwide">View More</button>
-      <% end %>
-  </div>
-</div>
 
 <!-- ///////////////////////// Categories ///////////////////////////////////////// -->
 
-<div class= "container-fluid">
-  <div class="row paramargin">
-    <section class="module parallax parallax-2">
-      <div class="contain row">
-        <div class="category"><u>CATEGORIES</u></div>
-      </div>
 
-      <div class="row categories">
-        <div class="butttons">
-          <a href="#" class="bttn">Wallet Friendly</a>
-          <a href="#" class="bttn">Great Ambience</a>
-          <a href="#" class="bttn">Big Gatherings</a>
-        </div>
-      </div>
+<div class="row paramargin">
+  <section class="module parallax parallax-2">
+    <div class="contain row">
+      <div class="category"><u>CATEGORIES</u></div>
+    </div>
 
-      <div class="row categories">
-        <div class="butttons">
-          <a href="#" class="bttn">Instagram-able</a>
-          <a href="#" class="bttn">Supper Joints</a>
-          <a href="#" class="bttn">Near Mosque</a>
-        </div>
+    <div class="row categories">
+      <div class="butttons">
+        <a href="#" class="bttn">Wallet Friendly</a>
+        <a href="#" class="bttn">Great Ambience</a>
+        <a href="#" class="bttn">Big Gatherings</a>
       </div>
-    </section>
-  </div>
+    </div>
+
+    <div class="row categories">
+      <div class="butttons">
+        <a href="#" class="bttn">Instagram-able</a>
+        <a href="#" class="bttn">Supper Joints</a>
+        <a href="#" class="bttn">Near Mosque</a>
+      </div>
+    </div>
+  </section>
 </div>
+
 
 <!-- ///////////////////////// High Rated Reviews ///////////////////////////////////////// -->
 
@@ -376,13 +177,17 @@
 </div>
 
 
-	
-		<%# if current_review = photo.likeables.find_by(foody_id: current_foody.id) %>
-			<%#= render 'got_likeable', photo: photo %>
-		<%# else %>
-			<%#= render 'no_likeable', photo: photo %>
-		<%# end %>
 
 
 
 
+<script src="/path/to/masonry.pkgd.min.js"></script>
+
+<script type="">
+
+$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+</script>

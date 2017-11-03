@@ -77,59 +77,26 @@
   }
 }
 
-.searchbuttonrow .btn-danger {
+.searchrow .btn-danger {
   background: #fb8c00 !important;
-  width: 100px;
+  height: 40px;
 }
 
-.searchbuttonrow .btn-danger:hover {
+.searchrow .btn-danger:hover {
   background: #ef6c00 !important;
+  height: 40px;
 }
 
 .searchrow {
   margin-top: 5px;
 }
 
-.searchfont {
-  font-family: helvetica !important;
-  letter-spacing: 0.5px;
-}
-
-.searchbuttonrow .searchbutton {
-  white-space: normal;
-  width: 150px;
+.searchrow .form-control {
+  height: 40px;
 }
 
 .searchbar {
-  margin-left: 3%;
-}
-
-.bar {
-  width: 100%;
-}
-
-.searchbuttonrow {
-  margin-top: 10px;
-}
-
-@media screen and (min-width: 1200px) {
-
-.searchbutton {
-  white-space: normal;
-  width: 150px;
-}
-
-.searchbar {
-  margin-left: 25%;
-}
-
-.bar {
-  width: 100%;
-}
-
-.searchbuttonrow {
-  margin-top: 10px;
-}
+  max-width: 100px;
 }
 
 .posthead {
@@ -873,6 +840,7 @@ footer {
   left: 0;
   width: 100%;
   bottom: 0;
+
 }
 
 .footerrow .list-inline {
@@ -1266,8 +1234,6 @@ input.file {
   max-width:100%;
 }
 
-
-
 .fakeinput {
   text-align: center;
 }
@@ -1280,6 +1246,13 @@ input.file {
   .l { font-size: 1.8em; }
 }
 
+/* ------------------ masonart effect --------------------- */
+
+
+.viewmoreindex {
+  font-size: 0;
+  display: inline-block;
+  }
 /* -------//////////////////////////////////////////////////////------------- */
 /* --------------------------- review show ---------------------------------- */
 /* -------//////////////////////////////////////////////////////------------- */
@@ -1361,9 +1334,42 @@ input.file {
   border-radius: 6px 6px 0 0;
 }
 
+
+
+.fixed-ratio-resize2 { /* basic responsive img */
+ 
+  min-width: 220px;
+  min-height: 150px;
+  max-width: 250px;
+  max-height: 180px;
+  width: auto\9; /* IE8 */
+  border-radius: 6px 6px 0 0;
+  height: auto !important;
+  width: auto !important;
+}
+
+
+
+
+
+
+
+
+
+
 .break {
   text-align: center;
   font-family: 'Roboto Mono', monospace;
   font-weight: 100;
   font-size: 13px;
 }
+
+/*---------------- photos - search-----------*/
+
+.searc .search-title {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.grid-item { width: 400px; }
+.grid-item--width2 { width: 400px; }

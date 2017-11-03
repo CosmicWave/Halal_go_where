@@ -13,6 +13,10 @@ class Search < ApplicationRecord
 
 		return restaurants
 
+		photos = Photo.all
+
+		photos = photos.where(["name LIKE ?", "%#{keyword}%"]) if name.present?
+
 	end
 
 

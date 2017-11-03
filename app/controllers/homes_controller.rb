@@ -4,17 +4,23 @@ class HomesController < ApplicationController
 		@photos = Photo.search(params[:search])
 		@foodies = Foody.all
 
-		@photo = Photo.last
-		@photo2last = Photo.second_to_last
-		@photo3last = Photo.third_to_last
-		
-		
+		@latest_photos = Photo.last(3)
 	end
 
-	def search
+	def contact
+	end
+
+	def about_us
+	end
+
+	def view_more
+		@photos = Photo.all
+	end
+
+	def search_photos
 		@params = params
-		searched_restaurants = params[:search_query]
-		@restaurants = Restaurant.where(name: searched_restaurants)
+		@searched_photo = params[:search_query]
+		@photos = Photo.where('title LIKE :query OR restaurant LIKE :query', { query: "%#{@searched_photo}%" })
 	end
 
 

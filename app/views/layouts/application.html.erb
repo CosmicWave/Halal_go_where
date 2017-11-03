@@ -4,16 +4,13 @@
     <title>HalalGoWhereApp</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-
-     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
-     <link href="https://fonts.googleapis.com/css?family=Contrail+One" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Contrail+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   </head>
-
 
 <body>
   <p class="notice"><%= notice %></p>
@@ -36,7 +33,7 @@
           <li><%= link_to "Upload A Review", new_foodies_photo_path, class: "navfont pull-left visible-xs" %></li>       
           <li><%= link_to "Home", root_path, class: "navfont visible-xs pull-left" %></li>
           <li><a class="navfont visible-xs pull-left">Top Rated Reviews</a></li>
-          <li><%= link_to "Most Recent Reviews", view_more_foodies_photos_path, class: "navfont visible-xs pull-left"  %></li>
+          <li><%= link_to "Most Recent Reviews", view_more_path, class: "navfont visible-xs pull-left"  %></li>
           <% if foody_signed_in? %>
           <li><%= link_to "Your Profile", foody_path(current_foody), class: "navfont visible-xs pull-left" %></li>
           <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont pull-left visible-xs" %></li>
@@ -62,7 +59,7 @@
               <li class="dropdown">
               <a href="#" class="dropdown-toggle navfont hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>   
               <ul class="dropdown-menu">
-                <li><%= link_to "Most Recent Reviews", view_more_foodies_photos_path, class: "navfont" %></li>
+                <li><%= link_to "Most Recent Reviews", view_more_path, class: "navfont" %></li>
                 <li><a class="navfont">Top Rated Reviews</a></li>
                 <% if foody_signed_in? %>
                 <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont" %></li>
@@ -73,12 +70,13 @@
       </div>
   </nav>
   
+  <!--                  -->
   <div style="min-height: 100vh;">
   <%= yield %>
   </div>
-
-
-
+  <!--                  -->
+  
+  
   <div class="container-fluid">
   <div class="row footerrow">
     <footer>
@@ -128,16 +126,10 @@
         </div>
 
         
-    </footer>
-  </div>  
-</div>
-
-  
-
-
-<% end %>
-       
-
+       </footer>
+      </div>
+    <% end %>
+   </div> 
   </body>
 
 </html>

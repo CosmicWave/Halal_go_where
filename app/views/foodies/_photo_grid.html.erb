@@ -1,0 +1,28 @@
+<div class="grid-item card-box col-md-4 col-sm-4 ">
+   <div class="card">                            
+       <div class="header">
+         <div class="filter"></div>
+         <div class="actions">
+           <div class="btn btn-round btn-fill btn-neutral btn-modern">
+            <%= link_to foodies_photo_path(id: photo.id) do %>
+              <%= image_tag photo.avatar_url.to_s, :size => "250x180" %>
+              <% end %>
+           </div>
+         </div>
+       </div>
+       
+    <div class="content">               
+      <h4 style="font-family: 'Anton', sans-serif;"><%= truncate(photo.title, :length => 20) %> </h4>
+      <p>Venue: </br> <%= truncate(photo.restaurant, :length => 40) %></p>
+      <p>Review:</br> <%= truncate(photo.description, :length => 90) %></p>
+      <p>Price:<b> $<%= photo.price %></b></p>   
+      <p>Tags: <%=raw photo.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p>
+      <div id="like-<%photo.id%>">  <!-- likes -->
+        <%= render 'likeable', photo: photo %>
+      </div>
+      <div id="rating-<%photo.id%>"><%= render 'rating', photo: photo %></div>
+      <div class="bywho"><small><%= link_to photo.foody.name, foody_path(photo.foody) %></br> Created: <%= time_ago_in_words(photo.created_at) %> ago</small></div>
+    </div>                                        
+  </div> <!-- end card -->
+</div>
+
