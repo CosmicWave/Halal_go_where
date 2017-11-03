@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20171101045814) do
-  
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,9 @@ ActiveRecord::Schema.define(version: 20171101045814) do
     t.bigint "photo_id"
     t.index ["photo_id"], name: "index_foods_on_photo_id"
     t.index ["restaurant_id"], name: "index_foods_on_restaurant_id"
+  end
+
+  create_table "likeables", force: :cascade do |t|
     t.integer "review", default: 1
     t.bigint "foody_id"
     t.bigint "photo_id"
@@ -96,14 +99,11 @@ ActiveRecord::Schema.define(version: 20171101045814) do
     t.string "restaurant"
     t.text "description"
     t.string "avatar"
-    t.string "tag_list"
     t.decimal "price", precision: 12, scale: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "foody_id"
-    t.bigint "tag_id"
     t.index ["foody_id"], name: "index_photos_on_foody_id"
-    t.index ["tag_id"], name: "index_photos_on_tag_id"
   end
 
   create_table "recommends", force: :cascade do |t|
@@ -120,8 +120,6 @@ ActiveRecord::Schema.define(version: 20171101045814) do
     t.string "time"
     t.string "certification"
     t.string "category"
-    t.bigint "tag_id"
-    t.index ["tag_id"], name: "index_restaurants_on_tag_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -156,21 +154,15 @@ ActiveRecord::Schema.define(version: 20171101045814) do
     t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
-    
-  create_table "taggings", force: :cascade do |t|
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
   end
 
   add_foreign_key "disapproves", "foodies"
   add_foreign_key "disapproves", "restaurants"
+  add_foreign_key "foods", "photos"
+  add_foreign_key "foods", "restaurants"
   add_foreign_key "likeables", "foodies"
   add_foreign_key "likeables", "photos"
   add_foreign_key "photos", "foodies"
-  add_foreign_key "photos", "tags"
   add_foreign_key "recommends", "foodies"
   add_foreign_key "recommends", "restaurants"
-  add_foreign_key "restaurants", "tags"
 end

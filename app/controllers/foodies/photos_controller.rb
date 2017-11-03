@@ -1,5 +1,7 @@
 class Foodies::PhotosController < ApplicationController
 
+before_action :authenticate_foody!, only: [:create, :edit, :update, :destroy, :new]
+
 	def index
 		if params[:tag]
 			@photos = Photo.tagged_with(params[:tag])

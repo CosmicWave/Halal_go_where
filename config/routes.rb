@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 	namespace :foodies do
 		resources :photos do
 
-          member do
+        collection do
           get 'view_more'
         end
         
