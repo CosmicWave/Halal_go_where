@@ -1,0 +1,23 @@
+<div class="container-fluid cardcont">
+  <div class="row cardrow">
+
+
+    <div class="grid">
+      <% @photos.each do |photo| %>
+        <%= render 'photo_grid', photo: photo %>
+      <% end %>
+    </div>                                          
+  </div>
+</div>
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
+
+<script type="">
+
+  $('.grid').masonry({
+    // options
+    itemSelector: '.grid-item',
+    columnWidth: 200
+  });
+
+</script>

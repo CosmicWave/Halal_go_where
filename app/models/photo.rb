@@ -11,9 +11,20 @@ class Photo < ApplicationRecord
 	
 	def self.search(search)
 		if search
-			where("title LIKE ?", "%#{search}%")
+			where("title LIKE :query OR restaurant LIKE :query", { query: "%#{ search }%" })
 		else
 			all
+		end
+	end
+
+	def rating(photo)
+		if photo.likeables.exists?
+
+			((photo.likeables.where(review: 2).count) - (photo.likeables.where(review: 1).count) /
+			# -----------------------------------------------------------------------------------
+																			photo.likeables.count).round(1)
+		else
+			0
 		end
 	end
 

@@ -1,0 +1,10 @@
+<div class="container-fluid search">
+	<div class="row search-tile">
+		<div class="col-md-12">
+			<h1>Showing results for "<%=@searched_photo%>"</h1>
+		</div>
+	</div>
+</div>
+<% @photos.each do |photo| %>
+    <%= render 'photo_card', photo: photo %>
+<% end %>

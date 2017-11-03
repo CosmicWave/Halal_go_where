@@ -33,7 +33,7 @@
           <li><%= link_to "Upload A Review", new_foodies_photo_path, class: "navfont pull-left visible-xs" %></li>       
           <li><%= link_to "Home", root_path, class: "navfont visible-xs pull-left" %></li>
           <li><a class="navfont visible-xs pull-left">Top Rated Reviews</a></li>
-          <li><%= link_to "Most Recent Reviews", view_more_foodies_photos_path, class: "navfont visible-xs pull-left"  %></li>
+          <li><%= link_to "Most Recent Reviews", view_more_path, class: "navfont visible-xs pull-left"  %></li>
           <% if foody_signed_in? %>
           <li><%= link_to "Your Profile", foody_path(current_foody), class: "navfont visible-xs pull-left" %></li>
           <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont pull-left visible-xs" %></li>
@@ -59,7 +59,7 @@
               <li class="dropdown">
               <a href="#" class="dropdown-toggle navfont hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>   
               <ul class="dropdown-menu">
-                <li><%= link_to "Most Recent Reviews", view_more_foodies_photos_path, class: "navfont" %></li>
+                <li><%= link_to "Most Recent Reviews", view_more_path, class: "navfont" %></li>
                 <li><a class="navfont">Top Rated Reviews</a></li>
                 <% if foody_signed_in? %>
                 <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont" %></li>

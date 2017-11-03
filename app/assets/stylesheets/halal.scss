@@ -1267,8 +1267,6 @@ input.file {
   max-width:100%;
 }
 
-
-
 .fakeinput {
   text-align: center;
 }
@@ -1281,7 +1279,7 @@ input.file {
   .l { font-size: 1.8em; }
 }
 
-/*------------------ masonart effect ---------------------*/
+/* ------------------ masonart effect --------------------- */
 
 
 .viewmoreindex {
@@ -1376,3 +1374,12 @@ input.file {
   font-size: 13px;
 }
 
+/*---------------- photos - search-----------*/
+
+.searc .search-title {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.grid-item { width: 400px; }
+.grid-item--width2 { width: 400px; }

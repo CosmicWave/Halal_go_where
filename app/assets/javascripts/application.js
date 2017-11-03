@@ -12,19 +12,12 @@
 //
 //= require jquery
 //= require rails-ujs
-// Load all Bootstrap JavaScript
 //= require bootstrap-sprockets
 //= require masonry/jquery.masonry
-
 //= require_tree .
 
 
 $(document).ready(function() {
-
-$('.carousel').carousel({
-  interval: 5000,
-  pause: "null"
-});
 
 $(".dropdown").click(function(){
 $(".dropdown-menu").fadeToggle();
