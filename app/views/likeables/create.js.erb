@@ -1,3 +1,2 @@
-$('#like-<%photo.id%>').html('<%= j render 'homes/got_likeable', photo: @photo %>');
-$('#no-like-<%photo.id%>').html('<%= j render 'homes/no_likeable', photo: @photo %>');
-// $('').html('<%= j render 'homes/no_likeable', photo: @photo %>');
+$('#like-<%photo.id%>').html('<%= j render 'homes/likeable' %>');
+$('#rating-<%photo.id%>').html('<%= j render 'homes/rating' %>');

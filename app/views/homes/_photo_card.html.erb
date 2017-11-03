@@ -22,19 +22,10 @@
         <p>Review:</br> <%= truncate(photo.description, :length => 90) %></p>
         <p>Price:<b> $<%= photo.price %></b></p>   
         <p>Tags: <%=raw photo.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p>
-        <div>  <!-- likes -->
-          <% if foody_signed_in? %>
-            <% if current_review = photo.likeables.find_by(foody_id: current_foody.id) %>
-              <div id="like-<%photo.id%>"><%= render 'got_likeable', photo: photo %></div>
-            <% else %>
-              <div id="no-like-<%photo.id%>"><%= render 'no_likeable', photo: photo %></div>
-            <%end %>
-          <% else %>
-            <%= link_to "<i class=\"glyphicon glyphicon-thumbs-up\"></i>".html_safe, new_foody_session_path %>
-            <%= link_to "<i class=\"glyphicon glyphicon-thumbs-down\"></i>".html_safe, new_foody_session_path %>
-          <% end %>
+        <div id="like-<%photo.id%>">  <!-- likes -->
+          <%= render 'likeable', photo: photo %>
         </div>
-        <div class="rating"><%= photo.rating(photo) %></div>
+        <div id="rating-<%photo.id%>"><%= render 'rating', photo: photo %></div>
         <div class="bywho"><small><%= link_to photo.foody.name, foody_path(photo.foody) %></br> Created: <%= time_ago_in_words(photo.created_at) %> ago</small></div>
       </div>                        
 
