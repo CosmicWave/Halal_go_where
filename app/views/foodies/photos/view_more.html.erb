@@ -1,6 +1,11 @@
-  <p>Foodies::Photos - Show</p>
+
+<style>
+.grid-item { width: 400px; }
+.grid-item--width2 { width: 400px; }
+</style>
 
 
+<p>Foodies::Photos - Show</p>
 
 
   <div class="container-fluid">
@@ -20,10 +25,10 @@
   <div class="row cardrow">
 
 
-
+<div class="grid">
   <% @photos.each do |photo| %>
 
-      <div class="card-box col-md-6 col-sm-6">
+      <div class="grid-item card-box col-md-4 col-sm-4 ">
        <div class="card">                            
            <div class="header">
              <div class="filter"></div>
@@ -65,3 +70,25 @@
 
 </div>                                          
 </div>
+</div>
+
+
+
+
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
+
+<script type="">
+
+
+$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+
+
+
+</script>
+
+

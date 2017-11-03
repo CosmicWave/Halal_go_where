@@ -65,7 +65,7 @@ class Foodies::PhotosController < ApplicationController
   
   def view_more
 	#	@photo = Photo.find_by(id: params[:id])
-		@photos = Photo.all
+		@photos = Photo.all.order(created_at: :desc)
 	end
 
 	private
