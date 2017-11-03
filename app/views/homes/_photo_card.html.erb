@@ -34,7 +34,7 @@
             <%= link_to "<i class=\"glyphicon glyphicon-thumbs-down\"></i>".html_safe, new_foody_session_path %>
           <% end %>
         </div>
-        <div id="rating"><%= photo.rating(photo) %></div>
+        <div class="rating"><%= photo.rating(photo) %></div>
         <div class="bywho"><small><%= link_to photo.foody.name, foody_path(photo.foody) %></br> Created: <%= time_ago_in_words(photo.created_at) %> ago</small></div>
       </div>                        
 

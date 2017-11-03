@@ -1,43 +1,8 @@
-<div class="container-fluid">
-	<div class="row">
-
-		<div class="landing-banner">
-			<div class="row textspace">	
-				<div class="col-md-3 col-xs-3"></div>
-  				<div class="col-md-6 col-xs-6">
-  					<div class="homefont text-center">
-              Find the best halal makan places in Singapore!
-  					</div>
-  				</div>
-				<div class="col-md-3 col-xs-3"></div>
-			</div>
-
-			<div class="row searchrow">
-				<div class="col-md-3 col-xs-3"></div>
-				<div class="col-md-6 col-xs-6">
-
-						<div class="input-group">
-              
-							<%= form_tag(search_photos_path, method: :patch) do %>
-              <div class="row">
-							 <%= text_field_tag :search_query,params[:search_query], class: "bar" %>
-              </div>
-              
-              <div class="row searchbuttonrow">
-                <div class="col-md-6 col-xs-6">
-                  <%= submit_tag 'Search', class: 'btn btn-danger searchbutton' %><% end %>
-                </div>
-                <div class="col-md-6 col-xs-6">
-                  <%= link_to 'Advance Search', new_search_path, class: 'btn btn-danger searchbutton' %>
-                </div>					 
-              </div>
-						</div>
-
-				</div>
-				<div class="col-md-3 col-xs-3"></div>
-			</div>
+<div class="container-fluid search">
+	<div class="row search-tile">
+		<div class="col-md-12">
+			<h1>Showing results for "<%=@searched_photo%>"</h1>
 		</div>
-
 	</div>
 </div>
 <% @photos.each do |photo| %>

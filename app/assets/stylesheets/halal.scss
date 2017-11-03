@@ -1563,8 +1563,6 @@ input.file {
   max-width:100%;
 }
 
-
-
 .fakeinput {
   text-align: center;
 }
@@ -1575,4 +1573,11 @@ input.file {
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
   .l { font-size: 1.8em; }
+}
+
+/*---------------- photos - search-----------*/
+
+.searc .search-title {
+  margin-left: 0;
+  margin-right: 0;
 }
