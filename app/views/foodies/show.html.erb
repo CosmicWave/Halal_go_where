@@ -1,3 +1,5 @@
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+
 <div class="container-fluid profilebg">
   <div class="row">
     <div class="profile-banner">
@@ -40,25 +42,56 @@
   </div>
 </div>
 
+
+<style>
+.grid-item { width: 400px; }
+.grid-item--width2 { width: 400px; }
+
+</style>
+
+
 <div class="container-fluid cardcont">
   <div class="row cardrow">
+    <div class="posthead">Your Reviews</div>
+    <div class="container-fluid cardcont">
+      <div class="row cardrow">
 
-  <% @foodyphoto.each do |photo| %> 
 
-  <div class="card-box col-md-6 col-sm-6">
-   <div class="card">                            
-    <div class="header">
-      <div class="filter"></div>
-        <div class="actions">
-          <div class="btn btn-round btn-fill btn-neutral btn-modern">
-            <% if photo.avatar.present? %> 
-              <%= link_to foodies_photo_path(id: photo.id) do %>
-              <%= image_tag photo.avatar_url.to_s, :size => "250x180" %>
-              <% end %>
+<div class="grid">
+  <% @foodyphoto.each do |photo| %>
+      <div class=" grid-item box card-box col-md-4">
+       <div class="card">                            
+           <div class="header">
+             <div class="filter"></div>
+             <div class="actions">
+               <div class="btn btn-round btn-fill btn-neutral btn-modern">
+
+
+                    <% if photo.avatar.present? %> 
+                      <%= link_to foodies_photo_path(id: photo.id) do %>
+                        <%= image_tag photo.avatar_url.to_s, :size => "250x180" %>
+                        <% end %>
+                    <% else %>
+                      <%= link_to foodies_photo_path(id: photo.id) do %>
+                        <%= image_tag ('/assets/mee.jpg'), :size => "250x180" %>
+                      <% end %>
+                    <% end %>
+               </div>
+             </div>
+           </div>
+           
+        <div class="content">
+         <h4>Place: <%= photo.restaurant %></h4>
+         <p>Food: <%= photo.title %></p>
+         <p>Review: <%= photo.description %></p>
+         <p>Price:<b> $<%= photo.price %></b></p>
+             
+            <div class="bywho"><small><%= link_to photo.foody.name, foody_path(photo.foody) %></br> Created: <%= time_ago_in_words(photo.created_at) %> ago</small></div>
+            
+            <% if photo.foody == current_foody %>  
+              <%= link_to "Edit", edit_foodies_photo_path(id: photo.id) %>
+              <%= link_to "Delete", foodies_photo_path(id: photo.id), method: :delete %>
             <% else %>
-              <%= link_to foodies_photo_path(id: photo.id) do %>
-              <%= image_tag ('/assets/mee.jpg'), :size => "250x180" %>
-              <% end %>
             <% end %>
          </div>
        </div>
@@ -86,4 +119,18 @@
 
 </div>                                          
 </div>
+</div>
 
+
+
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
+
+<script type="">
+
+$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+</script>

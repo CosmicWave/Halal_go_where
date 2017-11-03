@@ -67,7 +67,7 @@ before_action :authenticate_foody!, only: [:create, :edit, :update, :destroy, :n
   
   def view_more
 	#	@photo = Photo.find_by(id: params[:id])
-		@photos = Photo.all
+		@photos = Photo.all.order(created_at: :desc)
 	end
 
 	private

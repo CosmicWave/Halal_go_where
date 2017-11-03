@@ -1,6 +1,11 @@
-  <p>Foodies::Photos - Show</p>
+
+<style>
+.grid-item { width: 400px; }
+.grid-item--width2 { width: 400px; }
+</style>
 
 
+<p>Foodies::Photos - Show</p>
 
 
   <div class="container-fluid">
@@ -19,11 +24,11 @@
 <div class="container-fluid cardcont">
   <div class="row cardrow">
 
- <% if foody_signed_in? %>
 
+<div class="grid">
   <% @photos.each do |photo| %>
 
-      <div class="card-box col-md-6 col-sm-6">
+      <div class="grid-item card-box col-md-4 col-sm-4 ">
        <div class="card">                            
            <div class="header">
              <div class="filter"></div>
@@ -50,7 +55,7 @@
          <p>Review: <%= photo.description %></p>
          <p>Price:<b> $<%= photo.price %></b></p>
              
-            <div class="bywho"><small><%= link_to photo.foody.name, foody_path(current_foody) %></br> Created: <%= time_ago_in_words(photo.created_at) %> ago</small></div>
+            <div class="bywho"><small><%= link_to photo.foody.name, foody_path(photo.foody) %></br> Created: <%= time_ago_in_words(photo.created_at) %> ago</small></div>
             
             <% if photo.foody == current_foody %>  
               <%= link_to "Edit", edit_foodies_photo_path(id: photo.id) %>
@@ -61,9 +66,29 @@
       </div> <!-- end card -->
      </div>
     <% end %>
-  <% end %>
-
 
 
 </div>                                          
 </div>
+</div>
+
+
+
+
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
+
+<script type="">
+
+
+$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+
+
+
+</script>
+
+

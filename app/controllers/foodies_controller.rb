@@ -7,7 +7,7 @@ class FoodiesController < ApplicationController
 	def show
 		@photos = Photo.all
 		@foody = Foody.find(params[:id])
-		@foodyphoto = @foody.photos
+		@foodyphoto = @foody.photos.order(created_at: :desc)
 	
 	end
 

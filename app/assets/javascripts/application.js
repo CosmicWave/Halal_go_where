@@ -14,6 +14,7 @@
 //= require rails-ujs
 // Load all Bootstrap JavaScript
 //= require bootstrap-sprockets
+//= require masonry/jquery.masonry
 
 //= require_tree .
 
@@ -33,3 +34,5 @@ $('.notice').fadeOut(5000, function(){$(this).remove();
 });
 
 });
+
+

@@ -4,8 +4,7 @@
     <title>HalalGoWhereApp</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
@@ -71,12 +70,12 @@
       </div>
   </nav>
   
+  <!--                  -->
   <div style="min-height: 100vh;">
   <%= yield %>
   </div>
-
-
-
+  <!--                  -->
+  
   <div class="container-fluid">
   <div class="row footerrow">
     <footer>
@@ -126,16 +125,10 @@
         </div>
 
         
-    </footer>
-  </div>  
-</div>
-
-  
-
-
-<% end %>
-       
-
+       </footer>
+      </div>
+    <% end %>
+   </div> 
   </body>
 
 </html>
