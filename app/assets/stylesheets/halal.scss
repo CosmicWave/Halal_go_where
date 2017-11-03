@@ -77,59 +77,26 @@
   }
 }
 
-.searchbuttonrow .btn-danger {
+.searchrow .btn-danger {
   background: #fb8c00 !important;
-  width: 100px;
+  height: 40px;
 }
 
-.searchbuttonrow .btn-danger:hover {
+.searchrow .btn-danger:hover {
   background: #ef6c00 !important;
+  height: 40px;
 }
 
 .searchrow {
   margin-top: 5px;
 }
 
-.searchfont {
-  font-family: helvetica !important;
-  letter-spacing: 0.5px;
-}
-
-.searchbuttonrow .searchbutton {
-  white-space: normal;
-  width: 150px;
+.searchrow .form-control {
+  height: 40px;
 }
 
 .searchbar {
-  margin-left: 3%;
-}
-
-.bar {
-  width: 100%;
-}
-
-.searchbuttonrow {
-  margin-top: 10px;
-}
-
-@media screen and (min-width: 1200px) {
-
-.searchbutton {
-  white-space: normal;
-  width: 150px;
-}
-
-.searchbar {
-  margin-left: 25%;
-}
-
-.bar {
-  width: 100%;
-}
-
-.searchbuttonrow {
-  margin-top: 10px;
-}
+  max-width: 100px;
 }
 
 .posthead {
