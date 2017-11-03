@@ -5,6 +5,9 @@
 		</div>
 	</div>
 </div>
-<% @photos.each do |photo| %>
-    <%= render 'photo_card', photo: photo %>
-<% end %>
+
+<div class="container-fluid">
+	<% @photos.each do |photo| %>
+   	<%= render 'photo_card', photo: photo %>
+	<% end %>	
+</div>
