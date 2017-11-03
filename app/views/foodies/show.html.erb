@@ -23,11 +23,11 @@
                 <div class="row foodystatsrow">
                   <ul class="list-inline">
                     <li>
-                      <span class="statsnum">3</span> Reviews
+                      <span class="statsnum"><%= @foody.photos.count %></span> Reviews
                     </li>
                     
                     <li>
-                      <span class="statsnum">30</span> Likes
+                      <span class="statsnum"><%= @foody.likeables.count %></span> Likes
                     </li>                 
                   </ul>                
                 </div>
@@ -49,15 +49,7 @@
 
 </style>
 
-
-<div class="container-fluid cardcont">
-  <div class="row cardrow">
-    <div class="posthead">Your Reviews</div>
-    <div class="container-fluid cardcont">
-      <div class="row cardrow">
-
-
-<div class="grid">
+<div class="container-fluid">
   <% @foodyphoto.each do |photo| %>
       <div class=" grid-item card-box col-md-4">
        <div class="card">                            
@@ -104,6 +96,7 @@
 
 </div>                                          
 </div>
+
 </div>
 
 
