@@ -1367,6 +1367,29 @@ input.file {
   border-radius: 6px 6px 0 0;
 }
 
+
+
+.fixed-ratio-resize2 { /* basic responsive img */
+ 
+  min-width: 220px;
+  min-height: 150px;
+  max-width: 250px;
+  max-height: 180px;
+  width: auto\9; /* IE8 */
+  border-radius: 6px 6px 0 0;
+  height: auto !important;
+  width: auto !important;
+}
+
+
+
+
+
+
+
+
+
+
 .break {
   text-align: center;
   font-family: 'Roboto Mono', monospace;

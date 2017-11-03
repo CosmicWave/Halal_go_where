@@ -4,7 +4,7 @@
 <div class="newreviewbg">
   <div class="container-fluid">
   	<div class="row">
-  		<div class="col-md-7 col-xs-7">
+  		<div class="col-md-6 col-xs-6">
   		  <div id="contact-form">
   		  	
     			<%= form_for :photo, url: foodies_photos_path, method: :post do |f| %>
@@ -24,12 +24,6 @@
       			<%= f.text_field :price %>
       		</div>
 
-
-      		<div class="">
-      			<%= f.label  :restaurant %>
-      			<%= f.text_field :restaurant %>
-      		</div>
-
 					<div class="">
 						<%= f.label  :tag_list, "Tags (separated by commas)" %>
 						<%= f.text_field :tag_list %>
@@ -39,13 +33,24 @@
 							<%= f.label  :restaurant %>
 							<%= f.text_field :restaurant %>
 						</div>
+				                          
+						<div class="fileinputs submit">
+                   <%= f.file_field :avatar, id: "avatar-upload", :class => "file" %>
+                   <div class="fakefile" style="width:100%;">
+                      <%= f.hidden_field :avatar_cache %>
+                    <button type="button" class="submit" style="width:100%;" >Add Your Image </button>
+                    
+                  </div>
+                </div>
+              
 
-            <div> 
-				  	 	<%= f.hidden_field :avatar_cache %>
-            </div>
+              <div class="fileinputs">
+                  <input class="" name="commit" value="Save Changes" data-disable-with="" type="submit">
+                  <div class="fakefile" style="width:100%;"></input>
+                    <button type="" class="" style="width:100%;"> Submit </button>
+                  </div>
+                </div> 
 
-
-						<%= f.submit "Upload" %>
 		  				
 					  
 				  </div>
