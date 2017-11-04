@@ -52,10 +52,8 @@
 
   <div class="posthead">Latest Reviews</div>
 
- <div class="grid">
-  <% @latest_photos.each do |photo| %>
-    <%= render 'photo_card', photo: photo %>
-  <% end %
+ 
+  
   <div id='card-photo'>
     <%= render 'photo_card', photos: @latest_photos %>
     </div>
@@ -64,7 +62,7 @@
    <%= link_to 'View More', view_more_path, class: 'btn btn-primary btn-xs buttonwide' %>
   </div>
  </div>
-</div>
+
 
 <!-- ///////////////////////// Categories ///////////////////////////////////////// -->
 
