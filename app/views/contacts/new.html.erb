@@ -1,0 +1,36 @@
+<h1 class="page_title">Say Hello</h1>
+
+	<%= form_for @contact, url: contacts_path, method: :post do |f| %>
+
+		<div class="">
+      		<%= f.label  :name %>
+    		<%= f.text_field :name, reqired: true %>
+      	</div>
+
+        </br>
+
+      	<div class="">
+      		<%= f.label  :email %>
+    		<%= f.email_field :email, reqired: true %>
+      	</div>
+
+      	</br>
+
+      	<div class="">
+      		<%= f.label  :message %>
+    		<%= f.text_area :message, as: :text %>
+      	</div>
+
+      	</br>
+
+      	<div class="hidden">
+      		<%= f.label  :nickname %>
+    		<%= f.text_field :nickname, hint: 'leave this field blank' %>
+      	</div>
+
+
+      	<%= f.submit "send message", class: 'button' %>
+
+	<% end %>
+
+		
