@@ -1198,8 +1198,8 @@ input:required, textarea:required {
 }
 
 .card-index {
- min-height: 530px;
- max-height: 530px;
+ min-height: 600px;
+ max-height: 600px;
  max-width: 360px;
  
 }
@@ -1246,13 +1246,28 @@ input.file {
   .l { font-size: 1.8em; }
 }
 
-/* ------------------ masonart effect --------------------- */
+/* ------------------ masonary effect --------------------- */
 
 
 .viewmoreindex {
   font-size: 0;
   display: inline-block;
   }
+
+
+.grid-item { width: 400px; }
+.grid-item--width2 { width: 400px; }
+
+
+
+
+
+
+
+
+
+
+
 /* -------//////////////////////////////////////////////////////------------- */
 /* --------------------------- review show ---------------------------------- */
 /* -------//////////////////////////////////////////////////////------------- */
@@ -1349,14 +1364,6 @@ input.file {
 }
 
 
-
-
-
-
-
-
-
-
 .break {
   text-align: center;
   font-family: 'Roboto Mono', monospace;
@@ -1371,5 +1378,3 @@ input.file {
   margin-right: 0;
 }
 
-.grid-item { width: 400px; }
-.grid-item--width2 { width: 400px; }
