@@ -9,9 +9,9 @@
           </div>
         
           <div class="content">
-            <h4>Food: <%= @photo.title %></h4>
-             <p></p>
-             <p>Review: <%= @photo.description %></p>
+            <h4><%= @photo.title.capitalize %></h4>
+             <p>Venue: <%= @photo.restaurant.capitalize %></p>
+             <p>Review: <%= @photo.description.capitalize %></p>
              <p>Price:<b> $<%= @photo.price %></b></p>
              
            
@@ -34,6 +34,7 @@
 
           <div class="content">
             <p>Place: <%= @photo.restaurant %></p>
+
             <p>Tags: <%= photo_tags(@photo) %></p>
           </div>
         </div>
