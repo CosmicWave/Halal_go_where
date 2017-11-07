@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(version: 20171101045814) do
     t.index ["reset_password_token"], name: "index_foodies_on_reset_password_token", unique: true
   end
 
+  create_table "foods", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.bigint "photo_id"
+    t.index ["photo_id"], name: "index_foods_on_photo_id"
+    t.index ["restaurant_id"], name: "index_foods_on_restaurant_id"
+  end
+
   create_table "likeables", force: :cascade do |t|
     t.integer "review", default: 1
     t.bigint "foody_id"
@@ -152,6 +159,8 @@ ActiveRecord::Schema.define(version: 20171101045814) do
 
   add_foreign_key "disapproves", "foodies"
   add_foreign_key "disapproves", "restaurants"
+  add_foreign_key "foods", "photos"
+  add_foreign_key "foods", "restaurants"
   add_foreign_key "likeables", "foodies"
   add_foreign_key "likeables", "photos"
   add_foreign_key "photos", "foodies"

@@ -20,23 +20,26 @@
 				<div class="col-md-3 col-xs-3"></div>
 				<div class="col-md-6 col-xs-6">
 
-						<div class="input-group">
-              
-							<%= form_tag(search_photos_path, method: :patch) do %>
-              <div class="row">
-							 <%= text_field_tag :search_query,params[:search_query], class: "bar" %>
-              </div>
-              
-              <div class="row searchbuttonrow">
-                <div class="col-md-6 col-xs-6">
-                  <%= submit_tag 'Search', class: 'btn btn-danger searchbutton' %><% end %>
-                </div>
-                <div class="col-md-6 col-xs-6">
-                  <%= link_to 'Advance Search', new_search_path, class: 'btn btn-danger searchbutton' %>
-                </div>					 
-              </div>
-						</div>
+        <div class="row">
+          <div class="col-md-2 col-xs-2"></div>
+            <div class="col-md-8 col-xs-8">
+              <%= form_tag(search_photos_path, method: :patch) do %>
 
+              <form class="searchbar" role="search">
+                <div class="input-group">
+                  <%= text_field_tag :search_query,params[:search_query], placeholder: "I'm craving for...", class: "form-control" %>
+                  <span class="input-group-btn">
+                    <%= button_tag(type: "submit", class: "btn btn-danger") do %>
+                    <i class="fa fa-search fa-lg"></i>
+                  <% end %>
+                  </span>
+                    <% end %>
+                 </div>
+              </form>
+
+            </div>
+
+          <div class="col-md-2 col-xs-2"></div>
 				</div>
 				<div class="col-md-3 col-xs-3"></div>
 			</div>
@@ -47,46 +50,50 @@
 <!-- ///////////////////////// Latest reviews ///////////////////////////////////////// -->
 
 <div class="container-fluid cardcont">
-
   <div class="row cardrow">
 
+
   <div class="posthead">Latest Reviews</div>
+  
   <div id='card-photo'>
     <%= render 'photo_card', photos: @latest_photos %>
-  </div>
 
-  <div class="row viewmore">
-   <%= link_to 'View More', view_more_path, class: 'btn btn-primary btn-xs buttonwide' %>
+    </div>
+
+    <div class="row viewmore">
+      <%= link_to 'View More', view_more_path, class: 'btn btn-primary btn-xs buttonwide' %>
+    </div>
   </div>
-</div>
+ </div>
+
 
 <!-- ///////////////////////// Categories ///////////////////////////////////////// -->
 
-<div class= "container-fluid">
-  <div class="row paramargin">
-    <section class="module parallax parallax-2">
-      <div class="contain row">
-        <div class="category"><u>CATEGORIES</u></div>
-      </div>
 
-      <div class="row categories">
-        <div class="butttons">
-          <a href="#" class="bttn">Wallet Friendly</a>
-          <a href="#" class="bttn">Great Ambience</a>
-          <a href="#" class="bttn">Big Gatherings</a>
-        </div>
-      </div>
+<div class="row paramargin">
+  <section class="module parallax parallax-2">
+    <div class="contain row">
+      <div class="category"><u>CATEGORIES</u></div>
+    </div>
 
-      <div class="row categories">
-        <div class="butttons">
-          <a href="#" class="bttn">Instagram-able</a>
-          <a href="#" class="bttn">Supper Joints</a>
-          <a href="#" class="bttn">Near Mosque</a>
-        </div>
+    <div class="row categories">
+      <div class="butttons">
+        <a href="#" class="bttn">Wallet Friendly</a>
+        <a href="#" class="bttn">Great Ambience</a>
+        <a href="#" class="bttn">Big Gatherings</a>
       </div>
-    </section>
-  </div>
+    </div>
+
+    <div class="row categories">
+      <div class="butttons">
+        <a href="#" class="bttn">Instagram-able</a>
+        <a href="#" class="bttn">Supper Joints</a>
+        <a href="#" class="bttn">Near Mosque</a>
+      </div>
+    </div>
+  </section>
 </div>
+
 
 <!-- ///////////////////////// High Rated Reviews ///////////////////////////////////////// -->
 
@@ -177,4 +184,13 @@
 
 
 
+<script src="/path/to/masonry.pkgd.min.js"></script>
 
+<script type="">
+
+$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+</script>

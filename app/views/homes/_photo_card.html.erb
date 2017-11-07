@@ -1,7 +1,12 @@
+
+
+<div id='card-photo'>
+
 <% photos.each do |photo| %>
+
   
   <div class="card-box col-md-4 col-sm-4">
-    <div class="card cardleft card-index">          
+    <div class="card card card-index">          
       
       <div class="header">
         <div class="insidephoto"></div>
@@ -10,7 +15,8 @@
         <div class="actions">
           <div class="btn btn-round btn-fill btn-neutral btn-modern">
              <%= link_to foodies_photo_path(id: photo.id) do %>
-               <%= image_tag photo.avatar_url(:thumb).to_s, :size => "260x180" %>
+               <%= image_tag photo.avatar_url.to_s, class: "fixed-ratio-resize2" %>
+             
              <% end %>
           </div>
         </div>
