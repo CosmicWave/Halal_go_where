@@ -14,22 +14,23 @@
     		    <%= f.text_field :title %>
       		</div>
           
-      		<div class="">
+      		<div class="form-group">
       			<%= f.label  :description, "Review" %>
-      			<%= f.text_area :description %>
+      			<%= f.text_area :description, id: "textareachars" %>
+            <span class="charsremain"> Characters remaining: </span><span class="chars">130</span>
       		</div>
       		
-      		<div class="">
+      		<div class="form-group">
       			<%= f.label  :price %>
       			<%= f.text_field :price %>
       		</div>
 
-					<div class="">
+					<div class="form-group">
 						<%= f.label  :tag_list, "Tags (separated by commas)" %>
 						<%= f.text_field :tag_list %>
 					</div>
 
-						<div class="">
+						<div class="form-group">
 							<%= f.label  :restaurant %>
 							<%= f.text_field :restaurant %>
 						</div>
