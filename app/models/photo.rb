@@ -22,16 +22,19 @@ class Photo < ApplicationRecord
 		end
 	end
 
-	def rating(photo)
+	def score(photo)
 		if photo.likeables.exists?
 
-			((photo.likeables.where(review: 2).count) - (photo.likeables.where(review: 1).count) /
-			# -----------------------------------------------------------------------------------
+			current_rating = ((photo.likeables.where(review: 2).count) - (photo.likeables.where(review: 1).count) /
+			# ------------------------------------------------------------------------------------------------------
 																			photo.likeables.count).round(1)
+			photo.update(rating: current_rating * photo.likeables.count)
+			return current_rating
 		else
 			0
 		end
 	end
+
 
 	acts_as_taggable_on :tags
 

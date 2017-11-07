@@ -1,0 +1,94 @@
+
+<style type="text/css">
+
+.my_centered_buttons { 
+	display: flex; justify-content: center; 
+}
+
+.wrapper {
+    margin-left: 120px;
+}
+
+</style>
+
+
+
+<div class="container-fluid">
+	
+		<div class="row">
+			<div class="col-md-6 col-xs-6">
+					<p class="editprofile">Edit Your Profile</p>
+					<%= form_for @foody, url: foody_path(@foody), method: :patch do |f| %>
+
+					<form>
+					  <div class="form-group">
+
+							<%= f.label :name %>
+							
+							<%= f.text_field :name, class: "form-control", placeholder: "Name" %></br>
+					  </div>
+					  <div class="form-group">
+							<%= f.label :status %>
+							<%= f.text_field :status, class: "form-control", placeholder: "Brief description" %></br>		
+					  
+
+					  <div class="form-group" style="text-align: center;">
+					    <div class="fileinputs submit">
+			              <%= f.file_field :avatar,  :class => "file" %>
+                   		    <div class="fakefile" style="width:80%;">
+                      		  <%= f.hidden_field :avatar_cache %>
+                                <div class="wrapper">  
+                                   </br><button type="button" class="submit" style="width:80%;" >Add Your Image </button>
+                                </div>
+                            </div>
+                        </div>
+					       </br><p class="help-block">Upload your profile picture!</p></br>
+					  </div>
+
+
+					<div class="fileinputs" style="text-align: center;">
+					  	 
+                  	  <input class="" name="commit" value="Save Changes" data-disable-with="" type="submit">
+                        <div class="fakefile" style="width:80%;"></input>
+                          <div class="wrapper"> 
+                            <button type="" class="" style="width:80%;"> Submit </button>
+                          </div>
+                        </div> 
+                    </div>
+					</form>
+					<% end %>
+			</div>
+		</div>
+
+			 		<div class="col-md-6 col-xs-6">						  		 
+						<div class="preview-photo">
+					  		<img id="img-prev" class="img-new" src="#" alt="" class="img-thumbnail hidden"/>
+					  	</div>		
+			 		</div>
+
+	
+
+</div>
+
+
+<script type="text/javascript">
+
+$(function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img-prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#avatar-upload").change(function(){
+    $('#img-prev').removeClass('hidden');
+    readURL(this);
+  });
+});
+
+</script>

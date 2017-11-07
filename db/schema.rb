@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20171101045814) do
     t.text "description"
     t.string "avatar"
     t.decimal "price", precision: 12, scale: 3
+    t.integer "rating", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "foody_id"

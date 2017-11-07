@@ -1257,13 +1257,23 @@ input.file {
   .l { font-size: 1.8em; }
 }
 
-/* ------------------ masonart effect --------------------- */
+/* ------------------ masonary effect --------------------- */
 
 
 .viewmoreindex {
   font-size: 0;
   display: inline-block;
   }
+
+
+.grid-item { 
+  width: 400px; 
+}
+.grid-item--width2 { 
+  width: 400px; 
+}
+
+
 /* -------//////////////////////////////////////////////////////------------- */
 /* --------------------------- review show ---------------------------------- */
 /* -------//////////////////////////////////////////////////////------------- */
@@ -1361,6 +1371,7 @@ input.file {
   margin-left: 0;
   margin-right: 0;
 }
+
 
 .grid-item { width: 400px; }
 .grid-item--width2 { width: 400px; }
