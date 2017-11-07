@@ -51,6 +51,12 @@
                   </div>
                 </div> 
 
+
+            <div> 
+              <%= f.file_field :avatar, id: "avatar-upload" %>
+              <%= f.hidden_field :avatar_cache %>
+            </div>
+						<%= f.submit "Upload" %>
 		  				
 					  
 				  </div>

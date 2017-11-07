@@ -21,6 +21,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 gem "font-awesome-rails"
 gem 'masonry-rails'
+gem 'gmaps4rails'
 gem 'mail_form', '~> 1.5', '>= 1.5.1'
 
 # Use Uglifier as compressor for JavaScript assets
