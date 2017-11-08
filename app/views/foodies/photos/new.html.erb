@@ -34,29 +34,22 @@
 							<%= f.text_field :restaurant %>
 						</div>
 
-            <div>
-              <%= radio_button_tag(:age, "child") %>
-              <%= label_tag(:age_child, "I am younger than 21") %>
-              <%= radio_button_tag(:age, "adult") %>
-              <%= label_tag(:age_adult, "I'm over 21") %>
-            </div>
-				                          
 						<div class="fileinputs submit">
-                   <%= f.file_field :avatar, id: "avatar-upload", :class => "file" %>
-                   <div class="fakefile" style="width:100%;">
-                      <%= f.hidden_field :avatar_cache %>
-                    <button type="button" class="submit" style="width:100%;" >Add Your Image </button>
+              <%= f.file_field :avatar, id: "avatar-upload", :class => "file" %>
+               <div class="fakefile" style="width:100%;">
+                <%= f.hidden_field :avatar_cache %>
+                <button type="button" class="submit" style="width:100%;" >Add Your Image </button>
                     
-                  </div>
-                </div>
+              </div>
+            </div>
               
 
               <div class="fileinputs">
-                  <input class="" name="commit" value="Save Changes" data-disable-with="" type="submit">
-                  <div class="fakefile" style="width:100%;"></input>
-                    <button type="" class="" style="width:100%;"> Submit </button>
-                  </div>
-                </div> 
+                <input class="" name="commit" value="Save Changes" data-disable-with="" type="submit">
+                <div class="fakefile" style="width:100%;"></input>
+                  <button type="" class="" style="width:100%;"> Submit </button>
+                </div>
+              </div> 
 
 
             <div> 
