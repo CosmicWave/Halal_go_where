@@ -3,6 +3,7 @@ class Foodies::LikeablesController < ApplicationController
 	before_action :check_authorisation
 	before_action :set_current_photo
 	before_action :current_status
+	before_action :rating_of_photos
 	# 2 = like, 1 = dislike
 	
 	def create #new like
@@ -45,4 +46,9 @@ class Foodies::LikeablesController < ApplicationController
 		end
 	end
 
+	def rating_of_photos
+		@photos_according_to_ratings = Photo.order('rating DESC')
+		@photos_according_to_latest = Photo.order("created_at DESC")
+		@latest_photos = Photo.last(3)
+	end
 end
