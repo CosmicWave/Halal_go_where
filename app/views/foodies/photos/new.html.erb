@@ -11,23 +11,23 @@
 
       		<div class="">
       			<%= f.label  :title, "Title", :class =>"" %>
-    		    <%= f.text_field :title, placeholder: "Best Laksa..." %>
+    		    <%= f.text_field :title, placeholder: "Tuna Wrap" %>
       		</div>
           
       		<div class="form-group">
       			<%= f.label  :description, "Review" %>
-      			<%= f.text_area :description, id: "textareachars" %>
+      			<%= f.text_area :description, id: "textareachars", placeholder: "Fresh! Good service and friendly. Bought tuna wrap and added chilli padi.... " %>
             <span class="charsremain"> Characters remaining: </span><span class="chars">130</span>
       		</div>
       		
       		<div class="form-group">
       			<%= f.label  :price %>
-      			<%= f.text_field :price, placeholder: "$5.30" %>
+      			<%= f.text_field :price, placeholder: "$5.00" %>
       		</div>
 
 					<div class="form-group">
 						<%= f.label  :tag_list, "Tags (separated by commas)" %>
-						<%= f.text_field :tag_list, placeholder: "laksa, bedok, supper joints, near mosque"%>
+						<%= f.text_field :tag_list, placeholder: "salad, maxwell, wallet friendlys, near mosque"%>
 					</div>
 
 						<div class="form-group">
@@ -52,10 +52,6 @@
                     <button type="" class="" style="width:100%;"> Submit </button>
                   </div>
               </div> 
-
-
-          
-		  				
 					  
 				  </div>
 				</div>
