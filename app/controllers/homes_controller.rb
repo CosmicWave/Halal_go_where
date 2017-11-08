@@ -4,6 +4,7 @@ class HomesController < ApplicationController
 		@photos = Photo.search(params[:search])
 		@foodies = Foody.all
 		@latest_photos = Photo.last(3)
+		@photos_according_to_ratings = Photo.order('rating DESC')
 	end
 
 	def contact
@@ -15,7 +16,6 @@ class HomesController < ApplicationController
 	def view_more
 		@photos = Photo.all
 		@photos_according_to_latest = Photo.order("created_at DESC")
-		@photos_according_to_ratings = Photo.order('rating DESC')
 	end
 
 	def search_photos

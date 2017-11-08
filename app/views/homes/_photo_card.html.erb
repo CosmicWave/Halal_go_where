@@ -13,14 +13,15 @@
       <div class="content-index">            
         <h4><%= truncate(photo.title.capitalize, :length => 20) %></h4>
         <p class="index-review"><%= truncate(photo.description.capitalize, :length => 90) %></p>
+        <p class="index-review"><%= truncate(photo_tags(photo), :length => 90) %></p>
         <div class="row">
           <div class="col-md-9 col-xs-9">
             <div class="bywho-index"><%= link_to photo.foody.name, foody_path(photo.foody) %></br> Posted <%= time_ago_in_words(photo.created_at) %> ago</div>
           </div>
             
           <div class="col-md-3 col-xs-3">
-            <div id="like-<%photo.id%>"><%= render 'likeable', photo: photo %></div>
-            <div id="rating-<%photo.id%>"><%= render 'rating', photo: photo %></div>    
+            <div id="like-<%photo.id%>"><%= render 'homes/likeable', photo: photo %></div>
+            <div id="rating-<%photo.id%>"><%= render 'homes/rating', photo: photo %></div>    
           </div>
         </div>
 

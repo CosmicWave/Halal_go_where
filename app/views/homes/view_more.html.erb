@@ -1,17 +1,7 @@
-<style>
-.grid-item { width: 400px; }
-.grid-item--width2 { width: 400px; }
-
-</style>
-
-<% @photos = Photo.all.order(created_at: :desc) %>
-
 <div class="container-fluid cardcont">
   <div class="row cardrow">
     <div class="grid">
-      <% @photos_according_to_latest.each do |photo| %>
-        <%= render 'photo_grid', photo: photo %>
-      <% end %>
+      <%= render 'photo_card', photos: @photos_according_to_latest %>
     </div>                                          
   </div>
 </div>
