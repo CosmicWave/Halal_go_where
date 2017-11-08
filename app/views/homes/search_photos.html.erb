@@ -1,11 +1,28 @@
 <div class="container-fluid search">
-	<div class="row search-tile">
-		<div class="col-md-12">
+	<div class="row searchrow">
+		<div class="col-md-8 col-xs-8">
 			<h1>Showing results for "<%=@searched_photo%>"</h1>
 		</div>
+    
+    <div class="col-md-4 col-xs-4 minisearch">
+       <%= form_tag(search_photos_path, method: :patch) do %>
+
+              <form class="searchbar" role="search">
+                <div class="input-group">
+                  <%= text_field_tag :search_query,params[:search_query], placeholder: "I'm craving for...", class: "form-control" %>
+                  <span class="input-group-btn">
+                    <%= button_tag(type: "submit", class: "btn btn-danger") do %>
+                    <i class="fa fa-search fa-lg"></i>
+                  <% end %>
+                  </span>
+                    <% end %>
+                 </div>
+              </form>
+    </div>
 	</div>
 </div>
 
 <div class="container-fluid">
    	<%= render 'photo_card', photos: @photos %>
+    <span class="scrollbutton"><i class="fa fa-caret-up fa-2x" aria-hidden="true"></i></span>
 </div>
