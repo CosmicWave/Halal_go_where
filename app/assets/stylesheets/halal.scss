@@ -928,6 +928,26 @@ footer {
   padding-top: 100px;
 }
 
+
+
+.newreviewbg-edit {
+  background-image: image-url('/assets/donuts.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -50px;
+  padding-bottom: 500px;
+  padding-top: 100px;
+}
+
+
+
+
+
+
+
+
+
+
 .chars {
   color: white;
   font-size: 15px;
@@ -948,6 +968,7 @@ footer {
   background-color:rgba(72,72,72,0.7);
   padding: 10px 20px 30px 20px;
   width:467px;
+  height:660px;
   float: left;
   left: 60%;
   position: absolute;
@@ -959,6 +980,9 @@ footer {
   color: black; 
 
 }
+
+
+
 
 #contact-form label {
   color: white;

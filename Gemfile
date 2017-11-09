@@ -41,7 +41,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave', '~> 1.0'
 
-gem 'mini_magick'
+
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 
 # Use Capistrano for deployment

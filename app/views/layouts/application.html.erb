@@ -15,7 +15,7 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <% if current_page?(new_foody_session_path) || current_page?(new_foody_registration_path) %>
+  <% if current_page?(new_foody_session_path) || current_page?(new_foody_registration_path)  %>
   
     <%= yield %>
   
@@ -76,6 +76,11 @@
   </div>
   <!--                  -->
   
+
+
+
+  <div class="container-fluid">
+
   <div class="row footerrow">
     <footer>
       <div class="col-md-11 col-xs-11 visible-lg">
@@ -87,7 +92,8 @@
               <li class="footer-menu-divider">&sdot;</li>
               
               <li>
-                <a href="#about">About</a>
+                <a href="#about"></a>
+                <%= link_to "About Us", about_us_path %> 
               </li>
                     
               <li class="footer-menu-divider">&sdot;</li>
@@ -128,6 +134,9 @@
        </footer>
       </div>
     <% end %>
+
+   </div> 
+
   </body>
 
 </html>
