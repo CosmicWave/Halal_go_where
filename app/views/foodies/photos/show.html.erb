@@ -60,18 +60,17 @@
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ internal: {id: 'basic_map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      lat: 0,
-      lng: 0,
-      picture: {
-        url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-        width:  36,
-        height: 36
-      },
-      infowindow: "hello!"
-    }
-  ]);
-});
+    markers = handler.addMarkers([{
+      lat: <%=@photo.latitude%>,
+      lng: <%=@photo.longitude%>,
+        picture: {
+          url: "https://www.roots.com/on/demandware.static/Sites-RootsCA-Site/-/default/dwde5f3e87/images/icons/icon-marker.png",
+          width:  50,
+          height: 50 },
+        infowindow: "hello!"
+    }]);
+  handler.map.centerOn([<%=@photo.latitude%>, <%=@photo.longitude%>]);
+  handler.getMap().setZoom(12);
+  });
 </script>
 

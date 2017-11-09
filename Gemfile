@@ -23,7 +23,6 @@ gem "font-awesome-rails"
 gem 'masonry-rails'
 gem 'gmaps4rails'
 gem 'mail_form', '~> 1.5', '>= 1.5.1'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
