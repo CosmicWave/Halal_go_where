@@ -34,16 +34,13 @@ h1{
 <div class="container-fluid">
   <%= image_tag "coffeecontact.jpeg", class: "bg" %>
 
-
-
   <h1 class="page_title">Contact Us</h1>
-
 
   <div class="contact-form-outer-box">
     <div class="holder">
       <div class="header">
         <h1> <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Get in touch! </h1>
-
+          
              <%= form_for @contact, url: contacts_path, method: :post do |f| %>
              
                   
@@ -78,8 +75,8 @@ h1{
                        <center> <%= f.submit "send message", class: "btn btn-primary btn-lg" %> </center>
                     
                <% end %>
+
       </div>
     </div>  
   </div>
 </div>
-
