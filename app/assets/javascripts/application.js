@@ -26,6 +26,9 @@ $(".dropdown-menu").fadeToggle();
 $('.notice').fadeOut(5000, function(){$(this).remove();
 });
 
+$('.alert').fadeOut(5000, function(){$(this).remove();
+});
+
 var maxLength = 130;
 $('#textareachars').keyup(function() {
   var length = $(this).val().length;

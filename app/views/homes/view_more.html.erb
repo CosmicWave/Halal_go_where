@@ -1,22 +1,42 @@
-<style>
+<!-- <style>
 .grid-item { width: 400px; }
 .grid-item--width2 { width: 400px; }
-
-</style>
+</style> -->
 
 <% @photos = Photo.all.order(created_at: :desc) %>
 
-<div class="container-fluid cardcont">
-  <div class="row cardrow">
-    <div class="grid">
-      <% @photos_according_to_latest.each do |photo| %>
-        <%= render 'photo_grid', photo: photo %>
-      <% end %>
-    </div>                                          
+<div class="container-fluid search">
+  <div class="row searchrow">
+    <div class="col-md-8 col-xs-8"></div>
+    
+    <div class="col-md-4 col-xs-4 minisearch">
+       <%= form_tag(search_photos_path, method: :patch) do %>
+
+      <form class="searchbar" role="search">
+        <div class="input-group">
+          <%= text_field_tag :search_query,params[:search_query], placeholder: "I'm craving for...", class: "form-control" %>
+          <span class="input-group-btn">
+            <%= button_tag(type: "submit", class: "btn btn-danger") do %>
+            <i class="fa fa-search fa-lg"></i>
+          <% end %>
+          </span>
+            <% end %>
+         </div>
+      </form>
+    </div>
   </div>
 </div>
 
-<script src="/path/to/masonry.pkgd.min.js"></script>
+
+<div class="container-fluid">
+  <div class="row cardrowviewmore">
+    <% @photos_according_to_latest.each do |photo| %>
+      <%= render 'photo_grid', photo: photo %>
+    <% end %>
+  </div>
+</div>
+
+<!-- <script src="/path/to/masonry.pkgd.min.js"></script>
 
 <script type="">
 
@@ -26,4 +46,4 @@
     columnWidth: 200
   });
 
-</script>
+</script> -->
