@@ -1,31 +1,46 @@
-<% photos.each do |photo| %>
+<div class="row">
+  <% photos.each do |photo| %>
   
-  <div class="col-md-4 col-xs-4">
-    <div class="card card-index">          
-      
-      <div class="header">
-      <button class="readmore"><%= link_to "Read More", foodies_photo_path(id: photo.id) %></button>
-           <%= link_to foodies_photo_path(id: photo.id) do %>
-             <%= image_tag photo.avatar_url.to_s, class: "fixed-ratio-resize-index" %>
-           <% end %>           
-      </div>           
-          
-      <div class="content-index">            
-        <h4><%= truncate(photo.title.capitalize, :length => 20) %></h4>
-        <p class="index-review"><%= truncate(photo.description.capitalize, :length => 90) %></p>
-        <div class="row">
-          <div class="col-md-9 col-xs-9">
-            <div class="bywho-index"><%= link_to photo.foody.name, foody_path(photo.foody) %></br> Posted <%= time_ago_in_words(photo.created_at) %> ago</div>
-          </div>
+    <div class="col-sm-3">
+      <div class="card-index">          
+        
+        <div class="header">
+             <%= link_to foodies_photo_path(id: photo.id) do %>
+               <!-- <%= image_tag photo.avatar_url.to_s, class: "fixed-ratio-resize-index" %> -->
+               <div style="background: url(<%= photo.avatar_url.to_s %>) center center no-repeat; background-size: cover;" class="fixed-ratio-resize-index"></div>
+             <% end %>           
+        </div>           
             
-          <div class="col-md-3 col-xs-3">
-            <div id="like-<%photo.id%>"><%= render 'likeable', photo: photo %></div>
-            <div id="rating-<%photo.id%>"><%= render 'rating', photo: photo %></div>    
+        <div class="content-index">
+          <div class="row">
+            
+            <div class="col-md-8 col-xs-8">
+              <h4><%= truncate(photo.title.capitalize, :length => 20) %></h4>
+            </div>
+            
+            <div class="col-md-4 col-xs-4">
+              <div class="rating-index">
+                <div id="rating-<%photo.id%>">
+                  <%= render 'rating', photo: photo %>
+                </div> 
+              </div>  
+            </div>
+          </div>           
+          
+          
+          <div class="row">
+            
+            <div class="col-md-9 col-xs-9">
+              <p class="index-review"><%= truncate(photo.description, :length => 90) %></p>
+            </div>
+            
+            <div class="col-md-3 col-xs-3 thumbs">
+              <div id="like-<%photo.id%>"><%= render 'likeable', photo: photo %></div>
+            </div>
           </div>
-        </div>
-
-      </div>                        
-
+        </div>                        
+      </div>
     </div>
-  </div>
-<% end %>
+
+  <% end %>
+</div>
