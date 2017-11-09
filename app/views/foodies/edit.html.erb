@@ -6,69 +6,37 @@
 }
 
 
-/**
- * Demo Styles
- */
-
-html {
-  height: 95%;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 body {
   position: relative;
-  margin: 0;
-  padding-bottom: 6rem;
   min-height: 100%;
   font-family: "Helvetica Neue", Arial, sans-serif;
 
 }
 
 
-
-
-/**
- * Footer Styles
- */
-
-.footer1 {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
-  background-color: black;
- 
-}
-
 .footerrow .list-inline {
-
   margin-left: 100px !important;
 }
 
 
 .form-group {
   padding-left: 20px;
-
-
 }
 
 
 .image {
    content:url(http://placehold.it/350x150);
 }
+
+.img .alt {
+
+  margin:3cm 0cm 0cm 1cm;
+}
+
 </style>
 
 
-<div  style="height:600px;">
+<div  style="height:;">
 	
 		<div class="row">
 			<div class="col-md-6 col-xs-6">
@@ -83,7 +51,8 @@ body {
 
 					  <div class="form-group">
 							<%= f.label :status %>
-							<%= f.text_field :status, class: "form-control", placeholder: "Brief description" %></br>		
+							<%= f.text_field :status, class: "form-control", placeholder: "Brief description" %></br>
+            </div>
 					  
 					  <div class="" style="text-align: center;">
 							</br><%= f.label :Your_picture %>
@@ -121,16 +90,16 @@ body {
 					</form>
 					<% end %>
 			</div>
-		</div>
-
-				<div>
-			 		<div class="col-md-6 col-xs-6 image" >						  		 
-						<div class="preview-photo image"  style="margin:1cm 0cm 0cm 1cm">
-					  		<img id="img-prev" class="img-new" src="#" alt="test test" class="image"/>	
+		 
+				
+			 		<div class="col-md-6 col-xs-6 image"><br>						  		 
+						<div class="preview-photo image"  style="margin:1.5cm 0cm 0cm 1cm">
+					  		<br><img id="img-prev" class="img-new" src="#" alt="Your Profile Picture!" class="image"/>	
 					  	</div>		
 			 		</div>
-   				</div>
-	
+   				
+    </div>
+  </div> 
 
 
 
