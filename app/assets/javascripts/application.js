@@ -47,6 +47,7 @@ $(window).scroll(function() {
 
 });
 
+
 $(scrollTop).click(function() {
   $('html, body').animate({
     scrollTop: 0
