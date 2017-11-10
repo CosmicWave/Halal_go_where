@@ -13,9 +13,14 @@
   </head>
 
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <% if current_page?(new_foody_session_path) || current_page?(new_foody_registration_path) %>
+
+  <% flash.class %>
+  <%-flash.each do |key, value| %>
+    <% key %>
+    <div class="notice"><%= value %></div>
+  <% end %>
+
+  <% if current_page?(new_foody_session_path) || current_page?(new_foody_registration_path)  %>
   
     <%= yield %>
   
@@ -61,6 +66,7 @@
               <ul class="dropdown-menu">
                 <li><%= link_to "Most Recent Reviews", view_more_path, class: "navfont" %></li>
                 <li><a class="navfont">Top Rated Reviews</a></li>
+                <li><%= link_to "About Us", about_us_path, class: "navfont" %></li>
                 <% if foody_signed_in? %>
                 <li><%= link_to "Logout", destroy_foody_session_path, method: :delete, class: "navfont" %></li>
                 <% end %>     
@@ -76,27 +82,26 @@
   </div>
   <!--                  -->
   
- 
-  <div class="container-fluid">
+
   <div class="row footerrow">
     <footer>
       <div class="col-md-11 col-xs-11 visible-lg">
         <ul class="list-inline">
               <li>
-                <a href="#">Home</a>
+                <%= link_to "Home", root_path %>
               </li>
               
               <li class="footer-menu-divider">&sdot;</li>
               
               <li>
-                <a href="#about">About</a>
+                <a href="#about"></a>
+                <%= link_to "About Us", about_us_path %> 
               </li>
                     
               <li class="footer-menu-divider">&sdot;</li>
               
               <li>
-                <%= link_to "Contact", new_contact_path %>
-                
+                <%= link_to "Contact", new_contact_path %> 
               </li>
           </ul>
 
@@ -130,7 +135,7 @@
        </footer>
       </div>
     <% end %>
-   </div> 
+
   </body>
 
 </html>

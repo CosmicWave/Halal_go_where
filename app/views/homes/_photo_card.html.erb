@@ -1,14 +1,31 @@
-<% photos.each do |photo| %>
+<div class="row">
+  <% photos.each do |photo| %>
   
-  <div class="col-md-4 col-xs-4">
-    <div class="card card-index">          
-      
-      <div class="header">
-      <button class="readmore"><%= link_to "Read More", foodies_photo_path(id: photo.id) %></button>
-           <%= link_to foodies_photo_path(id: photo.id) do %>
-             <%= image_tag photo.avatar_url.to_s, class: "fixed-ratio-resize-index" %>
-           <% end %>           
-      </div>           
+    <div class="col-sm-3">
+      <div class="card-index">          
+        
+        <div class="header">
+             <%= link_to foodies_photo_path(id: photo.id) do %>
+               <!-- <%= image_tag photo.avatar_url.to_s, class: "fixed-ratio-resize-index" %> -->
+               <div style="background: url(<%= photo.avatar_url.to_s %>) center center no-repeat; background-size: cover;" class="fixed-ratio-resize-index"></div>
+             <% end %>           
+        </div>           
+            
+        <div class="content-index">
+          <div class="row">
+            
+            <div class="col-md-8 col-xs-8">
+              <h4><%= truncate(photo.title.capitalize, :length => 20) %></h4>
+            </div>
+            
+            <div class="col-md-4 col-xs-4">
+              <div class="rating-index">
+                <div id="rating-<%photo.id%>">
+                  <%= render 'rating', photo: photo %>
+                </div> 
+              </div>  
+            </div>
+          </div>           
           
       <div class="content-index">            
         <h4><%= truncate(photo.title.capitalize, :length => 20) %></h4>
@@ -23,10 +40,9 @@
             <div id="like-<%photo.id%>"><%= render 'homes/likeable', photo: photo %></div>
             <div id="rating-<%photo.id%>"><%= render 'homes/rating', photo: photo %></div>    
           </div>
-        </div>
-
-      </div>                        
-
+        </div>                        
+      </div>
     </div>
-  </div>
-<% end %>
+
+  <% end %>
+</div>

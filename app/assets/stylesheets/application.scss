@@ -12,8 +12,8 @@
  * It is generally better to create a new file per style scope.
  *
 
- *= require_tree .
  *= require_self
+ *= require_tree .
  
  */
 
@@ -21,5 +21,5 @@
 @import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "masonry/fluid";
+// @import "masonry/fluid";
 

@@ -3,19 +3,16 @@
 /* -------//////////////////////////////////////////////////////------------- */
 
 .notice {
-  position: fixed;
+  position: absolute;
   text-align: center;
   font-weight: 300;
   top: 70px;
   right:0px;
-  max-width: 200px;
-  width:100%;
+  padding: 10px 20px;
   background: rgba(255, 152, 0, 0.7);
   color: white;
-  font-size: 15px;
+  font-size: 18px;
   border-radius: 20px;
-
-  // must be more than navbar z-index
   z-index:1040; 
 }
 
@@ -24,8 +21,8 @@
 /* -------//////////////////////////////////////////////////////------------- */
 
 
-.landing-banner{
-  background-image: image-url('/assets/home2.jpg');
+.landing-banner {
+  background-image: image-url('/assets/home2.jpeg');
   padding-top: 220px;
   padding-bottom: 80px;
   background-size: cover;
@@ -35,10 +32,10 @@
   }
 
 @media screen and (min-width: 900px) {
-.landing-banner{
+.landing-banner {
   background-image: image-url('/assets/home2.jpg');
   padding-top: 182px;
-  padding-bottom: 252px;
+  padding-bottom: 93px;
   background-size: cover;
   background-repeat: no-repeat;
   margin-top: -122px;
@@ -88,7 +85,7 @@
 }
 
 .searchrow {
-  margin-top: 5px;
+  margin-top: 60px;
 }
 
 .searchrow .form-control {
@@ -123,23 +120,25 @@
 }
 
 .card-index .fixed-ratio-resize-index { /* basic responsive img */
-  max-width: 100%;
-  max-height: 270px;
+  // max-width: 100%;
+  // max-height: 270px;
   min-width: 100%;
-  height: auto;
+  // min-height: 270px;
+  height: 270px;
   width: auto\9; /* IE8 */
   border-radius: 6px 6px 0 0;
   transition: 0.5s linear;
 }
 
-.card-index .fixed-ratio-resize-index:hover { /* basic responsive img */
-  max-width: 100%;
+/*
+.card-index .fixed-ratio-resize-index:hover {
   height: auto;
-  width: auto\9; /* IE8 */
+  width: auto\9;
   border-radius: 6px 6px 0 0;
   -webkit-filter: brightness(0.6);
   transition: 0.5s linear;
 }
+
 
 .card-index .header:hover > .readmore {
   width: 100px;
@@ -151,39 +150,55 @@
   position: absolute;
   z-index: 10;
   margin: auto;
-  top: 50%;
+  top: 30%;
   left: 50%;
   margin-left: -50px;
   margin-top: -15px;
   opacity: 1;
+  color: black !important;
+
+}
+
+.readmore:link {
+  color: black;
+}
+
+.readmore:hover {
+  text-decoration: none;
 }
 
 .readmore {
   position: absolute;
-  opacity: 0;
-}
-
-.card {
- border-radius: 10px;
- box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
- background-color: #FFFFFF;
- margin-bottom: 20px;
- position: relative;
- max-width: 360px;
- margin-left: auto;
- margin-right: auto;
-}
+  opacity: 1;
+} */
 
 .card-index {
- min-height: 475px;
- max-height: 530px;
- max-width: 360px;
+  overflow: hidden;
+  //min-height: 475px;
+  max-height: 530px;
+  max-width: 360px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  background-color: #FFFFFF;
+  margin-bottom: 20px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-index h4 {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Contrail One', cursive;
+  font-weight: 400;
+  font-size: 24px;
 }
 
 .card-index .index-review {
   overflow: auto;
   color: grey;
   height: 55px;
+  //padding: 15px 15px 5px 15px;
 }
 
 .card-index .content-index {
@@ -192,11 +207,26 @@
 .card-index .content-index .title {
   margin: 10px 0 20px 0;
 }
-.card-index .content-index .category ~ .title {
-  margin-top: 0px;
-}
+
 .card-index .content-index .description ~ .title {
   margin-top: -10px;
+}
+
+.rating-index {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: black;
+  line-height: 2.5;
+  text-align: center;
+  background: #FF8800;
+  font-weight: bold;
+  margin-left: 29px;
+}
+
+.thumbs {
+  margin-top: 9px;
 }
 
 .content-index .bywho-index {
@@ -204,6 +234,10 @@
   font-size: 12px;
   color: grey;
 }
+
+.cardrowviewmore {
+  margin-top: 13px;
+} 
 
 /* -------//////////////////////////////////////////////////////------------- */
 /* ---\\\\\\\\\\\\\\\\\\\\-------- CARD CSS -----------\\\\\\\\\\\\\\\\\\---- */
@@ -276,43 +310,6 @@
   font-family: "Raleway","Helvetica","Arial", sans-serif;
 }
 
-.btn-neutral {
-  border-color: #FFFFFF;
-  color: #FFFFFF;
-}
-.btn-neutral:hover, .btn-neutral:focus, .btn-neutral:active, .btn-neutral.active {
-  background-color: transparent;
-  color: #FFFFFF;
-  border-color: #FFFFFF;
-}
-
-.btn-neutral.btn-fill {
-  color: #FFFFFF;
-  background-color: #FFFFFF;
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-.btn-neutral.btn-fill:hover, .btn-neutral.btn-fill:focus, .btn-neutral.btn-fill:active, .btn-neutral.btn-fill.active {
-  background-color: #FFFFFF;
-  color: #FFFFFF;
-}
-
-.btn-neutral:active, .btn-neutral.active {
-  background-color: #FFFFFF;
-  color: #888888;
-}
-
-.btn-neutral.btn-fill, .btn-neutral.btn-fill:hover, .btn-neutral.btn-fill:focus {
-  color: #888888;
-}
-
-
-.btn-round {
-  border-width: 1px;
-  border-radius: 30px !important;
-  padding: 9px 18px;
-}
-
 .card .title,
 .card .category,
 .card .description,
@@ -339,14 +336,6 @@
 
 .card .header .category {
   padding: 15px;
-}
-
-.card .header .actions .btn {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 
 .card .category {
@@ -493,6 +482,7 @@
   position: relative;
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.9);
+  transition: background-color 0.2s ease-in;
 }
 
 .bttn:active {
@@ -529,7 +519,7 @@
 /* -------//////////////////////////////////////////////////////------------- */
 
 .navlogo {
-  width:170px;
+  width: 264px;
   height: auto;
   margin-top: 9px;
 }
@@ -537,11 +527,18 @@
 .navfont {
   color: #ffa726 !important;
   font-weight: 300 !important;
+  font-size: 19px;
+  margin-top: 9px;
+  transition: color 0.2s ease-in !important;
+}
+
+.nav .fa-user-circle {
+  margin-top: 14px;
 }
 
 .navfont:hover {
   color: white !important;
-  transition: color 0.3s ease-in !important;
+  transition: color 0.2s ease-in !important;
   background-color: black !important;
   border-bottom: 1px solid #ccc;
   cursor: pointer !important;
@@ -714,7 +711,7 @@
   background-image: image-url('/assets/profilebanner3.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  padding-top: 12px;
+  padding-top: 78px;
   padding-bottom: 25px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
@@ -806,9 +803,8 @@
 /* -------//////////////////////////////////////////////////////------------- */
 /* --------------------------- edit profile --------------------------------- */
 /* -------//////////////////////////////////////////////////////------------- */
-
-.invisidiv {
-  height: 164px;
+.editprofilerow {
+  margin-top: 100px;
 }
 
 .editprofile {
@@ -818,18 +814,18 @@
 }
 
 .editprofilesize {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 
-    /* Set the height to match that of the viewport. */
-    height: 100vh;
-    padding-bottom: -150px;
+  /* Set the height to match that of the viewport. */
+  height: 100vh;
+  padding-bottom: -150px;
 
-    /* Set the width to match that of the viewport. */
-    width: 100vw;
+  /* Set the width to match that of the viewport. */
+  width: 100vw;
 
-    /* Remove any browser-default margins. */
-    margin: 0;
+  /* Remove any browser-default margins. */
+  margin: 0;
 }
 
 .editprofileform .btn-danger {
@@ -855,6 +851,7 @@ footer {
   height: 50px;
   bottom: 0;
   width: 100%;
+  z-index: 9999;
 }
 
 .fa-instagram {
@@ -932,7 +929,19 @@ footer {
   margin-top: -50px;
   padding-bottom: 500px;
   padding-top: 100px;
+  background-attachment:fixed;
 }
+
+.newreviewbg-edit {
+  background-image: image-url('/assets/donuts.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -50px;
+  padding-bottom: 500px;
+  padding-top: 100px;
+  background-attachment:fixed;
+}
+
 
 .chars {
   color: white;
@@ -954,17 +963,18 @@ footer {
   background-color:rgba(72,72,72,0.7);
   padding: 10px 20px 30px 20px;
   width:467px;
+  height:660px;
   float: left;
   left: 60%;
   position: absolute;
-  margin-top: 10px;
+  margin-top: 63px;
   margin-left: -260px;
   border-radius:7px;
   -webkit-border-radius:7px;
   -moz-border-radius:7px;
   color: black; 
-
 }
+
 
 #contact-form label {
   color: white;
@@ -1263,8 +1273,7 @@ input.file {
 .viewmoreindex {
   font-size: 0;
   display: inline-block;
-  }
-
+}
 
 .grid-item { 
   width: 400px; 
@@ -1284,7 +1293,7 @@ input.file {
 
 
 .cardshowrow {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 
@@ -1382,7 +1391,7 @@ input.file {
 /* -------//////////////////////////////////////////////////////------------- */
 
 .minisearch {
-  margin-top: 13px;
+  margin-top: 19px;
 }
 
 .scrollbutton {

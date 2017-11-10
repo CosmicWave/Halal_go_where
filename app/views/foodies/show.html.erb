@@ -43,20 +43,21 @@
 </div>
 
 
-<style>
+<!-- <style>
 .grid-item { width: 400px; }
 .grid-item--width2 { width: 400px; }
+</style> -->
 
-</style>
 
-
-  <div class="container-fluid cardcont">
-    <div class="row cardrow">
-      <div class="posthead">Your Reviews</div>
-        <%= render 'homes/photo_card', photos: @foodyphoto %>
-      </div>                                          
-    </div>
+<div class="container-fluid cardcont">
+  <div class="row cardrow">
+    <div class="posthead">Your Reviews</div>
+      <%= render 'homes/photo_card', photos: @foodyphoto %>
+    </div>                                          
   </div>
+</div>
+
+<!--
 
 <script type="">
 
@@ -65,4 +66,4 @@ $('.grid').masonry({
   itemSelector: '.grid-item',
   columnWidth: 200
 });
-</script>
+</script> -->
