@@ -64,10 +64,9 @@
       lat: <%=@photo.latitude%>,
       lng: <%=@photo.longitude%>,
         picture: {
-          url: "./app/assets/images/halalogo.png",
-          width:  174,
-          height: 125 },
-        infowindow: "hello!"
+          url: "https://2.bp.blogspot.com/-7yWfBxzu4Po/WgWnSRt8e8I/AAAAAAAAIPY/tEA5Uzo2HY4yI3eFx2jvIj0hpzzzsXr5wCLcBGAs/s1600/rsz_halalogo.png",
+          width:  63,
+          height: 88 },
     }]);
   handler.map.centerOn([<%=@photo.latitude%>, <%=@photo.longitude%>]);
   handler.getMap().setZoom(16);
