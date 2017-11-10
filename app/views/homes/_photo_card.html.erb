@@ -19,7 +19,7 @@
           <div class="col-md-4 col-xs-4">
             <div class="rating-index">
               <div id="rating-<%photo.id%>">
-                <%= render 'rating', photo: photo %>
+                <%= render 'homes/rating', photo: photo %>
               </div> 
             </div>  
           </div>
@@ -32,7 +32,7 @@
           </div>
           
           <div class="col-md-3 col-xs-3 thumbs">
-            <div id="like-<%photo.id%>"><%= render 'likeable', photo: photo %></div>
+            <div id="like-<%photo.id%>"><%= render 'homes/likeable', photo: photo %></div>
           </div>
         </div>
       </div>                        
