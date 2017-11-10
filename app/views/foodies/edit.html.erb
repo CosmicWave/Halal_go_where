@@ -37,7 +37,7 @@ body {
 		<div class="row">
 
 			<div class="col-md-6 col-xs-6">
-					<br><br><p class="editprofile">Edit Profile</p>
+					<br><br><p class="editprofile" style="margin-top:35px;">Edit Profile</p>
 
 					<%= form_for @foody, url: foody_path(@foody), method: :patch do |f| %>
 
@@ -66,6 +66,14 @@ body {
 						  	 </div>   
 					    <p class="help-block">Upload your profile picture!</p></br>
 					  </div>
+
+
+					  <!-- </br><%= f.label :Your_picture %>
+							<div class="my_centered_buttons">
+					  		    <%= f.file_field :avatar, id: "avatar-upload", :class => "" %>
+					  			<% f.hidden_field :avatar_cache %>
+					  		</div> 
+					  -->
 
 				 <div class="" style="text-align: center;">
 					
