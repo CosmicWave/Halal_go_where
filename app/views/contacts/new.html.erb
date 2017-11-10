@@ -28,55 +28,61 @@ h1{
   position: relative;
 }
 
+.contact_new {
+  background: url('/assets/coffeecontact.jpeg');
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  margin-top: 0px;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  background-size:cover;
+}
+
+
 </style>
 
+<div class="contact_new">
+  <div class="container-fluid">
 
-<div class="container-fluid">
-  <%= image_tag "coffeecontact.jpeg", class: "bg" %>
-
-  <h1 class="page_title">Contact Us</h1>
-
-  <div class="contact-form-outer-box">
-    <div class="holder">
-      <div class="header">
-        <h1> <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Get in touch! </h1>
-          
-             <%= form_for @contact, url: contacts_path, method: :post do |f| %>
-             
+    <div class="contact-form-outer-box">
+      <div class="holder">
+        <div class="header">
+          <br><h1> <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Get in touch! </h1>
+               <%= form_for @contact, url: contacts_path, method: :post do |f| %>
+                      <div class="input-group">
+                        <div class="input-group-addon">               
+                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> </div>
+                        <%= f.text_field :name, reqired: true, autofocus: true, placeholder: "Name", class: "form-control input-lg" %><br>
+                      </div>
                   
-                    <div class="input-group">
-                      <div class="input-group-addon">               
-                       <span class="glyphicon glyphicon-user" aria-hidden="true"></span> </div>
-                      <%= f.text_field :name, reqired: true, autofocus: true, placeholder: "Name", class: "form-control input-lg" %><br>
-                    </div>
-                
-                  </br>
+                    </br>
 
-                   <div class="input-group" >
-                      <div class="input-group-addon">               
-                       <span class="glyphicon glyphicon-user" aria-hidden="true"></span> </div>
-                      <%= f.email_field :email, reqired: true, autofocus: true, placeholder: "E-mail", class: "form-control input-lg" %><br>
-                    </div>
+                     <div class="input-group" >
+                        <div class="input-group-addon">               
+                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> </div>
+                        <%= f.email_field :email, reqired: true, autofocus: true, placeholder: "E-mail", class: "form-control input-lg" %><br>
+                      </div>
 
-                   </br>
+                     </br>
 
-                   <div class="input-group">
-                      <div class="input-group-addon">               
-                       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> </div>
-                      <%= f.text_area :message, as: :text, :rows => 6, reqired: true, autofocus: true, placeholder: "Messages", class: "form-control input-lg" %><br>
-                    </div>
+                     <div class="input-group">
+                        <div class="input-group-addon">               
+                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> </div>
+                        <%= f.text_area :message, as: :text, :rows => 6, reqired: true, autofocus: true, placeholder: "Messages", class: "form-control input-lg" %><br>
+                      </div>
 
 
-                    <div class="hidden">
-                      <%= f.label  :nickname %>
-                      <%= f.text_field :nickname, hint: 'leave this field blank' %>
-                    </div>
+                      <div class="hidden">
+                        <%= f.label  :nickname %>
+                        <%= f.text_field :nickname, hint: 'leave this field blank' %>
+                      </div>
 
-                       <center> <%= f.submit "send message", class: "btn btn-primary btn-lg" %> </center>
-                    
-               <% end %>
+                         <center> <%= f.submit "send message", class: "btn btn-primary btn-lg" %> </center>
+                      
+                 <% end %>
 
-      </div>
-    </div>  
+        </div>
+      </div>  
+    </div>
   </div>
 </div>
