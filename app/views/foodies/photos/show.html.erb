@@ -64,9 +64,9 @@
       lat: <%=@photo.latitude%>,
       lng: <%=@photo.longitude%>,
         picture: {
-          url: "https://www.roots.com/on/demandware.static/Sites-RootsCA-Site/-/default/dwde5f3e87/images/icons/icon-marker.png",
-          width:  50,
-          height: 50 },
+          url: "./app/assets/images/halalogo.png",
+          width:  174,
+          height: 125 },
         infowindow: "hello!"
     }]);
   handler.map.centerOn([<%=@photo.latitude%>, <%=@photo.longitude%>]);
