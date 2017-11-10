@@ -1,3 +1,7 @@
-<h1><%= @tag.name %></h1>
-
-<%= render 'tagged_photo', photos: @photos %>
+<div class="container">
+	<h1><%= @tag.name %></h1>
+	<div id="tag-photo">
+		<%= render 'homes/photo_card', photos: @photos %>
+	</div>
+	
+</div>
