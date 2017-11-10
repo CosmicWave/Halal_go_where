@@ -1,7 +1,7 @@
-<!-- <style>
+ <style>
 .grid-item { width: 400px; }
 .grid-item--width2 { width: 400px; }
-</style> -->
+</style> 
 
 <% @photos = Photo.all.order(created_at: :desc) %>
 
@@ -30,20 +30,24 @@
 
 <div class="container-fluid">
   <div class="row cardrowviewmore">
+    <div class="grid">
     <% @photos_according_to_latest.each do |photo| %>
       <%= render 'photo_grid', photo: photo %>
     <% end %>
   </div>
+  </div>
 </div>
 
-<!-- <script src="/path/to/masonry.pkgd.min.js"></script>
+
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
 
 <script type="">
 
   $('.grid').masonry({
     // options
     itemSelector: '.grid-item',
-    columnWidth: 200
+    columnWidth: 150
   });
 
-</script> -->
+</script>t> 
