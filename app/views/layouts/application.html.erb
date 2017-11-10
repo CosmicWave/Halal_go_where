@@ -13,8 +13,11 @@
   </head>
 
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<% flash.class %>
+<%-flash.each do |key, value| %>
+<% key %>
+<div class="notice"><%= value %></div>
+<% end %>
   <% if current_page?(new_foody_session_path) || current_page?(new_foody_registration_path)  %>
   
     <%= yield %>
@@ -83,7 +86,7 @@
       <div class="col-md-11 col-xs-11 visible-lg">
         <ul class="list-inline">
               <li>
-                <a href="#">Home</a>
+                <%= link_to "Home", root_path %>
               </li>
               
               <li class="footer-menu-divider">&sdot;</li>
@@ -96,8 +99,7 @@
               <li class="footer-menu-divider">&sdot;</li>
               
               <li>
-                <%= link_to "Contact", new_contact_path %>
-                
+                <%= link_to "Contact", new_contact_path %> 
               </li>
           </ul>
 
