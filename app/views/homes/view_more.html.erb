@@ -1,6 +1,6 @@
  <style>
-.grid-item { width: 400px; }
-.grid-item--width2 { width: 400px; }
+.grid-item { width: 290px; }
+.grid-item--width2 { width: 290px; }
 </style> 
 
 <% @photos = Photo.all.order(created_at: :desc) %>
@@ -47,7 +47,7 @@
   $('.grid').masonry({
     // options
     itemSelector: '.grid-item',
-    columnWidth: 150
+    columnWidth: 300
   });
 
 </script>

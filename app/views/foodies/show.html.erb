@@ -44,8 +44,8 @@
 
 
  <style>
-.grid-item { width: 250px; }
-.grid-item--width2 { width: 250px; }
+.grid-item { width: 290px; }
+.grid-item--width2 { width: 290px; }
 </style> 
 
 
@@ -56,7 +56,7 @@
 
   <% @foodyphoto.each do |photo| %>
   
-  <div class="col-sm-3">
+  <div class="grid-item col-sm-3">
     <div class="card-index">          
         
       <div class="header">
@@ -81,7 +81,6 @@
           </div>
         </div>           
           
-          
           <div class="row"> 
             <div class="col-md-9 col-xs-9">
               <p class="index-review"><%= truncate(photo.description, :length => 90) %></p>
@@ -98,6 +97,7 @@
 
   </div>
 </div>
+</div>
 
 
 
@@ -109,6 +109,6 @@
 $('.grid').masonry({
   // options
   itemSelector: '.grid-item',
-  columnWidth: 150
+  columnWidth: 300
 });
 </script> 
