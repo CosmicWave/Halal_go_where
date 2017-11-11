@@ -1,10 +1,10 @@
 
  <style>
+
   .grid-item { width: 290px; }
   .grid-item--width2 { width: 290px; }
+  
 </style> 
-
-
 
 
 <% @photos = Photo.all.order(created_at: :desc) %>
@@ -12,10 +12,9 @@
 <div class="container-fluid search">
   <div class="row searchrow">
     <div class="col-md-8 col-xs-8"></div>
-    
-    <div class="col-md-4 col-xs-4 minisearch">
-       <%= form_tag(search_photos_path, method: :patch) do %>
 
+      <div class="col-md-4 col-xs-4 minisearch">
+       <%= form_tag(search_photos_path, method: :patch) do %>
       <form class="searchbar" role="search">
         <div class="input-group">
           <%= text_field_tag :search_query,params[:search_query], placeholder: "I'm craving for...", class: "form-control" %>
@@ -34,14 +33,8 @@
 
 <div class="container-fluid">
   <div class="row cardrowviewmore">
-
     <div class="grid">
-    <% @photos_according_to_latest.each do |photo| %>
-      <%= render 'photo_grid', photo: photo %>
-    <% end %>
-
     <%= render 'photo_card', photos: @photos_according_to_latest %>
-
   </div>
   </div>
 </div>
@@ -49,7 +42,6 @@
 
 
 <script src="/path/to/masonry.pkgd.min.js"></script>
-
 
 <script type="">
 

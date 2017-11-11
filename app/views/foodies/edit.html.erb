@@ -2,16 +2,11 @@
 <style type="text/css">
 
 .my_centered_buttons { 
-	display: flex; justify-content: center; 
+  display: flex; justify-content: center; 
+  margin:0 auto;
 }
 
-
-/**
- * Demo Styles
- */
-
 html {
-  height: 95%;
   box-sizing: border-box;
 }
 
@@ -21,162 +16,78 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  position: relative;
-  margin: 0;
-  padding-bottom: 6rem;
-  min-height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-
-
-
-/**
- * Footer Styles
- */
-
-.footer1 {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
+.editprofile {
+  font-weight: 400;
+  font-size: 40px;
   text-align: center;
-  background-color: black;
- 
 }
 
-.footerrow .list-inline {
+.editprofile {
+  font-weight: 400;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 80px;
+}
 
-  margin-left: 100px !important;
+.name-box {
+  text-align: center;
+  margin:0 auto; 
 }
 
 </style>
 
+	<div class="row">
+		<div class="col-md-6 col-xs-6">
+			<p class="editprofile">Edit Profile</p>
+			<%= form_for @foody, url: foody_path(@foody), method: :patch do |f| %>
 
-<div>
-	
-		<div class="row">
-			<div class="col-md-6 col-xs-6">
-					<p class="editprofile">Edit Profile</p>
-					<%= form_for @foody, url: foody_path(@foody), method: :patch do |f| %>
+			  <div class="form-group name-box" style="width:80%;">
+					<%= f.label :name %>
+					<%= f.text_field :name, class: "form-control", placeholder: "Name" %></br>
+			  </div>
 
-					<form>
-					  <div class="form-group">
-							<%= f.label :name %>
-							<%= f.text_field :name, class: "form-control", placeholder: "Name" %></br>
-					  </div>
+			  <div class="form-group name-box" style="width:80%;">
+					<%= f.label :status %>
+					<%= f.text_field :status, class: "form-control", placeholder: "Brief description" %></br>	
+        </div>
+			  
+			  <div class="form-group" style="text-align: center;">
+					</br><%= f.label :Your_picture %>
+					<div class="my_centered_buttons">
+   					<div class="fileinputs submit">
+				  		<%= f.file_field :avatar, id: "avatar-upload", :class => "file" %>
+				  		  <div class="fakefile" style="width:100%;">
+				  		    <%= f.hidden_field :avatar_cache %>
+				  		   	<button type="button" class="submit" style="width:100%;" >Add Your Image </button>
+				  			</div>
+				  	 </div>
+				  </div>   
+			    <p class="help-block">Upload your profile picture!</p></br>
+			  </div>
 
-					  <div class="form-group">
-							<%= f.label :status %>
-							<%= f.text_field :status, class: "form-control", placeholder: "Brief description" %></br>		
-					  
-					  <div class="form-group" style="text-align: center;">
-							</br><%= f.label :Your_picture %>
-							<div class="my_centered_buttons">
-	     						<div class="fileinputs submit">
-						  		   <%= f.file_field :avatar, id: "avatar-upload", :class => "file" %>
-						  		   <div class="fakefile" style="width:100%;">
-						  		    	<%= f.hidden_field :avatar_cache %>
-						  		   	<button type="button" class="submit" style="width:100%;" >Add Your Image </button>
-						  				
-						  			</div>
-						  	    </div>
-						  	 </div>   
-					    <p class="help-block">Upload your profile picture!</p></br>
-					  </div>
-
-
-					  <!-- </br><%= f.label :Your_picture %>
-							<div class="my_centered_buttons">
-					  		    <%= f.file_field :avatar, id: "avatar-upload", :class => "" %>
-					  			<% f.hidden_field :avatar_cache %>
-					  		</div> 
-					  -->
-
-				 <div class="form-group" style="text-align: center;">
-					<div class="">
-					  <div class="fileinputs">
-                 		 <input class="" name="commit" value="Save Changes" data-disable-with="" type="submit"style="display:none;">
-                  		<div class="fakefile" style="width:100%;"></input>
-                   			<button type="" class="" style="width:46%;"> Submit </button>
-                  		</div>
-                	  </div>
-                	 </div>
-                 </div>
-					</form>
-					<% end %>
-			</div>
+	      <div class="form-group" style="text-align: center;">
+			    <div class="">
+				    <div class="fileinputs">
+              <input class="" name="commit" value="Save Changes" data-disable-with="" type="submit"style="display:none;">
+                <div class="fakefile" style="width:100%;"></input>
+                  <button type="" class="" style="width:45%;"> Submit </button>
+                </div>
+            </div>
+          </div>
+        </div>	
+			<% end %>
 		</div>
-
-				<div>
-			 		<div class="col-md-6 col-xs-6">						  		 
-						<div class="preview-photo">
-					  		<img id="img-prev" class="img-new" src="#" alt="" class="img-thumbnail hidden"/>	
-					  	</div>		
-			 		</div>
-   				</div>
 	
+		<div class="col-md-6 col-xs-6">						  		 
+			<div class="preview-photo">
+			  <img id="img-prev" class="img-new" src="#" alt="" class="img-thumbnail hidden"/>	
+			</div>		
+		</div>	
+  </div>
 
 
 
-    <div class="container-fluid">
-  <div class="row footerrow footer1">
-  
-      <div class="col-md-11 col-xs-11 visible-lg">
-        <ul class="list-inline">
-              <li>
-                <a href="#">Home</a>
-              </li>
-              
-              <li class="footer-menu-divider">&sdot;</li>
-              
-              <li>
-                <a href="#about">About</a>
-              </li>
-                    
-              <li class="footer-menu-divider">&sdot;</li>
-              
-              <li>
-                <%= link_to "Contact", new_contact_path %>
-                
-              </li>
-          </ul>
-
-          <div class="row">
-            <p class="copyright">Copyright &copy; Halal Go Where 2017. All Rights Reserved</p>
-          </div>
-      </div>
-        <div class="col-md-1 col-xs-1 visible-lg">
-          <a href="https://www.instagram.com/halal_go_where/"><i class="fa fa-instagram fa-2x pull-left fa-inverse visible-lg" aria-hidden="true"></i></a>
-          <div class="fblogins">
-            <a href="https://www.facebook.com/halalgowhere/"><i class="fa fa-facebook-official fa-2x pull-right fa-inverse visible-lg" aria-hidden="true"></i></a>
-          </div>
-        </div>
-
-
-
-       <div class="col-md-10 col-xs-10 hidden-lg">
-        <p class="copyright">Copyright &copy; Halal Go Where 2017. All Rights Reserved</p>
-       </div>
-        <div class="col-md-1 col-xs-1">
-          <a href="https://www.instagram.com/halal_go_where/"><i class="fa fa-instagram pull-center pull-right fa-inverse fa-lg hidden-lg" aria-hidden="true"></i></a>
-        </div>
-        
-        <div class="col-md-1 col-xs-1">
-          <div class="fblogins">
-            <a href="https://www.facebook.com/halalgowhere/"><i class="fa fa-facebook-official pull-left fa-inverse fa-lg hidden-lg" aria-hidden="true"></i></a>
-          </div>
-        </div>
-
-      
-      </div>
-   
-   </div>   
-    
-  </div> 
+ 
 
 <script type="text/javascript">
 
@@ -197,9 +108,5 @@ $(function() {
     readURL(this);
   });
 });
-
-
-
-
 
 </script>

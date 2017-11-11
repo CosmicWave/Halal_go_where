@@ -3,23 +3,22 @@
   	<div class="row">
   		<div class="col-md-6 col-xs-6">
   		  <div id="contact-form" style="height:600px;">
-
 					<%= form_for @photo, url: foodies_photo_path(id: @photo.id), method: :put do |f| %>
 
 						<div class="">
-      			  <%= f.label  :title, "Food", :class =>"" %>
-    		    	<%= f.text_field :title %>
-      			</div>
-          
-      			<div class="">
-      				<%= f.label  :description, "Review" %>
-      				<%= f.text_area :description %>
-      			</div>
-      		
-      			<div class="">
-      				<%= f.label  :price %>
-      				<%= f.text_field :price %>
-      			</div>
+							<%= f.label  :title, "Food", :class =>"" %>
+		      		<%= f.text_field :title %>
+						</div>
+
+						<div class="">
+							<%= f.label  :description, "Review" %>
+							<%= f.text_area :description %>
+						</div>
+			
+						<div class="">
+							<%= f.label  :price %>
+							<%= f.text_field :price %>
+						</div>
 
 						<div class="">
 							<%= f.label  :tag_list, "Tags (separated by commas)" %>
@@ -27,35 +26,33 @@
 						</div>
 
 						<div class="form-group">
-             	<label for="photo_restaurant">Location</label>
-             	<input type="text" name="photo[restaurant]" id="photo_restaurant">
+		 					<label for="photo_restaurant">Location</label>
+		 					<input type="text" name="photo[restaurant]" id="photo_restaurant">
 						</div>
-				                          
+			                          
 						<div class="fileinputs submit">
-					  	<%= f.file_field :avatar, id: "avatar-upload", :class => "file" %>
-					  		<div class="fakefile" style="width:100%;">
-					  		 <%= f.hidden_field :avatar_cache %>
-					  		    <button type="button" class="submit" style="width:100%;" >Add Your Image </button>	
-					  		</div>
-					  </div>
-					  	
+				  		<%= f.file_field :avatar, id: "avatar-upload", :class => "file" %>
+				  			<div class="fakefile" style="width:100%;">
+				  		  	<%= f.hidden_field :avatar_cache %>
+				  		  		<button type="button" class="submit" style="width:100%;" >Add Your Image </button>	
+				  			</div>
+				  	</div>
+				  	
 						<div class="fileinputs">
-					  	<input class="" name="commit" value="Save Changes" data-disable-with="" type="submit" style="display:none;">
-					  		<div class="fakefile" style="width:100%;">
-					  				<button type="" class="" style="width:100%;"> Submit </button>
-					  		</div>
-					  	</input>
-					  </div>	
-		  				
-					</div>
-				</div>
-			
-		  <div class="col-md-5 col-xs-5">	   
-				<div class="preview-photo" style="margin-left:2cm">
-		  		<img id="img-prev" class="img-new" src="#" alt="	Your diet is a bank account. Good food choices are good investments. Bethenny Frankel"  class="img-thumbnail hidden"/>
+				  		<input class="" name="commit" value="Save Changes" data-disable-with="" type="submit" style="display:none;">
+				  			<div class="fakefile" style="width:100%;">
+				  				<button type="" class="" style="width:100%;"> Submit </button>
+				  			</div>
+				  		</input>
+				  	</div>
 				</div>
 			</div>
 
+			<div class="col-md-5 col-xs-5">	   
+				<div class="preview-photo" style="margin-left:2cm">
+					<img id="img-prev" class="img-new" src="#" alt="	Your diet is a bank account. Good food choices are good investments. Bethenny Frankel"  class="img-thumbnail hidden"/>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -71,7 +68,9 @@ function initMap() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 //
+</script>
 
+<script type="text/javascript">
 $(function() {
   function readURL(input) {
     if (input.files && input.files[0]) {
@@ -89,7 +88,8 @@ $(function() {
     readURL(this);
   });
 });
-
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['YOUR_API_KEY']%>&libraries=places&callback=initMap" async defer></script>
+<!-- commented this out as I wanted to test photo-edit page. -->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['YOUR_API_KEY']%>&libraries=places&callback=initMap" async defer></script> -->
+

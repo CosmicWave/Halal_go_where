@@ -1,0 +1,6 @@
+<!-- Check with Hariss on this -->
+<!-- extra code on view_more.html.erb. This code is in between  <div class="grid"> && <%= render 'photo_card', photos: @photos_according_to_latest %> -->
+
+<% @photos_according_to_latest.each do |photo| %>
+      <%= render 'photo_grid', photo: photo %>
+    <% end %>
