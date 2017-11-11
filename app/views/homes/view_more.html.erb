@@ -1,8 +1,11 @@
 
-<!-- <style>
-.grid-item { width: 400px; }
-.grid-item--width2 { width: 400px; }
-</style> -->
+ <style>
+  .grid-item { width: 290px; }
+  .grid-item--width2 { width: 290px; }
+</style> 
+
+
+
 
 <% @photos = Photo.all.order(created_at: :desc) %>
 
@@ -31,11 +34,21 @@
 
 <div class="container-fluid">
   <div class="row cardrowviewmore">
+
+    <div class="grid">
+    <% @photos_according_to_latest.each do |photo| %>
+      <%= render 'photo_grid', photo: photo %>
+    <% end %>
+
     <%= render 'photo_card', photos: @photos_according_to_latest %>
+
+  </div>
   </div>
 </div>
 
-<!-- <script src="/path/to/masonry.pkgd.min.js"></script>
+
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
 
 
 <script type="">
@@ -43,7 +56,7 @@
   $('.grid').masonry({
     // options
     itemSelector: '.grid-item',
-    columnWidth: 200
+    columnWidth: 300
   });
 
-</script> -->
+</script>
