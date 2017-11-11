@@ -49,9 +49,10 @@
 </style> 
 
 
-<div class="container-fluid">
+<div class="container-fluid cardcont">
   <div class="row cardrow">
     <div class="posthead">Your Reviews</div>
+
      <div class="grid">
 
   <% @foodyphoto.each do |photo| %>
@@ -95,9 +96,14 @@
     </div>
     <% end %>
 
+
+      <%= render 'homes/photo_card', photos: @foodyphoto %>
+    </div>                                          
+
   </div>
 </div>
 </div>
+
 
 
 

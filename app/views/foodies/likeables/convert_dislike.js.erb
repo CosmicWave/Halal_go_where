@@ -1,3 +1,2 @@
-$('#card-photo').html('<%= j render 'homes/photo_card' %>');
-$('#like-<%photo.id%>').html('<%= j render 'homes/likeable' %>');
-$('#rating-<%photo.id%>').html('<%= j render 'homes/rating' %>');
+$('#card-photo').html('<%= j render 'homes/photo_card', photos: @latest_photos %>');
+$('#card-photo-bottom').html('<%= j render 'homes/photo_card', photos: @photos_according_to_ratings %>');

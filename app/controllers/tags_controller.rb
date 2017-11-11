@@ -10,8 +10,8 @@ class TagsController < ApplicationController
 	end
 
 	def show
-		@tag = ActsAsTaggableOn::Tag.find(params[:id])
-		@photos = Photo.tagged_with(@tag.name)
+		# @tag = ActsAsTaggableOn::Tag.find(params[:id])
+		@photos = Photo.tagged_with(ActsAsTaggableOn::Tag.find(params[:id]).name)
 	end
 
 	

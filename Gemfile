@@ -23,7 +23,6 @@ gem "font-awesome-rails"
 gem 'masonry-rails'
 gem 'gmaps4rails'
 gem 'mail_form', '~> 1.5', '>= 1.5.1'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -40,7 +39,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave', '~> 1.0'
-
+gem 'geocoder'
+gem 'mini_magick'
 
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 
