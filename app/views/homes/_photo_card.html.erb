@@ -19,7 +19,8 @@
           <div class="col-md-4 col-xs-4">
             <div class="rating-index">
               <div id="rating-<%photo.id%>">
-                <%= render 'homes/rating', photo: photo %>
+                <%= photo.score(photo) %>
+               
               </div> 
             </div>  
           </div>
