@@ -47,7 +47,7 @@ class Foodies::LikeablesController < ApplicationController
 	end
 
 	def rating_of_photos
-		@photos_according_to_ratings = Photo.order('rating DESC')
+		@photos_according_to_ratings = Photo.order
 		@photos_according_to_latest = Photo.order("created_at DESC")
 		@latest_photos = Photo.last(3)
 	end
