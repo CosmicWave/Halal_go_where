@@ -3,7 +3,7 @@ class HomesController < ApplicationController
 	def index
 		@photos = Photo.search(params[:search])
 		@foodies = Foody.all
-		@photos_according_to_ratings = Photo.order
+		@photos_according_to_ratings = Photo.order('rating DESC')
 		@latest_photos = Photo.last(4)
 
 	end
