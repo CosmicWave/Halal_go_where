@@ -1,11 +1,26 @@
 <style>
 
-.tag {
-	margin-top:80px;
-}
+.tag { margin-top:80px; }
+
+ .grid-item { width: 300px; }
+ .grid-item--width2 { width: 300px; }	
+
 
 </style>
 
 <h1 class="tag">Tags</h1>
 
 <%= render 'homes/photo_card', photos: @photos %>
+
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
+
+<script type="">
+
+  $('.grid').masonry({
+    // options
+    itemSelector: '.grid-item',
+    columnWidth: 300
+  });
+
+</script>

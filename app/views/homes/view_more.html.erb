@@ -1,8 +1,8 @@
 
  <style>
 
-  .grid-item { width: 290px; }
-  .grid-item--width2 { width: 290px; }
+  .grid-item { width: 300px; }
+  .grid-item--width2 { width: 300px; }
   
 </style> 
 
@@ -33,9 +33,9 @@
 
 <div class="container-fluid">
   <div class="row cardrowviewmore">
-    <div class="grid">
-    <%= render 'photo_card', photos: @photos_according_to_latest %>
-  </div>
+    <div class="grid" id="all-latest-photos">
+      <%= render 'photo_card', photos: @photos_according_to_latest %>
+    </div>
   </div>
 </div>
 
