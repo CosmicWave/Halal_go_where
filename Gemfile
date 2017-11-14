@@ -10,7 +10,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails', '~> 5.1.4'
 gem 'simple_form'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-gem "mini_magick"
+
 gem 'jquery-ui-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
@@ -41,7 +41,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave', '~> 1.0'
 gem 'geocoder'
 gem 'mini_magick'
-
+gem 'fog'
+gem 'figaro'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 
 # Use Capistrano for deployment
