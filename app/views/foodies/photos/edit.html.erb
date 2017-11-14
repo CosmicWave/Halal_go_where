@@ -2,18 +2,21 @@
   <div class="container-fluid">
   	<div class="row">
   		<div class="col-md-6 col-xs-6">
-  		  <div id="contact-form" style="height:600px;">
+  		  <div id="contact-form" style="height:630px;">
 					<%= form_for @photo, url: foodies_photo_path(id: @photo.id), method: :put do |f| %>
 
 						<div class="">
-							<%= f.label  :title, "Food", :class =>"" %>
+							<%= f.label  :title, "Title", :class =>"" %>
 		      		<%= f.text_field :title %>
 						</div>
 
 						<div class="">
 							<%= f.label  :description, "Review" %>
-							<%= f.text_area :description %>
+      						<%= f.text_area :description, id: "textareachars" %>
+            				<span class="charsremain"> Characters remaining: </span><span class="chars">130</span>
 						</div>
+
+						<br>
 			
 						<div class="">
 							<%= f.label  :price %>
