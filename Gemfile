@@ -41,7 +41,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave', '~> 1.0'
 gem 'geocoder'
 gem 'mini_magick'
-gem 'fog-aws'
+gem 'fog'
 gem 'figaro'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 
