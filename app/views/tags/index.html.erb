@@ -1,16 +1,42 @@
-<style>
+ <style>
 
-.tag { margin-top:80px; }
+  .grid-item { width: 360px; }
+  .grid-item--width2 { width: 360px; }
+  
+</style> 
 
- .grid-item { width: 300px; }
- .grid-item--width2 { width: 300px; }	
+<div class="container-fluid search">
+  <div class="row searchrow">
+    <div class="col-md-8 col-xs-8">
+      <h1><%= @tag %></h1>
+    </div>
+
+      <div class="col-md-4 col-xs-4 minisearch">
+       <%= form_tag(search_photos_path, method: :patch) do %>
+      <form class="searchbar" role="search">
+        <div class="input-group">
+          <%= text_field_tag :search_query,params[:search_query], placeholder: "I'm craving for...", class: "form-control" %>
+          <span class="input-group-btn">
+            <%= button_tag(type: "submit", class: "btn btn-danger") do %>
+            <i class="fa fa-search fa-lg"></i>
+          <% end %>
+          </span>
+            <% end %>
+         </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
-</style>
+<div class="container-fluid">
+  <div class="row cardrowviewmore">
+    <div class="grid" id="tag-photo">
+      <%= render 'homes/photo_card', photos: @photos %>
+    </div>
+  </div>
+</div>
 
-<h1 class="tag">Tags</h1>
-
-<%= render 'homes/photo_card', photos: @photos %>
 
 
 <script src="/path/to/masonry.pkgd.min.js"></script>
@@ -20,7 +46,7 @@
   $('.grid').masonry({
     // options
     itemSelector: '.grid-item',
-    columnWidth: 300
+    columnWidth: 5
   });
 
 </script>

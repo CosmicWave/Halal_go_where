@@ -12,7 +12,7 @@
 <div class="container-fluid search">
   <div class="row searchrow">
     <div class="col-md-8 col-xs-8">
-      <h1>Latest Reviews</h1>
+      <h1>Top Reviews</h1>
     </div>
 
       <div class="col-md-4 col-xs-4 minisearch">
@@ -36,7 +36,7 @@
 <div class="container-fluid">
   <div class="row cardrowviewmore">
     <div class="grid" id="all-latest-photos">
-      <%= render 'photo_card', photos: @photos_according_to_latest %>
+      <%= render 'photo_card', photos: @photos_according_to_ratings %>
     </div>
   </div>
 </div>

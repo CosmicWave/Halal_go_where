@@ -19,6 +19,10 @@ class HomesController < ApplicationController
 		@photos_according_to_latest = Photo.order("created_at DESC")
 	end
 
+	def top_reviews
+		@photos_according_to_ratings = Photo.order('rating DESC')
+	end
+
 	def search_photos
 		@params = params
 		@searched_photo = params[:search_query]

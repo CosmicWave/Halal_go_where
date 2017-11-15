@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   get 'homes/simple_search', to: 'homes#simple_search', as: :simple_search
   get 'tags/:tag', to: 'tags#index', as: :tag
   get 'homes/view_more', to: 'homes#view_more', as: :view_more
+  get 'homes/top_reviews', to: 'homes#top_reviews', as: :top_reviews
 #  get 'homes/contact', to: 'homes#contact', as: :contact
   get 'homes/about_us', to: 'homes#about_us', as: :about_us
 
