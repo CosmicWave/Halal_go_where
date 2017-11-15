@@ -19,11 +19,19 @@
 //= require_tree .
 
 
+
+
+
 $(document).ready(function() {
 
-    $(".dropdown").click(function() {
+    $(".dropdown").click(function(event) {
+        event.stopPropagation();
         $(".dropdown-menu").fadeToggle();
     });
+
+    $(document).click( function(){
+        $('.dropdown-menu').fadeOut();
+    });    
 
     $('.notice').fadeOut(5000, function() {
         $(this).remove();

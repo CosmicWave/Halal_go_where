@@ -1,7 +1,7 @@
 <style>
 
-  .grid-item { width: 290px; }
-  .grid-item--width2 { width: 290px; }
+  .grid-item { width: 360px; }
+  .grid-item--width2 { width: 360px; }
   
 </style>
 
@@ -56,12 +56,15 @@
 <!-- ///////////////////////// Latest reviews ///////////////////////////////////////// -->
 <div class="container-fluid">
   <div class="row cardrow">
-      <div class="col-xs-12">
-        <div class="posthead">Latest Reviews</div>
+
+      <div class="posthead">Latest Reviews</div>
+      <div class="container-fluid">
+        <div class="row">
           <div id='card-photo'>  
             <%= render 'photo_card', photos: @latest_photos %>
           </div>
-      </div>
+        </div>
+</div>
   </div>
 </div>
 
@@ -112,7 +115,7 @@
 </div>
 
 <div class="row viewmore">
-    <%= link_to 'View More', view_more_path, class: 'btn btn-primary btn-xs buttonwide' %>
+    <%= link_to 'View More', top_reviews_path, class: 'btn btn-primary btn-xs buttonwide' %>
   </div>
 
 <script type="">
@@ -120,6 +123,6 @@
 $('.grid').masonry({
   // options
   itemSelector: '.grid-item',
-  columnWidth: 300
+  columnWidth: 5
 });
 </script>
