@@ -15,7 +15,11 @@
         <div class="col-md-3 col-xs-3"></div>
           <div class="col-md-6 col-xs-6">
             <div class="homefont text-center">
-              Get reviews on the best Halal food in Singapore and where to find them!
+              <br />
+              <br />
+                Your instant baby-sitter solution!
+              <br />
+              <p>Giving the ease of mind to all parents in need</p>
             </div>
           </div>
         <div class="col-md-3 col-xs-3"></div>
@@ -32,7 +36,7 @@
 
               <form class="searchbar" role="search">
                 <div class="input-group">
-                  <%= text_field_tag :search_query,params[:search_query], placeholder: "I'm craving for...", class: "form-control" %>
+                  <%= text_field_tag :search_query,params[:search_query], placeholder: "Looking for ...", class: "form-control" %>
                   <span class="input-group-btn">
                     <%= button_tag(type: "submit", class: "btn btn-danger") do %>
                     <i class="fa fa-search fa-lg"></i>
@@ -57,7 +61,7 @@
 <div class="container-fluid">
   <div class="row cardrow">
 
-      <div class="posthead">Latest Reviews</div>
+      <div class="posthead">Nannies Near You</div>
       <div class="container-fluid">
         <div class="row">
           <div id='card-photo'>  
@@ -74,38 +78,12 @@
 
 <!-- ///////////////////////// Categories ///////////////////////////////////////// -->
 
-
-<div class="row paramargin">
-  <section class="module parallax parallax-2">
-    <div class="contain row">
-      <div class="category"><u>CATEGORIES</u></div>
-    </div>
-
-    <div class="row categories">
-      <div class="butttons">
-        <a href="tags/wallet-friendly" class="bttn">Wallet Friendly</a>
-        <a href="tags/great-ambience" class="bttn">Great Ambience</a>
-        <a href="tags/big-gatherings" class="bttn">Big Gatherings</a>
-      </div>
-    </div>
-
-    <div class="row categories">
-      <div class="butttons">
-        <a href="tags/instagrammable" class="bttn">Instagram-able</a>
-        <a href="tags/supper" class="bttn">Supper Joints</a>
-        <a href="tags/near-mosque" class="bttn">Near Mosque</a>
-      </div>
-    </div>
-  </section>
-</div>
-
-
 <!-- ///////////////////////// High Rated Reviews ///////////////////////////////////////// -->
 
 <div class="container-fluid">
   <div class="row cardrow">
 
-    <div class="posthead">High Rated Reviews</div>
+    <div class="posthead">High Rated Nannies</div>
 
     <div id='card-photo-bottom'>
       <%= render 'photo_card', photos: @photos_according_to_ratings %>

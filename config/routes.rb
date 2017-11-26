@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   get 'homes/top_reviews', to: 'homes#top_reviews', as: :top_reviews
 #  get 'homes/contact', to: 'homes#contact', as: :contact
   get 'homes/about_us', to: 'homes#about_us', as: :about_us
-
+  get 'guests/log_in', to: 'guests#log_in', as: :guest
 
   resources :contacts, only: [:new, :create]
 end
