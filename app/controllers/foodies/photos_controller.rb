@@ -23,7 +23,7 @@ before_action :authenticate_foody!, only: [:create, :edit, :update, :destroy, :n
     @photo = Photo.new(photo_params)
     @photo.foody = current_foody
     if @photo.save	
-			flash[:notice] = "Review Uploaded"
+			flash[:notice] = "Review Submitted"
 			redirect_to foodies_photo_path(id: @photo.id)
 		else
 			flash.now[:notice] = "Upload Unsuccessful"
@@ -61,8 +61,8 @@ before_action :authenticate_foody!, only: [:create, :edit, :update, :destroy, :n
 	def destroy
 		@photo = Photo.find(params[:id])
 		@photo.destroy
-		flash[:notice] = "Review Deleted"
-		redirect_to root_path
+		flash[:notice] = "Review deleted"
+		redirect_to foody_path(id: current_foody.id)
 	end
   
   def view_more
